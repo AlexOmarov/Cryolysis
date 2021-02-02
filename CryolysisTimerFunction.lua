@@ -1,18 +1,4 @@
 ------------------------------------------------------------------------------------------------------
--- Cryolysis
---
--- Based on Necrosis LdC by Lomig and Nyx (http://necrosis.larmes-cenarius.net)
--- Original Necrosis Idea : Infernal (http://www.revolvus.com/games/interface/necrosis/)
--- Cryolysis Maintainer : Kaeldra of Aegwynn
---
--- Contact : darklyte@gmail.com
--- Send me in-game mail!  Yersinia on Aegwynn, Horde side.
--- Guild: <Working as Intended>
--- Version Date: 07.14.2006
-------------------------------------------------------------------------------------------------------
-
-
-------------------------------------------------------------------------------------------------------
 -- FONCTIONS D'INSERTION
 ------------------------------------------------------------------------------------------------------
 

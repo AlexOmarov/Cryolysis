@@ -1,5 +1,4 @@
-<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
-C:\Projects\WoW\Bin\Interface\FrameXML\UI.xsd">
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/..\FrameXML\UI.xsd">
 
 	<CheckButton name="CryolysisGeneralTabTemplate" virtual="true" hidden="false">
 		<Size>
@@ -39,7 +38,7 @@ C:\Projects\WoW\Bin\Interface\FrameXML\UI.xsd">
 		</Anchors>
 		<Scripts>
 			<OnLoad>
-				this:RegisterForDrag("LeftButton");
+				self:RegisterForDrag("LeftButton");
 			</OnLoad>
 			<OnDragStart>
 				Cryolysis_OnDragStart(CryolysisGeneralFrame);
@@ -146,7 +145,7 @@ C:\Projects\WoW\Bin\Interface\FrameXML\UI.xsd">
 				</Anchors>
 				<Scripts>
 					<OnEnter>
-						GameTooltip:SetOwner(this, "ANCHOR_RIGHT");
+						GameTooltip:SetOwner(self, "ANCHOR_RIGHT");
 						GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Menu1);
 					</OnEnter>
 					<OnLeave>
@@ -169,7 +168,7 @@ C:\Projects\WoW\Bin\Interface\FrameXML\UI.xsd">
 				</Anchors>
 				<Scripts>
 					<OnEnter>
-						GameTooltip:SetOwner(this, "ANCHOR_RIGHT");
+						GameTooltip:SetOwner(self, "ANCHOR_RIGHT");
 						GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Menu2);
 					</OnEnter>
 					<OnLeave>
@@ -192,7 +191,7 @@ C:\Projects\WoW\Bin\Interface\FrameXML\UI.xsd">
 				</Anchors>
 				<Scripts>
 					<OnEnter>
-						GameTooltip:SetOwner(this, "ANCHOR_RIGHT");
+						GameTooltip:SetOwner(self, "ANCHOR_RIGHT");
 						GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Menu3);
 					</OnEnter>
 					<OnLeave>
@@ -214,7 +213,7 @@ C:\Projects\WoW\Bin\Interface\FrameXML\UI.xsd">
 				</Anchors>
 				<Scripts>
 					<OnEnter>
-						GameTooltip:SetOwner(this, "ANCHOR_RIGHT");
+						GameTooltip:SetOwner(self, "ANCHOR_RIGHT");
 						GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Menu4);
 					</OnEnter>
 					<OnLeave>
@@ -236,7 +235,7 @@ C:\Projects\WoW\Bin\Interface\FrameXML\UI.xsd">
 				</Anchors>
 				<Scripts>
 					<OnEnter>
-						GameTooltip:SetOwner(this, "ANCHOR_RIGHT");
+						GameTooltip:SetOwner(self, "ANCHOR_RIGHT");
 						GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Menu5);
 					</OnEnter>
 					<OnLeave>

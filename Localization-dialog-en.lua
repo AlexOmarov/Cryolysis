@@ -204,7 +204,7 @@ function Cryolysis_Localization_Dialog_En()
 			["NoManaStoneSpell"] = "You do not have any Mana Gem creation spell",
 			["NoEvocationSpell"] = "You do not have any Evocation spell",
 			["FullMana"] = "You cannot use your Mana Gem since you have full MP",
-			["BagAlreadySelect"] = "Error : This bag is already selected.",
+			["BagAlreadySelect"] = "Error : self bag is already selected.",
 			["WrongBag"] = "Error: The number must be between 0 and 4.",
 			["BagIsNumber"] = "Error: Please type a number.",
 			["NoHearthStone"] = "Error: You do not have a Hearthstone in your inventory",
@@ -302,7 +302,7 @@ function Cryolysis_Localization_Dialog_En()
 		["PolymorphSize"] = "Size of the Polymorph button",
 		["TranseSize"] = "Size of Transe and Anti-fear buttons",
 		["Skin"] = "Drink Threshold",
-		["ManaStoneOrder"] = "Use this mana gem first",
+		["ManaStoneOrder"] = "Use self mana gem first",
 		["Show"] = {
 			["Text"] = "Show Buttons:",
 			["Food"] = "Food button",

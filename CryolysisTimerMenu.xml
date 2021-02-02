@@ -1,5 +1,4 @@
 <Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/..\FrameXML\UI.xsd">
-
 	<Frame name="CryolysisTimerMenu" frameStrata="DIALOG" movable="false" enableMouse="true" parent="CryolysisGeneralFrame">
 		<Size>
 			<AbsDimension x="350" y="452"/>
@@ -98,7 +97,7 @@
 				</Anchors>
 				<Scripts>
 					<OnClick>
-						if (this:GetChecked()) then
+						if (self:GetChecked()) then
 							CryolysisConfig.ShowSpellTimers = true;
 						else
 							CryolysisConfig.ShowSpellTimers = false;
@@ -119,7 +118,7 @@
 				</Anchors>
 				<Scripts>
 					<OnClick>
-						if (this:GetChecked()) then
+						if (self:GetChecked()) then
 							CryolysisConfig.ShowSpellTimerButton = true;
 						else
 							CryolysisConfig.ShowSpellTimerButton = false;
@@ -140,7 +139,7 @@
 				</Anchors>
 				<Scripts>
 					<OnClick>
-						if (this:GetChecked()) then
+						if (self:GetChecked()) then
 							CryolysisConfig.SpellTimerPos = -1;
 							CryolysisConfig.SpellTimerJust = "RIGHT";
 							AnchorSpellTimerTooltip = "ANCHOR_LEFT"
@@ -168,7 +167,7 @@
 				</Anchors>
 				<Scripts>
 					<OnClick>
-						CryolysisConfig.Graphical = this:GetChecked();
+						CryolysisConfig.Graphical = self:GetChecked();
 						Cryolysis_HideGraphTimer();
 					</OnClick>
 				</Scripts>
@@ -186,7 +185,7 @@
 				</Anchors>
 				<Scripts>
 					<OnClick>
-						CryolysisConfig.Yellow = not this:GetChecked();
+						CryolysisConfig.Yellow = not self:GetChecked();
 					</OnClick>
 				</Scripts>
 			</CheckButton>
@@ -203,7 +202,7 @@
 				</Anchors>
 				<Scripts>
 					<OnClick>
-						if (this:GetChecked()) then
+						if (self:GetChecked()) then
 							CryolysisConfig.SensListe = -1;
 						else
 							CryolysisConfig.SensListe = 1;

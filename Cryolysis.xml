@@ -1,15 +1,10 @@
-<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/..\FrameXML\UI.xsd">
+<Ui xmlns="http://www.blizzard.com/wow/ui/"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.blizzard.com/wow/ui/..\FrameXML\UI.xsd">
+
 	<Script file="Localization.lua"/>
 	<Script file="Localization-functions-en.lua"/>
-	<Script file="Localization-functions-de.lua"/>
-	<Script file="Localization-functions-fr.lua"/>
-	<Script file="Localization-functions-tw.lua"/>
-	<Script file="Localization-functions-cn.lua"/> 
 	<Script file="Localization-dialog-en.lua"/>
-	<Script file="Localization-dialog-de.lua"/>
-	<Script file="Localization-dialog-fr.lua"/>
-	<Script file="Localization-dialog-tw.lua"/>
-	<Script file="Localization-dialog-cn.lua"/> 
 	<Script file="Speech.lua"/>
 	<Script file="Cryolysis.lua"/>
 	<Script file="CryolysisInitialize.lua"/>
@@ -44,21 +39,21 @@
 		</Layers>
 		<Scripts>
 			<OnLoad>
-				this:RegisterForDrag("LeftButton");
-				this:RegisterForClicks("LeftButtonUp", "RightButtonUp");
-				this:Hide();
+				self:RegisterForDrag("LeftButton");
+				self:RegisterForClicks("LeftButtonUp", "RightButtonUp");
+				self:Hide();
 			</OnLoad>
 			<OnDragStart>
-				Cryolysis_OnDragStart(this);
+				Cryolysis_OnDragStart(self);
 			</OnDragStart>
 			<OnDragStop>
-				Cryolysis_OnDragStop(this);
+				Cryolysis_OnDragStop(self);
 			</OnDragStop>
 			<OnMouseUp>
-				Cryolysis_OnDragStop(this);
+				Cryolysis_OnDragStop(self);
 			</OnMouseUp>
 			<OnEnter>
-				Cryolysis_BuildTooltip(this, "SpellTimer", AnchorSpellTimerTooltip);
+				Cryolysis_BuildTooltip(self, "SpellTimer", AnchorSpellTimerTooltip);
 			</OnEnter>
 			<OnLeave>
 				GameTooltip:Hide();
@@ -102,23 +97,23 @@
 				Cryolysis_Toggle(arg1);
 			</OnClick>
 			<OnDragStart>
-				Cryolysis_OnDragStart(this);
+				Cryolysis_OnDragStart(self);
 			</OnDragStart>
 			<OnDragStop>
-				Cryolysis_OnDragStop(this);
+				Cryolysis_OnDragStop(self);
 			</OnDragStop>
 			<OnMouseUp>
-				Cryolysis_OnDragStop(this);
+				Cryolysis_OnDragStop(self);
 			</OnMouseUp>
 			<OnEnter>
-				Cryolysis_BuildTooltip(this, "Main", "ANCHOR_LEFT");
+				Cryolysis_BuildTooltip(self, "Main", "ANCHOR_LEFT");
 			</OnEnter>
 			<OnLeave>
 				GameTooltip:Hide();
 			</OnLeave>
 			<OnLoad>
 				Cryolysis_OnLoad();
-				HideUIPanel(this);
+				HideUIPanel(self);
 			</OnLoad>
 			<OnUpdate>
 				Cryolysis_OnUpdate();
@@ -143,12 +138,12 @@
 		</Anchors>
 		<Scripts>
 			<OnLoad>
-				this:RegisterForDrag("LeftButton");
-				this:RegisterForClicks("LeftButtonUp", "RightButtonUp");
-				HideUIPanel(this);
+					self:RegisterForDrag("LeftButton");
+					self:RegisterForClicks("LeftButtonUp", "RightButtonUp");
+				HideUIPanel(self);
 			</OnLoad>
 			<OnEnter>
-				Cryolysis_BuildSpellTooltip(this, "Left", "ANCHOR_LEFT");
+				Cryolysis_BuildSpellTooltip(self, "Left", "ANCHOR_LEFT");
 			</OnEnter>
 			<OnLeave>
 				GameTooltip:Hide();
@@ -157,13 +152,13 @@
 				Cryolysis_SpellButtonCast("Left", arg1);
 			</OnClick>
 			<OnDragStart>
-				if not CryolysisLockServ then Cryolysis_OnDragStart(this); end
+				if not CryolysisLockServ then Cryolysis_OnDragStart(self); end
 			</OnDragStart>
 			<OnDragStop>
-				Cryolysis_OnDragStop(this);
+				Cryolysis_OnDragStop(self);
 			</OnDragStop>
 			<OnMouseUp>
-				Cryolysis_OnDragStop(this);
+				Cryolysis_OnDragStop(self);
 			</OnMouseUp>
 		</Scripts>
 		<NormalTexture file="Interface\AddOns\Cryolysis\UI\Shard"/>
@@ -197,12 +192,12 @@
 		</Anchors>
 		<Scripts>
 			<OnLoad>
-				this:RegisterForDrag("LeftButton");
-				this:RegisterForClicks("LeftButtonUp", "RightButtonUp");
-				HideUIPanel(this);
+					self:RegisterForDrag("LeftButton");
+					self:RegisterForClicks("LeftButtonUp", "RightButtonUp");
+				HideUIPanel(self);
 			</OnLoad>
 			<OnEnter>
-				Cryolysis_BuildTooltip(this, "Evocation", "ANCHOR_LEFT");
+				Cryolysis_BuildTooltip(self, "Evocation", "ANCHOR_LEFT");
 			</OnEnter>
 			<OnLeave>
 				GameTooltip:Hide();
@@ -211,13 +206,13 @@
 				Cryolysis_BuffCast(49);
 			</OnClick>
 			<OnDragStart>
-				if not CryolysisLockServ then Cryolysis_OnDragStart(this); end
+				if not CryolysisLockServ then Cryolysis_OnDragStart(self); end
 			</OnDragStart>
 			<OnDragStop>
-				Cryolysis_OnDragStop(this);
+				Cryolysis_OnDragStop(self);
 			</OnDragStop>
 			<OnMouseUp>
-				Cryolysis_OnDragStop(this);
+				Cryolysis_OnDragStop(self);
 			</OnMouseUp>
 		</Scripts>
 		<NormalTexture file="Interface\AddOns\Cryolysis\UI\EvocationButton-01"/>
@@ -236,12 +231,12 @@
 		</Anchors>
 		<Scripts>
 			<OnLoad>
-				this:RegisterForDrag("LeftButton");
-				this:RegisterForClicks("LeftButtonUp", "RightButtonUp");
-				HideUIPanel(this);
+				self:RegisterForDrag("LeftButton");
+				self:RegisterForClicks("LeftButtonUp", "RightButtonUp");
+				HideUIPanel(self);
 			</OnLoad>
 			<OnEnter>
-				Cryolysis_BuildSpellTooltip(this, "Right", "ANCHOR_RIGHT");
+				Cryolysis_BuildSpellTooltip(self, "Right", "ANCHOR_RIGHT");
 			</OnEnter>
 			<OnLeave>
 				GameTooltip:Hide();
@@ -250,13 +245,13 @@
 				Cryolysis_SpellButtonCast("Right", arg1);
 			</OnClick>
 			<OnDragStart>
-				if not CryolysisLockServ then Cryolysis_OnDragStart(this); end
+				if not CryolysisLockServ then Cryolysis_OnDragStart(self); end
 			</OnDragStart>
 			<OnDragStop>
-				Cryolysis_OnDragStop(this);
+				Cryolysis_OnDragStop(self);
 			</OnDragStop>
 			<OnMouseUp>
-				Cryolysis_OnDragStop(this);
+				Cryolysis_OnDragStop(self);
 			</OnMouseUp>
 		</Scripts>
 		<NormalTexture file="Interface\AddOns\Cryolysis\UI\Shard"/>
@@ -292,12 +287,12 @@
 		</Anchors>
 		<Scripts>
 			<OnLoad>
-				this:RegisterForDrag("LeftButton");
-				this:RegisterForClicks("LeftButtonUp", "RightButtonUp");
-				HideUIPanel(this);
+				self:RegisterForDrag("LeftButton");
+				self:RegisterForClicks("LeftButtonUp", "RightButtonUp");
+				HideUIPanel(self);
 			</OnLoad>
 			<OnEnter>
-				Cryolysis_BuildTooltip(this, "Manastone", "ANCHOR_LEFT");
+				Cryolysis_BuildTooltip(self, "Manastone", "ANCHOR_LEFT");
 			</OnEnter>
 			<OnLeave>
 				GameTooltip:Hide();
@@ -306,13 +301,13 @@
 				Cryolysis_UseItem("Manastone", arg1);
 			</OnClick>
 			<OnDragStart>
-				if not CryolysisLockServ then Cryolysis_OnDragStart(this); end
+				if not CryolysisLockServ then Cryolysis_OnDragStart(self); end
 			</OnDragStart>
 			<OnDragStop>
-				Cryolysis_OnDragStop(this);
+				Cryolysis_OnDragStop(self);
 			</OnDragStop>
 			<OnMouseUp>
-				Cryolysis_OnDragStop(this);
+				Cryolysis_OnDragStop(self);
 			</OnMouseUp>
 		</Scripts>
 		<NormalTexture file="Interface\AddOns\Cryolysis\UI\ManastoneButton-01"/>
@@ -346,12 +341,12 @@
 		</Anchors>
 		<Scripts>
 			<OnLoad>
-				this:RegisterForDrag("LeftButton");
-				this:RegisterForClicks("LeftButtonUp", "MiddleButtonUp", "RightButtonUp");
-				HideUIPanel(this);
+				self:RegisterForDrag("LeftButton");
+				self:RegisterForClicks("LeftButtonUp", "MiddleButtonUp", "RightButtonUp");
+				HideUIPanel(self);
 			</OnLoad>
 			<OnEnter>
-				Cryolysis_BuildTooltip(this, "Drink", "ANCHOR_LEFT");
+				Cryolysis_BuildTooltip(self, "Drink", "ANCHOR_LEFT");
 			</OnEnter>
 			<OnLeave>
 				GameTooltip:Hide();
@@ -360,13 +355,13 @@
 				Cryolysis_UseItem("Drink", arg1);
 			</OnClick>
 			<OnDragStart>
-				if not CryolysisLockServ then Cryolysis_OnDragStart(this); end
+				if not CryolysisLockServ then Cryolysis_OnDragStart(self); end
 			</OnDragStart>
 			<OnDragStop>
-				Cryolysis_OnDragStop(this);
+				Cryolysis_OnDragStop(self);
 			</OnDragStop>
 			<OnMouseUp>
-				Cryolysis_OnDragStop(this);
+				Cryolysis_OnDragStop(self);
 			</OnMouseUp>
 		</Scripts>
 		<NormalTexture file="Interface\AddOns\Cryolysis\UI\DrinkButton-01"/>
@@ -400,12 +395,12 @@
 		</Anchors>
 		<Scripts>
 			<OnLoad>
-				this:RegisterForDrag("LeftButton");
-				this:RegisterForClicks("LeftButtonUp", "MiddleButtonUp", "RightButtonUp");
-				HideUIPanel(this);
+				self:RegisterForDrag("LeftButton");
+				self:RegisterForClicks("LeftButtonUp", "MiddleButtonUp", "RightButtonUp");
+				HideUIPanel(self);
 			</OnLoad>
 			<OnEnter>
-				Cryolysis_BuildTooltip(this, "Food", "ANCHOR_LEFT");
+				Cryolysis_BuildTooltip(self, "Food", "ANCHOR_LEFT");
 			</OnEnter>
 			<OnLeave>
 				GameTooltip:Hide();
@@ -414,13 +409,13 @@
 				Cryolysis_UseItem("Food", arg1);
 			</OnClick>
 			<OnDragStart>
-				if not CryolysisLockServ then Cryolysis_OnDragStart(this); end
+				if not CryolysisLockServ then Cryolysis_OnDragStart(self); end
 			</OnDragStart>
 			<OnDragStop>
-				Cryolysis_OnDragStop(this);
+				Cryolysis_OnDragStop(self);
 			</OnDragStop>
 			<OnMouseUp>
-				Cryolysis_OnDragStop(this);
+				Cryolysis_OnDragStop(self);
 			</OnMouseUp>
 		</Scripts>
 		<NormalTexture file="Interface\AddOns\Cryolysis\UI\FoodButton-01"/>
@@ -440,12 +435,12 @@
 		</Anchors>
 		<Scripts>
 			<OnLoad>
-				this:RegisterForDrag("LeftButton");
-				this:RegisterForClicks("LeftButtonUp", "RightButtonUp");
-				HideUIPanel(this);
+				self:RegisterForDrag("LeftButton");
+				self:RegisterForClicks("LeftButtonUp", "RightButtonUp");
+				HideUIPanel(self);
 			</OnLoad>
 			<OnEnter>
-				Cryolysis_BuildTooltip(this, "Mount", "ANCHOR_RIGHT");
+				Cryolysis_BuildTooltip(self, "Mount", "ANCHOR_RIGHT");
 			</OnEnter>
 			<OnLeave>
 				GameTooltip:Hide();
@@ -454,13 +449,13 @@
 				Cryolysis_UseItem("Mount", arg1);
 			</OnClick>
 			<OnDragStart>
-				if not CryolysisLockServ then Cryolysis_OnDragStart(this); end
+				if not CryolysisLockServ then Cryolysis_OnDragStart(self); end
 			</OnDragStart>
 			<OnDragStop>
-				Cryolysis_OnDragStop(this);
+				Cryolysis_OnDragStop(self);
 			</OnDragStop>
 			<OnMouseUp>
-				Cryolysis_OnDragStop(this);
+				Cryolysis_OnDragStop(self);
 			</OnMouseUp>
 		</Scripts>
 		<NormalTexture file="Interface\AddOns\Cryolysis\UI\MountButton-01"/>
@@ -480,12 +475,12 @@
 		</Anchors>
 		<Scripts>
 			<OnLoad>
-				this:RegisterForDrag("LeftButton");
-				this:RegisterForClicks("LeftButtonUp", "MiddleButtonUp", "RightButtonUp");
-				HideUIPanel(this);
+				self:RegisterForDrag("LeftButton");
+				self:RegisterForClicks("LeftButtonUp", "MiddleButtonUp", "RightButtonUp");
+				HideUIPanel(self);
 			</OnLoad>
 			<OnEnter>
-				Cryolysis_BuildTooltip(this, "Buff", "ANCHOR_RIGHT");
+				Cryolysis_BuildTooltip(self, "Buff", "ANCHOR_RIGHT");
 				if CryolysisConfig.QuickBuff then Cryolysis_BuffMenu("LeftButton"); end
 			</OnEnter>
 			<OnLeave>
@@ -495,13 +490,13 @@
 				Cryolysis_BuffMenu(arg1);
 			</OnClick>
 			<OnDragStart>
-				if not CryolysisLockServ then Cryolysis_OnDragStart(this); end
+				if not CryolysisLockServ then Cryolysis_OnDragStart(self); end
 			</OnDragStart>
 			<OnDragStop>
-				Cryolysis_OnDragStop(this);
+				Cryolysis_OnDragStop(self);
 			</OnDragStop>
 			<OnMouseUp>
-				Cryolysis_OnDragStop(this);
+				Cryolysis_OnDragStop(self);
 			</OnMouseUp>
 		</Scripts>
 		<NormalTexture file="Interface\AddOns\Cryolysis\UI\BuffMenuButton-01"/>
@@ -521,11 +516,11 @@
 		</Anchors>
 		<Scripts>
 			<OnLoad>
-				this:RegisterForClicks("LeftButtonUp", "RightButtonUp");
+				self:RegisterForClicks("LeftButtonUp", "RightButtonUp");
 				HideUIPanel(CryolysisBuffMenu1);
 			</OnLoad>
 			<OnEnter>
-				Cryolysis_BuildTooltip(this, "Armor", "ANCHOR_RIGHT");
+				Cryolysis_BuildTooltip(self, "Armor", "ANCHOR_RIGHT");
 			</OnEnter>
 			<OnLeave>
 				GameTooltip:Hide();
@@ -564,11 +559,11 @@
 		</Anchors>
 		<Scripts>
 			<OnLoad>
-				this:RegisterForClicks("LeftButtonUp", "RightButtonUp");
+				self:RegisterForClicks("LeftButtonUp", "RightButtonUp");
 				HideUIPanel(CryolysisBuffMenu2);
 			</OnLoad>
 			<OnEnter>
-				Cryolysis_BuildTooltip(this, "ArcaneInt", "ANCHOR_RIGHT");
+				Cryolysis_BuildTooltip(self, "ArcaneInt", "ANCHOR_RIGHT");
 			</OnEnter>
 			<OnLeave>
 				GameTooltip:Hide();
@@ -593,11 +588,11 @@
 		</Anchors>
 		<Scripts>
 			<OnLoad>
-				this:RegisterForClicks("LeftButtonUp", "RightButtonUp");
+				self:RegisterForClicks("LeftButtonUp", "RightButtonUp");
 				HideUIPanel(CryolysisBuffMenu3);
 			</OnLoad>
 			<OnEnter>
-				Cryolysis_BuildTooltip(this, "DampenMagic", "ANCHOR_RIGHT");
+				Cryolysis_BuildTooltip(self, "DampenMagic", "ANCHOR_RIGHT");
 			</OnEnter>
 			<OnLeave>
 				GameTooltip:Hide();
@@ -622,11 +617,11 @@
 		</Anchors>
 		<Scripts>
 			<OnLoad>
-				this:RegisterForClicks("LeftButtonUp", "RightButtonUp");
+				self:RegisterForClicks("LeftButtonUp", "RightButtonUp");
 				HideUIPanel(CryolysisBuffMenu4);
 			</OnLoad>
 			<OnEnter>
-				Cryolysis_BuildShieldTooltip(this, "ANCHOR_RIGHT");
+				Cryolysis_BuildShieldTooltip(self, "ANCHOR_RIGHT");
 			</OnEnter>
 			<OnLeave>
 				GameTooltip:Hide();
@@ -651,11 +646,11 @@
 		</Anchors>
 		<Scripts>
 			<OnLoad>
-				this:RegisterForClicks("LeftButtonUp", "RightButtonUp");
+				self:RegisterForClicks("LeftButtonUp", "RightButtonUp");
 				HideUIPanel(CryolysisBuffMenu5);
 			</OnLoad>
 			<OnEnter>
-				Cryolysis_BuildTooltip(this, "FireWard", "ANCHOR_RIGHT");
+				Cryolysis_BuildTooltip(self, "FireWard", "ANCHOR_RIGHT");
 			</OnEnter>
 			<OnLeave>
 				GameTooltip:Hide();
@@ -680,11 +675,11 @@
 		</Anchors>
 		<Scripts>
 			<OnLoad>
-				this:RegisterForClicks("LeftButtonUp", "RightButtonUp");
+				self:RegisterForClicks("LeftButtonUp", "RightButtonUp");
 				HideUIPanel(CryolysisBuffMenu6);
 			</OnLoad>
 			<OnEnter>
-				Cryolysis_BuildTooltip(this, "DetectMagic", "ANCHOR_RIGHT");
+				Cryolysis_BuildTooltip(self, "DetectMagic", "ANCHOR_RIGHT");
 			</OnEnter>
 			<OnLeave>
 				GameTooltip:Hide();
@@ -709,11 +704,11 @@
 		</Anchors>
 		<Scripts>
 			<OnLoad>
-				this:RegisterForClicks("LeftButtonUp", "RightButtonUp");
+				self:RegisterForClicks("LeftButtonUp", "RightButtonUp");
 				HideUIPanel(CryolysisBuffMenu7);
 			</OnLoad>
 			<OnEnter>
-				Cryolysis_BuildTooltip(this, "RemoveCurse", "ANCHOR_RIGHT");
+				Cryolysis_BuildTooltip(self, "RemoveCurse", "ANCHOR_RIGHT");
 			</OnEnter>
 			<OnLeave>
 				GameTooltip:Hide();
@@ -752,11 +747,11 @@
 		</Anchors>
 		<Scripts>
 			<OnLoad>
-				this:RegisterForClicks("LeftButtonUp", "RightButtonUp");
+				self:RegisterForClicks("LeftButtonUp", "RightButtonUp");
 				HideUIPanel(CryolysisBuffMenu8);
 			</OnLoad>
 			<OnEnter>
-				Cryolysis_BuildTooltip(this, "SlowFall", "ANCHOR_RIGHT");
+				Cryolysis_BuildTooltip(self, "SlowFall", "ANCHOR_RIGHT");
 			</OnEnter>
 			<OnLeave>
 				GameTooltip:Hide();
@@ -782,12 +777,12 @@
 		</Anchors>
 		<Scripts>
 			<OnLoad>
-				this:RegisterForDrag("LeftButton");
-				this:RegisterForClicks("LeftButtonUp", "MiddleButtonUp", "RightButtonUp");
-				HideUIPanel(this);
+				self:RegisterForDrag("LeftButton");
+				self:RegisterForClicks("LeftButtonUp", "MiddleButtonUp", "RightButtonUp");
+				HideUIPanel(self);
 			</OnLoad>
 			<OnEnter>
-				Cryolysis_BuildTooltip(this, "Portal", "ANCHOR_RIGHT");
+				Cryolysis_BuildTooltip(self, "Portal", "ANCHOR_RIGHT");
 			</OnEnter>
 			<OnLeave>
 				GameTooltip:Hide();
@@ -796,13 +791,13 @@
 				Cryolysis_PortalMenu(arg1);
 			</OnClick>
 			<OnDragStart>
-				if not CryolysisLockServ then Cryolysis_OnDragStart(this); end
+				if not CryolysisLockServ then Cryolysis_OnDragStart(self); end
 			</OnDragStart>
 			<OnDragStop>
-				Cryolysis_OnDragStop(this);
+				Cryolysis_OnDragStop(self);
 			</OnDragStop>
 			<OnMouseUp>
-				Cryolysis_OnDragStop(this);
+				Cryolysis_OnDragStop(self);
 			</OnMouseUp>
 		</Scripts>
 		<NormalTexture file="Interface\AddOns\Cryolysis\UI\PortalMenuButton-01"/>
@@ -836,11 +831,11 @@
 		</Anchors>
 		<Scripts>
 			<OnLoad>
-				this:RegisterForClicks("LeftButtonUp", "RightButtonUp");
+				self:RegisterForClicks("LeftButtonUp", "RightButtonUp");
 				HideUIPanel(CryolysisPortalMenu1);
 			</OnLoad>
 			<OnEnter>
-				Cryolysis_BuildTooltip(this, "T:Org", "ANCHOR_RIGHT");
+				Cryolysis_BuildTooltip(self, "T:Org", "ANCHOR_RIGHT");
 			</OnEnter>
 			<OnLeave>
 				GameTooltip:Hide();
@@ -880,11 +875,11 @@
 		</Anchors>
 		<Scripts>
 			<OnLoad>
-				this:RegisterForClicks("LeftButtonUp", "RightButtonUp");
+				self:RegisterForClicks("LeftButtonUp", "RightButtonUp");
 				HideUIPanel(CryolysisPortalMenu2);
 			</OnLoad>
 			<OnEnter>
-				Cryolysis_BuildTooltip(this, "T:UC", "ANCHOR_RIGHT");
+				Cryolysis_BuildTooltip(self, "T:UC", "ANCHOR_RIGHT");
 			</OnEnter>
 			<OnLeave>
 				GameTooltip:Hide();
@@ -924,11 +919,11 @@
 		</Anchors>
 		<Scripts>
 			<OnLoad>
-				this:RegisterForClicks("LeftButtonUp", "RightButtonUp");
+				self:RegisterForClicks("LeftButtonUp", "RightButtonUp");
 				HideUIPanel(CryolysisPortalMenu3);
 			</OnLoad>
 			<OnEnter>
-				Cryolysis_BuildTooltip(this, "T:TB", "ANCHOR_RIGHT");
+				Cryolysis_BuildTooltip(self, "T:TB", "ANCHOR_RIGHT");
 			</OnEnter>
 			<OnLeave>
 				GameTooltip:Hide();
@@ -968,11 +963,11 @@
 		</Anchors>
 		<Scripts>
 			<OnLoad>
-				this:RegisterForClicks("LeftButtonUp", "RightButtonUp");
+				self:RegisterForClicks("LeftButtonUp", "RightButtonUp");
 				HideUIPanel(CryolysisPortalMenu4);
 			</OnLoad>
 			<OnEnter>
-				Cryolysis_BuildTooltip(this, "T:IF", "ANCHOR_RIGHT");
+				Cryolysis_BuildTooltip(self, "T:IF", "ANCHOR_RIGHT");
 			</OnEnter>
 			<OnLeave>
 				GameTooltip:Hide();
@@ -1012,11 +1007,11 @@
 		</Anchors>
 		<Scripts>
 			<OnLoad>
-				this:RegisterForClicks("LeftButtonUp", "RightButtonUp");
+				self:RegisterForClicks("LeftButtonUp", "RightButtonUp");
 				HideUIPanel(CryolysisPortalMenu5);
 			</OnLoad>
 			<OnEnter>
-				Cryolysis_BuildTooltip(this, "T:SW", "ANCHOR_RIGHT");
+				Cryolysis_BuildTooltip(self, "T:SW", "ANCHOR_RIGHT");
 			</OnEnter>
 			<OnLeave>
 				GameTooltip:Hide();
@@ -1056,11 +1051,11 @@
 		</Anchors>
 		<Scripts>
 			<OnLoad>
-				this:RegisterForClicks("LeftButtonUp", "RightButtonUp");
+				self:RegisterForClicks("LeftButtonUp", "RightButtonUp");
 				HideUIPanel(CryolysisPortalMenu6);
 			</OnLoad>
 			<OnEnter>
-				Cryolysis_BuildTooltip(this, "T:Darn", "ANCHOR_RIGHT");
+				Cryolysis_BuildTooltip(self, "T:Darn", "ANCHOR_RIGHT");
 			</OnEnter>
 			<OnLeave>
 				GameTooltip:Hide();
@@ -1100,11 +1095,11 @@
 		</Anchors>
 		<Scripts>
 			<OnLoad>
-				this:RegisterForClicks("LeftButtonUp", "RightButtonUp");
+				self:RegisterForClicks("LeftButtonUp", "RightButtonUp");
 				HideUIPanel(CryolysisPortalMenu7);
 			</OnLoad>
 			<OnEnter>
-				Cryolysis_BuildTooltip(this, "P:Org", "ANCHOR_RIGHT");
+				Cryolysis_BuildTooltip(self, "P:Org", "ANCHOR_RIGHT");
 			</OnEnter>
 			<OnLeave>
 				GameTooltip:Hide();
@@ -1144,11 +1139,11 @@
 		</Anchors>
 		<Scripts>
 			<OnLoad>
-				this:RegisterForClicks("LeftButtonUp", "RightButtonUp");
+				self:RegisterForClicks("LeftButtonUp", "RightButtonUp");
 				HideUIPanel(CryolysisPortalMenu8);
 			</OnLoad>
 			<OnEnter>
-				Cryolysis_BuildTooltip(this, "P:UC", "ANCHOR_RIGHT");
+				Cryolysis_BuildTooltip(self, "P:UC", "ANCHOR_RIGHT");
 			</OnEnter>
 			<OnLeave>
 				GameTooltip:Hide();
@@ -1188,11 +1183,11 @@
 		</Anchors>
 		<Scripts>
 			<OnLoad>
-				this:RegisterForClicks("LeftButtonUp", "RightButtonUp");
+				self:RegisterForClicks("LeftButtonUp", "RightButtonUp");
 				HideUIPanel(CryolysisPortalMenu9);
 			</OnLoad>
 			<OnEnter>
-				Cryolysis_BuildTooltip(this, "P:TB", "ANCHOR_RIGHT");
+				Cryolysis_BuildTooltip(self, "P:TB", "ANCHOR_RIGHT");
 			</OnEnter>
 			<OnLeave>
 				GameTooltip:Hide();
@@ -1232,11 +1227,11 @@
 		</Anchors>
 		<Scripts>
 			<OnLoad>
-				this:RegisterForClicks("LeftButtonUp", "RightButtonUp");
+				self:RegisterForClicks("LeftButtonUp", "RightButtonUp");
 				HideUIPanel(CryolysisPortalMenu10);
 			</OnLoad>
 			<OnEnter>
-				Cryolysis_BuildTooltip(this, "P:IF", "ANCHOR_RIGHT");
+				Cryolysis_BuildTooltip(self, "P:IF", "ANCHOR_RIGHT");
 			</OnEnter>
 			<OnLeave>
 				GameTooltip:Hide();
@@ -1277,11 +1272,11 @@
 		</Anchors>
 		<Scripts>
 			<OnLoad>
-				this:RegisterForClicks("LeftButtonUp", "RightButtonUp");
+				self:RegisterForClicks("LeftButtonUp", "RightButtonUp");
 				HideUIPanel(CryolysisPortalMenu11);
 			</OnLoad>
 			<OnEnter>
-				Cryolysis_BuildTooltip(this, "P:SW", "ANCHOR_RIGHT");
+				Cryolysis_BuildTooltip(self, "P:SW", "ANCHOR_RIGHT");
 			</OnEnter>
 			<OnLeave>
 				GameTooltip:Hide();
@@ -1321,11 +1316,11 @@
 		</Anchors>
 		<Scripts>
 			<OnLoad>
-				this:RegisterForClicks("LeftButtonUp", "RightButtonUp");
+				self:RegisterForClicks("LeftButtonUp", "RightButtonUp");
 				HideUIPanel(CryolysisPortalMenu12);
 			</OnLoad>
 			<OnEnter>
-				Cryolysis_BuildTooltip(this, "P:Darn", "ANCHOR_RIGHT");
+				Cryolysis_BuildTooltip(self, "P:Darn", "ANCHOR_RIGHT");
 			</OnEnter>
 			<OnLeave>
 				GameTooltip:Hide();
@@ -1365,16 +1360,16 @@
 		</Layers>
 		<Scripts>
 			<OnDragStart>
-				Cryolysis_OnDragStart(this);
+				Cryolysis_OnDragStart(self);
 			</OnDragStart>
 			<OnDragStop>
-				Cryolysis_OnDragStop(this);
+				Cryolysis_OnDragStop(self);
 			</OnDragStop>
 			<OnMouseUp>
-				Cryolysis_OnDragStop(this);
+				Cryolysis_OnDragStop(self);
 			</OnMouseUp>
 			<OnEnter>
-				Cryolysis_BuildTooltip(this, "ShadowTrance", "ANCHOR_RIGHT");
+				Cryolysis_BuildTooltip(self, "ShadowTrance", "ANCHOR_RIGHT");
 			</OnEnter>
 			<OnLeave>
 				GameTooltip:Hide();
@@ -1404,13 +1399,13 @@
 		</Anchors>
 		<Scripts>
 			<OnDragStart>
-				Cryolysis_OnDragStart(this);
+				Cryolysis_OnDragStart(self);
 			</OnDragStart>
 			<OnDragStop>
-				Cryolysis_OnDragStop(this);
+				Cryolysis_OnDragStop(self);
 			</OnDragStop>
 			<OnMouseUp>
-				Cryolysis_OnDragStop(this);
+				Cryolysis_OnDragStop(self);
 			</OnMouseUp>
 			<OnLoad>
 				HideUIPanel(CryolysisAntiFearButton);

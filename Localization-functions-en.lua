@@ -17,7 +17,7 @@
 -- ENGLISH  VERSION FUNCTIONS --
 ------------------------------------------------
 --
-if ( GetLocale() == "enUS" ) or ( GetLocale() == "enGB" ) then
+if ( GetLocale() == "enUS" ) or ( GetLocale() == "enGB" or ( GetLocale() == "ruRU") ) then
 
 CRYOLYSIS_UNIT_MAGE = "Mage";
 

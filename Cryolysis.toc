@@ -1,4 +1,4 @@
-## Interface: 11200
+## Interface: 11360
 ## Title: Cryolysis
 ## Notes: Management of Mage spells, abilities, and reagents
 ## OptionalDeps:

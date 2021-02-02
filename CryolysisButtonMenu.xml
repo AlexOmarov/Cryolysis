@@ -21,45 +21,45 @@
 				</Size>
 				<Scripts>
 				<OnEnter>
-						GameTooltip:SetOwner(this, "ANCHOR_RIGHT");
-						if (this:GetValue() == 1) then
+						GameTooltip:SetOwner(self, "ANCHOR_RIGHT");
+						if (self:GetValue() == 1) then
 							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.SpellButton.Armor);
-						elseif (this:GetValue() == 2) then
+						elseif (self:GetValue() == 2) then
 							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.SpellButton.ArcaneInt);
-						elseif (this:GetValue() == 3) then
+						elseif (self:GetValue() == 3) then
 							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.SpellButton.DampenMagic);
-						elseif (this:GetValue() == 4) then
+						elseif (self:GetValue() == 4) then
 							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.SpellButton.IceBarrier);
-						elseif (this:GetValue() == 5) then
+						elseif (self:GetValue() == 5) then
 							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.SpellButton.FireWard);
-						elseif (this:GetValue() == 6) then
+						elseif (self:GetValue() == 6) then
 							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.SpellButton.DetectMagic);
-						elseif (this:GetValue() == 7) then
+						elseif (self:GetValue() == 7) then
 							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.SpellButton.RemoveCurse);
-						elseif (this:GetValue() == 8) then
+						elseif (self:GetValue() == 8) then
 							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.SpellButton.SlowFall);
 						end
 					</OnEnter>
 					<OnValueChanged>
-						GameTooltip:SetOwner(this, "ANCHOR_RIGHT");
-						if (this:GetValue() == 1) then
+						GameTooltip:SetOwner(self, "ANCHOR_RIGHT");
+						if (self:GetValue() == 1) then
 							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.SpellButton.Armor);
-						elseif (this:GetValue() == 2) then
+						elseif (self:GetValue() == 2) then
 							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.SpellButton.ArcaneInt);
-						elseif (this:GetValue() == 3) then
+						elseif (self:GetValue() == 3) then
 							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.SpellButton.DampenMagic);
-						elseif (this:GetValue() == 4) then
+						elseif (self:GetValue() == 4) then
 							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.SpellButton.IceBarrier);
-						elseif (this:GetValue() == 5) then
+						elseif (self:GetValue() == 5) then
 							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.SpellButton.FireWard);
-						elseif (this:GetValue() == 6) then
+						elseif (self:GetValue() == 6) then
 							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.SpellButton.DetectMagic);
-						elseif (this:GetValue() == 7) then
+						elseif (self:GetValue() == 7) then
 							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.SpellButton.RemoveCurse);
-						elseif (this:GetValue() == 8) then
+						elseif (self:GetValue() == 8) then
 							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.SpellButton.SlowFall);
 						end
-						CryolysisConfig.RightSpell = this:GetValue();
+						CryolysisConfig.RightSpell = self:GetValue();
 						SerenityButtonTexture.Stones.Base[4] = 0;
 					</OnValueChanged>
 					<OnLeave>
@@ -291,8 +291,8 @@
 				</Anchors>
 				<Scripts>	
 					<OnValueChanged>
-						if this:GetValue() ~= CryolysisConfig.ManaStoneOrder then
-							CryolysisConfig.ManaStoneOrder =  this:GetValue();
+						if self:GetValue() ~= CryolysisConfig.ManaStoneOrder then
+							CryolysisConfig.ManaStoneOrder =  self:GetValue();
 						end
 					</OnValueChanged>
 				</Scripts>
@@ -310,7 +310,7 @@
 				</Anchors>
 				<Scripts>
 					<OnClick>
-						if (this:GetChecked()) then
+						if (self:GetChecked()) then
 							CryolysisConfig.StonePosition[1] = true;
 							ShowUIPanel(CryolysisFoodButton);
 						else
@@ -334,7 +334,7 @@
 				</Anchors>
 				<Scripts>
 					<OnClick>
-						if (this:GetChecked()) then
+						if (self:GetChecked()) then
 							CryolysisConfig.StonePosition[2] = true;
 							ShowUIPanel(CryolysisDrinkButton);
 						else
@@ -358,7 +358,7 @@
 				</Anchors>
 				<Scripts>
 					<OnClick>
-						if (this:GetChecked()) then
+						if (self:GetChecked()) then
 							CryolysisConfig.StonePosition[3] = true;
 							ShowUIPanel(CryolysisManastoneButton);
 						else
@@ -384,7 +384,7 @@
 				</Anchors>
 				<Scripts>
 					<OnClick>
-						if (this:GetChecked()) then
+						if (self:GetChecked()) then
 							CryolysisConfig.StonePosition[4] = true;
 							ShowUIPanel(CryolysisLeftSpellButton);
 						else
@@ -410,7 +410,7 @@
 				</Anchors>
 				<Scripts>
 					<OnClick>
-						if (this:GetChecked()) then
+						if (self:GetChecked()) then
 							CryolysisConfig.StonePosition[5] = true;
 							ShowUIPanel(CryolysisEvocationButton);
 						else
@@ -436,7 +436,7 @@
 				</Anchors>
 				<Scripts>
 					<OnClick>
-						if (this:GetChecked()) then
+						if (self:GetChecked()) then
 							CryolysisConfig.StonePosition[6] = true;
 							ShowUIPanel(CryolysisRightSpellButton);
 						else
@@ -462,7 +462,7 @@
 				</Anchors>
 				<Scripts>
 					<OnClick>
-						if (this:GetChecked()) then
+						if (self:GetChecked()) then
 							CryolysisConfig.StonePosition[7] = true;
 							ShowUIPanel(CryolysisBuffMenuButton);
 						else
@@ -486,7 +486,7 @@
 				</Anchors>
 				<Scripts>
 					<OnClick>
-						if (this:GetChecked()) then
+						if (self:GetChecked()) then
 							CryolysisConfig.StonePosition[8] = true;
 							ShowUIPanel(CryolysisMountButton);
 							Cryolysis_BagExplore();
@@ -511,7 +511,7 @@
 				</Anchors>
 				<Scripts>
 					<OnClick>
-						if (this:GetChecked()) then
+						if (self:GetChecked()) then
 							CryolysisConfig.StonePosition[9] = true;
 							ShowUIPanel(CryolysisPortalMenuButton);
 						else
@@ -535,7 +535,7 @@
 				</Anchors>
 				<Scripts>
 					<OnClick>
-						if (this:GetChecked()) then
+						if (self:GetChecked()) then
 							CryolysisConfig.QuickBuff = true;
 						else
 							CryolysisConfig.QuickBuff = false;
@@ -556,7 +556,7 @@
 				</Anchors>
 				<Scripts>
 					<OnClick>
-						if (this:GetChecked()) then
+						if (self:GetChecked()) then
 							CryolysisConfig.FoodCountText = true;
 						else
 							CryolysisConfig.FoodCountText = false;
@@ -577,7 +577,7 @@
 				</Anchors>
 				<Scripts>
 					<OnClick>
-						if (this:GetChecked()) then
+						if (self:GetChecked()) then
 							CryolysisConfig.DrinkCountText = true;
 						else
 							CryolysisConfig.DrinkCountText = false;
@@ -598,7 +598,7 @@
 				</Anchors>
 				<Scripts>
 					<OnClick>
-						if (this:GetChecked()) then
+						if (self:GetChecked()) then
 							CryolysisConfig.ManastoneCooldownText = true;
 						else
 							CryolysisConfig.ManastoneCooldownText = false;
@@ -619,45 +619,45 @@
 				</Anchors>
 				<Scripts>
 					<OnEnter>
-						GameTooltip:SetOwner(this, "ANCHOR_RIGHT");
-						if (this:GetValue() == 1) then
+						GameTooltip:SetOwner(self, "ANCHOR_RIGHT");
+						if (self:GetValue() == 1) then
 							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.SpellButton.Armor);
-						elseif (this:GetValue() == 2) then
+						elseif (self:GetValue() == 2) then
 							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.SpellButton.ArcaneInt);
-						elseif (this:GetValue() == 3) then
+						elseif (self:GetValue() == 3) then
 							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.SpellButton.DampenMagic);
-						elseif (this:GetValue() == 4) then
+						elseif (self:GetValue() == 4) then
 							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.SpellButton.IceBarrier);
-						elseif (this:GetValue() == 5) then
+						elseif (self:GetValue() == 5) then
 							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.SpellButton.FireWard);
-						elseif (this:GetValue() == 6) then
+						elseif (self:GetValue() == 6) then
 							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.SpellButton.DetectMagic);
-						elseif (this:GetValue() == 7) then
+						elseif (self:GetValue() == 7) then
 							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.SpellButton.RemoveCurse);
-						elseif (this:GetValue() == 8) then
+						elseif (self:GetValue() == 8) then
 							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.SpellButton.SlowFall);
 						end
 					</OnEnter>
 					<OnValueChanged>
-						GameTooltip:SetOwner(this, "ANCHOR_RIGHT");
-						if (this:GetValue() == 1) then
+						GameTooltip:SetOwner(self, "ANCHOR_RIGHT");
+						if (self:GetValue() == 1) then
 							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.SpellButton.Armor);
-						elseif (this:GetValue() == 2) then
+						elseif (self:GetValue() == 2) then
 							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.SpellButton.ArcaneInt);
-						elseif (this:GetValue() == 3) then
+						elseif (self:GetValue() == 3) then
 							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.SpellButton.DampenMagic);
-						elseif (this:GetValue() == 4) then
+						elseif (self:GetValue() == 4) then
 							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.SpellButton.IceBarrier);
-						elseif (this:GetValue() == 5) then
+						elseif (self:GetValue() == 5) then
 							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.SpellButton.FireWard);
-						elseif (this:GetValue() == 6) then
+						elseif (self:GetValue() == 6) then
 							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.SpellButton.DetectMagic);
-						elseif (this:GetValue() == 7) then
+						elseif (self:GetValue() == 7) then
 							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.SpellButton.RemoveCurse);
-						elseif (this:GetValue() == 8) then
+						elseif (self:GetValue() == 8) then
 							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.SpellButton.SlowFall);
 						end
-						CryolysisConfig.LeftSpell = this:GetValue();
+						CryolysisConfig.LeftSpell = self:GetValue();
 						CryolysisButtonTexture.Stones.Base[4] = 0;
 					</OnValueChanged>
 					<OnLeave>
@@ -678,7 +678,7 @@
 				</Anchors>
 				<Scripts>
 					<OnClick>
-						if (this:GetChecked()) then
+						if (self:GetChecked()) then
 							CryolysisConfig.EvocationCooldownText = true;
 						else
 							CryolysisConfig.EvocationCooldownText = false;
@@ -699,25 +699,25 @@
 				</Anchors>
 				<Scripts>	
 					<OnValueChanged>
-						GameTooltip:SetOwner(this, "ANCHOR_RIGHT");
-						if (this:GetValue() == 1) then
+						GameTooltip:SetOwner(self, "ANCHOR_RIGHT");
+						if (self:GetValue() == 1) then
 							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.SpellButton.Armor);
-						elseif (this:GetValue() == 2) then
+						elseif (self:GetValue() == 2) then
 							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.SpellButton.ArcaneInt);
-						elseif (this:GetValue() == 3) then
+						elseif (self:GetValue() == 3) then
 							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.SpellButton.DampenMagic);
-						elseif (this:GetValue() == 4) then
+						elseif (self:GetValue() == 4) then
 							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.SpellButton.IceBarrier);
-						elseif (this:GetValue() == 5) then
+						elseif (self:GetValue() == 5) then
 							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.SpellButton.FireWard);
-						elseif (this:GetValue() == 6) then
+						elseif (self:GetValue() == 6) then
 							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.SpellButton.DetectMagic);
-						elseif (this:GetValue() == 7) then
+						elseif (self:GetValue() == 7) then
 							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.SpellButton.RemoveCurse);
-						elseif (this:GetValue() == 8) then
+						elseif (self:GetValue() == 8) then
 							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.SpellButton.SlowFall);
 						end
-						CryolysisConfig.RightSpell = this:GetValue();
+						CryolysisConfig.RightSpell = self:GetValue();
 						CryolysisButtonTexture.Stones.Base[6] = 0;
 					</OnValueChanged>
 					<OnLeave>
@@ -738,7 +738,7 @@
 				</Anchors>
 				<Scripts>
 					<OnClick>
-						if (this:GetChecked()) then
+						if (self:GetChecked()) then
 							CryolysisConfig.FeatherCountText = true;
 						else
 							CryolysisConfig.FeatherCountText = false;
@@ -759,7 +759,7 @@
 				</Anchors>
 				<Scripts>
 					<OnClick>
-						if (this:GetChecked()) then
+						if (self:GetChecked()) then
 							CryolysisConfig.PowderCountText = true;
 						else
 							CryolysisConfig.PowderCountText = false;
@@ -780,7 +780,7 @@
 				</Anchors>
 				<Scripts>
 					<OnClick>
-						if (this:GetChecked()) then
+						if (self:GetChecked()) then
 							CryolysisConfig.RuneCountText = true;
 						else
 							CryolysisConfig.RuneCountText = false;

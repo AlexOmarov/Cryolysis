@@ -78,13 +78,13 @@
 				</Anchors>
 				<Scripts>
 					<OnEnter>
-						GameTooltip:SetOwner(this, "ANCHOR_RIGHT");
-						GameTooltip:SetText(this:GetValue());
+						GameTooltip:SetOwner(self, "ANCHOR_RIGHT");
+						GameTooltip:SetText(self:GetValue());
 					</OnEnter>
 					<OnValueChanged>
-						CryolysisConfig.CryolysisAngle = this:GetValue();
+						CryolysisConfig.CryolysisAngle = self:GetValue();
 						local x, y = CryolysisButton:GetCenter();
-						GameTooltip:SetText(this:GetValue());
+						GameTooltip:SetText(self:GetValue());
 						Cryolysis_UpdateButtonsScale();
 					</OnValueChanged>
 					<OnLeave>
@@ -108,14 +108,14 @@
 						NBx, NBy = CryolysisButton:GetCenter();
 						NBx = NBx * (CryolysisConfig.CryolysisButtonScale / 100);
 						NBy = NBy * (CryolysisConfig.CryolysisButtonScale / 100);
-						GameTooltip:SetOwner(this, "ANCHOR_RIGHT");
-						GameTooltip:SetText(this:GetValue().." %");
+						GameTooltip:SetOwner(self, "ANCHOR_RIGHT");
+						GameTooltip:SetText(self:GetValue().." %");
 					</OnEnter>
 					<OnValueChanged>
-						if this:GetValue() ~= CryolysisConfig.CryolysisButtonScale then
+						if self:GetValue() ~= CryolysisConfig.CryolysisButtonScale then
 							CryolysisButton:ClearAllPoints();
-							GameTooltip:SetText(this:GetValue().." %");
-							CryolysisConfig.CryolysisButtonScale = this:GetValue();
+							GameTooltip:SetText(self:GetValue().." %");
+							CryolysisConfig.CryolysisButtonScale = self:GetValue();
 							CryolysisButton:SetPoint("CENTER", "UIParent", "BOTTOMLEFT", NBx / (CryolysisConfig.CryolysisButtonScale / 100), NBy / (CryolysisConfig.CryolysisButtonScale / 100));
 							CryolysisButton:SetScale(CryolysisConfig.CryolysisButtonScale / 100);
 							Cryolysis_UpdateButtonsScale();
@@ -139,13 +139,13 @@
 				</Anchors>
 				<Scripts>	
 					<OnEnter>
-						GameTooltip:SetOwner(this, "ANCHOR_RIGHT");
-						GameTooltip:SetText(this:GetValue().."%");
+						GameTooltip:SetOwner(self, "ANCHOR_RIGHT");
+						GameTooltip:SetText(self:GetValue().."%");
 					</OnEnter>
 					<OnValueChanged>
-						if this:GetValue() ~= CryolysisConfig.CryolysisStoneScale then
-							GameTooltip:SetText(this:GetValue().."%");
-							CryolysisConfig.CryolysisStoneScale = this:GetValue();
+						if self:GetValue() ~= CryolysisConfig.CryolysisStoneScale then
+							GameTooltip:SetText(self:GetValue().."%");
+							CryolysisConfig.CryolysisStoneScale = self:GetValue();
 							CryolysisFoodButton:SetScale(CryolysisConfig.CryolysisStoneScale / 100);
 							CryolysisDrinkButton:SetScale(CryolysisConfig.CryolysisStoneScale / 100);
 							CryolysisManastoneButton:SetScale(CryolysisConfig.CryolysisStoneScale / 100);
@@ -177,7 +177,7 @@
 				</Anchors>
 				<Scripts>
 					<OnClick>
-						if (this:GetChecked()) then
+						if (self:GetChecked()) then
 							CryolysisConfig.CryolysisLockServ = true;
 							Cryolysis_ClearAllPoints();
 							Cryolysis_UpdateButtonsScale();
@@ -220,7 +220,7 @@
 				</Anchors>
 				<Scripts>
 					<OnClick>
-						if (this:GetChecked()) then
+						if (self:GetChecked()) then
 							Cryolysis_NoDrag();
 							CryolysisButton:RegisterForDrag("");
 							CryolysisSpellTimerButton:RegisterForDrag("");
@@ -249,7 +249,7 @@
 				</Anchors>
 				<Scripts>
 					<OnClick>
-						if (this:GetChecked()) then
+						if (self:GetChecked()) then
 							CryolysisConfig.BuffMenuPos = -34;
 						else
 							CryolysisConfig.BuffMenuPos = 34;
@@ -271,13 +271,13 @@
 				</Anchors>
 				<Scripts>
 					<OnEnter>
-						GameTooltip:SetOwner(this, "ANCHOR_RIGHT");
+						GameTooltip:SetOwner(self, "ANCHOR_RIGHT");
 						GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Anchor.Text);
 					</OnEnter>
 					<OnValueChanged>
-						GameTooltip:SetText(this:GetValue());
-						if CryolysisConfig.BuffMenuAnchor ~= this:GetValue() then
-							CryolysisConfig.BuffMenuAnchor = this:GetValue();
+						GameTooltip:SetText(self:GetValue());
+						if CryolysisConfig.BuffMenuAnchor ~= self:GetValue() then
+							CryolysisConfig.BuffMenuAnchor = self:GetValue();
 							if CryolysisPrivate.BuffMenuShow then
 								Cryolysis_BuffMenu("LeftButton");
 							end
@@ -302,7 +302,7 @@
 				</Anchors>
 				<Scripts>
 					<OnClick>
-						if (this:GetChecked()) then
+						if (self:GetChecked()) then
 							CryolysisConfig.PortalMenuPos = -34;
 						else
 							CryolysisConfig.PortalMenuPos = 34;
@@ -324,13 +324,13 @@
 				</Anchors>
 				<Scripts>
 					<OnEnter>
-						GameTooltip:SetOwner(this, "ANCHOR_RIGHT");
+						GameTooltip:SetOwner(self, "ANCHOR_RIGHT");
 						GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Anchor.Text);
 					</OnEnter>
 					<OnValueChanged>
-						GameTooltip:SetText(this:GetValue());
-						if CryolysisConfig.PortalMenuAnchor ~= this:GetValue() then
-							CryolysisConfig.PortalMenuAnchor = this:GetValue();
+						GameTooltip:SetText(self:GetValue());
+						if CryolysisConfig.PortalMenuAnchor ~= self:GetValue() then
+							CryolysisConfig.PortalMenuAnchor = self:GetValue();
 							if  CryolysisPrivate.PortalMenuShow then
 								Cryolysis_PortalMenu("LeftButton");
 							end

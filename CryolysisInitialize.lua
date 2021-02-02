@@ -1,53 +1,11 @@
 ------------------------------------------------------------------------------------------------------
--- Cryolysis
---
--- Based on Necrosis LdC by Lomig and Nyx (http://necrosis.larmes-cenarius.net)
--- Original Necrosis Idea : Infernal (http://www.revolvus.com/games/interface/necrosis/)
--- Cryolysis Maintainer : Kaeldra of Aegwynn
---
--- Contact : darklyte@gmail.com
--- Send me in-game mail!  Yersinia on Aegwynn, Horde side.
--- Guild: <Working as Intended>
--- Version Date: 07.14.2006
-------------------------------------------------------------------------------------------------------
-
-
-
-------------------------------------------------------------------------------------------------------
 -- FONCTION D'INITIALISATION
 ------------------------------------------------------------------------------------------------------
 
 function Cryolysis_Initialize()
-
-	-- Initilialisation des Textes (VO / VF / VA)
-	if CryolysisConfig ~= {} then
-		if (CryolysisConfig.CryolysisLanguage == "enUS") or (CryolysisConfig.CryolysisLanguage == "enGB") then
-			Cryolysis_Localization_Dialog_En();
-		elseif (CryolysisConfig.CryolysisLanguage == "deDE") then
-			Cryolysis_Localization_Dialog_De();
-		elseif (CryolysisConfig.CryolysisLanguage == "frFR") then
-			Cryolysis_Localization_Dialog_Fr();
-		elseif (CryolysisConfig.CryolysisLanguage == "zhCN") then
-			Cryolysis_Localization_Dialog_Cn();
-		else
-			Cryolysis_Localization_Dialog_Tw();
-		end
-	elseif GetLocale() == "enUS" or GetLocale() == "enGB" then
-		Cryolysis_Localization_Dialog_En();
-	elseif GetLocale() == "deDE" then
-		Cryolysis_Localization_Dialog_De();
-	elseif GetLocale() == "frFR" then
-		Cryolysis_Localization_Dialog_Fr();
-	elseif GetLocale() == "zhCN" then
-		Cryolysis_Localization_Dialog_Cn();
-	else
-		Cryolysis_Localization_Dialog_Tw();
-	end
-
-
-	-- On initialise ! Si le joueur n'est pas Démoniste, on cache Cryolysis (chuuuut !)
-	-- On indique aussi que Nécrosis est initialisé maintenant
-	if UnitClass("player") ~= CRYOLYSIS_UNIT_MAGE then
+	Cryolysis_Localization_Dialog_En();
+	local localizedClass, englishClass, classIndex = UnitClass("player");
+	if englishClass ~= "MAGE" then
 		HideUIPanel(CryolysisProvisionMenu);
 		HideUIPanel(CryolysisSpellTimerButton);
 		HideUIPanel(CryolysisButton);

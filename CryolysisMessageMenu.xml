@@ -1,5 +1,6 @@
 <Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/..\FrameXML\UI.xsd">
-
+	<Script file="Localization-functions-en.lua"/>
+	<Script file="Localization-dialog-en.lua"/>
 	<Frame name="CryolysisMessageMenu" frameStrata="DIALOG" movable="false" enableMouse="true" parent="CryolysisGeneralFrame">
 		<Size>
 			<AbsDimension x="350" y="452"/>
@@ -132,42 +133,24 @@
 				</Anchors>
 				<Scripts>
 					<OnEnter>
-						GameTooltip:SetOwner(this, "ANCHOR_RIGHT");
-						if (this:GetValue() == 1) then
+						GameTooltip:SetOwner(self, "ANCHOR_RIGHT");
+						if (self:GetValue() == 1) then
 							GameTooltip:SetText("Francais");
-						elseif (this:GetValue() == 2) then
+						elseif (self:GetValue() == 2) then
 							GameTooltip:SetText("English");
-						elseif (this:GetValue() == 3) then
+						elseif (self:GetValue() == 3) then
 							GameTooltip:SetText("Deutsch");
-						elseif (this:GetValue() == 4) then
+						elseif (self:GetValue() == 4) then
 							GameTooltip:SetText("繁體中文(Traditional Chinese)");
 						else
 							GameTooltip:SetText("简体中文(Simplified Chinese)");
 						end
 					</OnEnter>
 					<OnValueChanged>
-						GameTooltip:SetText(this:GetValue());
-						if (this:GetValue() == 1) then
-							GameTooltip:SetText("Francais");
-							CryolysisConfig.CryolysisLanguage = "frFR";
-							Cryolysis_Localization_Dialog_Fr();
-						elseif (this:GetValue() == 2) then
-							GameTooltip:SetText("English");
-							CryolysisConfig.CryolysisLanguage = "enUS";
-							Cryolysis_Localization_Dialog_En();
-						elseif (this:GetValue() == 3) then
-							GameTooltip:SetText("Deutsch");
-							CryolysisConfig.CryolysisLanguage = "deDE";
-							Cryolysis_Localization_Dialog_De();
-						elseif (this:GetValue() == 4) then
-							GameTooltip:SetText("繁體中文(Traditional Chinese)");
-							CryolysisConfig.CryolysisLanguage = "zhTW";
-							Cryolysis_Localization_Dialog_Tw();
-						else
-							GameTooltip:SetText("简体中文(Simplified Chinese)");
-							CryolysisConfig.CryolysisLanguage = "zhCN";
-							Cryolysis_Localization_Dialog_Cn();
-						end
+						GameTooltip:SetText(self:GetValue());
+						GameTooltip:SetText("English");
+						CryolysisConfig.CryolysisLanguage = "enUS";
+						Cryolysis_Localization_Dialog_En();
 						Cryolysis_LanguageInitialize();
 					</OnValueChanged>
 					<OnLeave>
@@ -189,7 +172,7 @@
 				</Anchors>
 				<Scripts>
 					<OnClick>
-						if (this:GetChecked()) then
+						if (self:GetChecked()) then
 							CryolysisConfig.CryolysisToolTip = true;
 							Cryolysis_Msg(CRYOLYSIS_MESSAGE.Interface.TooltipOn, "USER");
 						else
@@ -213,7 +196,7 @@
 				</Anchors>
 				<Scripts>
 					<OnClick>
-						if (this:GetChecked()) then
+						if (self:GetChecked()) then
 							CryolysisConfig.Sound = true;
 						else
 							CryolysisConfig.Sound = false;
@@ -235,7 +218,7 @@
 				</Anchors>
 				<Scripts>
 					<OnClick>
-						if (this:GetChecked()) then
+						if (self:GetChecked()) then
 							CryolysisConfig.PolyBreak = true;
 						else
 							CryolysisConfig.PolyBreak = false;
@@ -256,7 +239,7 @@
 				</Anchors>
 				<Scripts>
 					<OnClick>
-						if (this:GetChecked()) then
+						if (self:GetChecked()) then
 							CryolysisConfig.PolyWarn = true;
 						else
 							CryolysisConfig.PolyWarn = false;
@@ -277,12 +260,12 @@
 				</Anchors>
 				<Scripts>
 					<OnEnter>
-						GameTooltip:SetOwner(this, "ANCHOR_RIGHT");
-						GameTooltip:SetText(this:GetValue().." secs");
+						GameTooltip:SetOwner(self, "ANCHOR_RIGHT");
+						GameTooltip:SetText(self:GetValue().." secs");
 					</OnEnter>
 					<OnValueChanged>
-						GameTooltip:SetText(this:GetValue().." secs");
-						CryolysisConfig.PolyWarnTime = this:GetValue();
+						GameTooltip:SetText(self:GetValue().." secs");
+						CryolysisConfig.PolyWarnTime = self:GetValue();
 					</OnValueChanged>
 					<OnLeave>
 						GameTooltip:Hide();
@@ -302,7 +285,7 @@
 				</Anchors>
 				<Scripts>
 					<OnClick>
-						if (this:GetChecked()) then
+						if (self:GetChecked()) then
 							CryolysisConfig.ChatType = false;
 						else
 							CryolysisConfig.ChatType = true;
@@ -325,7 +308,7 @@
 				</Anchors>
 				<Scripts>
 					<OnClick>
-						if (this:GetChecked()) then
+						if (self:GetChecked()) then
 							CryolysisConfig.ChatMsg = true;
 						else
 							CryolysisConfig.ChatMsg = false;
@@ -346,7 +329,7 @@
 				</Anchors>
 				<Scripts>
 					<OnClick>
-						if (this:GetChecked()) then
+						if (self:GetChecked()) then
 							CryolysisConfig.PolyMessage = true;
 						else
 							CryolysisConfig.PolyMessage = false;
@@ -367,7 +350,7 @@
 				</Anchors>
 				<Scripts>
 					<OnClick>
-						if (this:GetChecked()) then
+						if (self:GetChecked()) then
 							CryolysisConfig.PortalMessage = true;
 						else
 							CryolysisConfig.PortalMessage = false;
@@ -388,7 +371,7 @@
 				</Anchors>
 				<Scripts>
 					<OnClick>
-						if (this:GetChecked()) then
+						if (self:GetChecked()) then
 							CryolysisConfig.SteedMessage = true;
 						else
 							CryolysisConfig.SteedMessage = false;

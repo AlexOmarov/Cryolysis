@@ -88,18 +88,18 @@
 				</Anchors>
 				<Scripts>
 					<OnEnter>
-						GameTooltip:SetOwner(this, "ANCHOR_RIGHT");
-						GameTooltip:SetText(5-this:GetValue());
+						GameTooltip:SetOwner(self, "ANCHOR_RIGHT");
+						GameTooltip:SetText(5-self:GetValue());
 					</OnEnter>
 					<OnValueChanged>
-						GameTooltip:SetText(5-this:GetValue());
+						GameTooltip:SetText(5-self:GetValue());
 					</OnValueChanged>
 					<OnLeave>
 						GameTooltip:Hide();
 					</OnLeave>
 					<OnMouseUp>
-						GameTooltip:SetText(5-this:GetValue());
-						CryolysisConfig.ProvisionContainer = 4-this:GetValue();
+						GameTooltip:SetText(5-self:GetValue());
+						CryolysisConfig.ProvisionContainer = 4-self:GetValue();
 						Cryolysis_ProvisionSwitch("MOVE");
 					</OnMouseUp>
 				</Scripts>
@@ -117,32 +117,32 @@
 				</Anchors>
 				<Scripts>
 					<OnEnter>
-						GameTooltip:SetOwner(this, "ANCHOR_RIGHT");
-						if this:GetValue() == 1 then
+						GameTooltip:SetOwner(self, "ANCHOR_RIGHT");
+						if self:GetValue() == 1 then
 							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Button.Consume);
-						elseif this:GetValue() == 2 then
+						elseif self:GetValue() == 2 then
 							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Button.Evocation);
-						elseif this:GetValue() == 3 then
+						elseif self:GetValue() == 3 then
 							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Button.Polymorph);
-						elseif this:GetValue() == 4 then
+						elseif self:GetValue() == 4 then
 							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Button.Manastone);
-						elseif this:GetValue() == 5 then
+						elseif self:GetValue() == 5 then
 							GameTooltip:SetText(CRYOLYSIS_SPELL_TABLE[7].Name);
 						end
 					</OnEnter>
 					<OnValueChanged>
-						if this:GetValue() == 1 then
+						if self:GetValue() == 1 then
 							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Button.Consume);
-						elseif this:GetValue() == 2 then
+						elseif self:GetValue() == 2 then
 							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Button.Evocation);
-						elseif this:GetValue() == 3 then
+						elseif self:GetValue() == 3 then
 							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Button.Polymorph);
-						elseif this:GetValue() == 4 then
+						elseif self:GetValue() == 4 then
 							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Button.Manastone);	
-						elseif this:GetValue() == 5 then
+						elseif self:GetValue() == 5 then
 							GameTooltip:SetText(CRYOLYSIS_SPELL_TABLE[7].Name);
 						end
-						CryolysisConfig.Button = this:GetValue();
+						CryolysisConfig.Button = self:GetValue();
 						</OnValueChanged>
 					<OnLeave>
 						GameTooltip:Hide();
@@ -162,48 +162,48 @@
 				</Anchors>
 				<Scripts>
 					<OnEnter>
-						GameTooltip:SetOwner(this, "ANCHOR_RIGHT");
-						if this:GetValue() == 0 then
+						GameTooltip:SetOwner(self, "ANCHOR_RIGHT");
+						if self:GetValue() == 0 then
 							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Count.None);
-						elseif this:GetValue() == 1 then
+						elseif self:GetValue() == 1 then
 							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Count.Provision);
-						elseif this:GetValue() == 2 then
+						elseif self:GetValue() == 2 then
 							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Count.Provision2);
-						elseif this:GetValue() == 3 then
+						elseif self:GetValue() == 3 then
 							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Count.Health);
-						elseif this:GetValue() == 4 then
+						elseif self:GetValue() == 4 then
 							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Count.HealthPercent);
-						elseif this:GetValue() == 5 then
+						elseif self:GetValue() == 5 then
 							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Count.Mana);
-						elseif this:GetValue() == 6 then
+						elseif self:GetValue() == 6 then
 							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Count.ManaPercent);
-						elseif this:GetValue() == 7 then
+						elseif self:GetValue() == 7 then
 							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Count.Manastone);
 						else
 							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Count.Evocation);
 						end
 					</OnEnter>
 					<OnValueChanged>
-						if this:GetValue() == 0 then
+						if self:GetValue() == 0 then
 							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Count.None);
-						elseif this:GetValue() == 1 then
+						elseif self:GetValue() == 1 then
 							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Count.Provision);
-						elseif this:GetValue() == 2 then
+						elseif self:GetValue() == 2 then
 							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Count.Provision2);
-						elseif this:GetValue() == 3 then
+						elseif self:GetValue() == 3 then
 							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Count.Health);
-						elseif this:GetValue() == 4 then
+						elseif self:GetValue() == 4 then
 							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Count.HealthPercent);
-						elseif this:GetValue() == 5 then
+						elseif self:GetValue() == 5 then
 							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Count.Mana);
-						elseif this:GetValue() == 6 then
+						elseif self:GetValue() == 6 then
 							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Count.ManaPercent);
-						elseif this:GetValue() == 7 then
+						elseif self:GetValue() == 7 then
 							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Count.Manastone);
 						else
 							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Count.Evocation);
 						end
-						CryolysisConfig.CountType = this:GetValue();
+						CryolysisConfig.CountType = self:GetValue();
 						</OnValueChanged>
 					<OnLeave>
 						GameTooltip:Hide();
@@ -223,32 +223,32 @@
 				</Anchors>
 				<Scripts>
 					<OnEnter>
-						GameTooltip:SetOwner(this, "ANCHOR_RIGHT");
-						if this:GetValue() == 0 then
+						GameTooltip:SetOwner(self, "ANCHOR_RIGHT");
+						if self:GetValue() == 0 then
 							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Circle.None);
-						elseif this:GetValue() == 1 then
+						elseif self:GetValue() == 1 then
 							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Circle.HP);
-						elseif this:GetValue() == 2 then
+						elseif self:GetValue() == 2 then
 							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Circle.Mana);
-						elseif this:GetValue() == 3 then
+						elseif self:GetValue() == 3 then
 							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Circle.Manastone);
 						else
 							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Circle.Evocation);
 						end
 					</OnEnter>
 					<OnValueChanged>
-						if this:GetValue() == 0 then
+						if self:GetValue() == 0 then
 							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Circle.None);
-						elseif this:GetValue() == 1 then
+						elseif self:GetValue() == 1 then
 							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Circle.HP);
-						elseif this:GetValue() == 2 then
+						elseif self:GetValue() == 2 then
 							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Circle.Mana);
-						elseif this:GetValue() == 3 then
+						elseif self:GetValue() == 3 then
 							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Circle.Manastone);
 						else
 							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Circle.Evocation);
 						end
-						CryolysisConfig.Circle = this:GetValue();
+						CryolysisConfig.Circle = self:GetValue();
 					</OnValueChanged>
 					<OnLeave>
 						GameTooltip:Hide();
@@ -269,13 +269,13 @@
 				</Anchors>
 				<Scripts>
 					<OnEnter>
-						GameTooltip:SetOwner(this, "ANCHOR_RIGHT");
-						GameTooltip:SetText(this:GetValue().."%");
+						GameTooltip:SetOwner(self, "ANCHOR_RIGHT");
+						GameTooltip:SetText(self:GetValue().."%");
 					</OnEnter>
 					<OnValueChanged>
-						if this:GetValue() ~= CryolysisConfig.HPLimit then
-							GameTooltip:SetText(this:GetValue().."%");
-							CryolysisConfig.HPLimit = this:GetValue();
+						if self:GetValue() ~= CryolysisConfig.HPLimit then
+							GameTooltip:SetText(self:GetValue().."%");
+							CryolysisConfig.HPLimit = self:GetValue();
 						end
 					</OnValueChanged>
 					<OnLeave>
@@ -296,13 +296,13 @@
 				</Anchors>
 				<Scripts>	
 					<OnEnter>
-						GameTooltip:SetOwner(this, "ANCHOR_RIGHT");
-						GameTooltip:SetText(this:GetValue().."%");
+						GameTooltip:SetOwner(self, "ANCHOR_RIGHT");
+						GameTooltip:SetText(self:GetValue().."%");
 					</OnEnter>
 					<OnValueChanged>
-						if this:GetValue() ~= CryolysisConfig.MPLimit then
-							GameTooltip:SetText(this:GetValue().."%");
-							CryolysisConfig.MPLimit = this:GetValue();
+						if self:GetValue() ~= CryolysisConfig.MPLimit then
+							GameTooltip:SetText(self:GetValue().."%");
+							CryolysisConfig.MPLimit = self:GetValue();
 						end
 					</OnValueChanged>
 					<OnLeave>
@@ -327,18 +327,18 @@
 				</Anchors>
 				<Scripts>
 					<OnEnter>
-						GameTooltip:SetOwner(this, "ANCHOR_RIGHT");
-						GameTooltip:SetText(this:GetValue());
+						GameTooltip:SetOwner(self, "ANCHOR_RIGHT");
+						GameTooltip:SetText(self:GetValue());
 					</OnEnter>
 					<OnValueChanged>
-						GameTooltip:SetText(this:GetValue());
+						GameTooltip:SetText(self:GetValue());
 					</OnValueChanged>
 					<OnLeave>
 						GameTooltip:Hide();
 					</OnLeave>
 					<OnMouseUp>
-						GameTooltip:SetText(this:GetValue());
-						CryolysisConfig.RestockTeleport = this:GetValue();
+						GameTooltip:SetText(self:GetValue());
+						CryolysisConfig.RestockTeleport = self:GetValue();
 					</OnMouseUp>
 				</Scripts>
 			</Slider>
@@ -355,18 +355,18 @@
 				</Anchors>
 				<Scripts>
 					<OnEnter>
-						GameTooltip:SetOwner(this, "ANCHOR_RIGHT");
-						GameTooltip:SetText(this:GetValue());
+						GameTooltip:SetOwner(self, "ANCHOR_RIGHT");
+						GameTooltip:SetText(self:GetValue());
 					</OnEnter>
 					<OnValueChanged>
-						GameTooltip:SetText(this:GetValue());
+						GameTooltip:SetText(self:GetValue());
 					</OnValueChanged>
 					<OnLeave>
 						GameTooltip:Hide();
 					</OnLeave>
 					<OnMouseUp>
-						GameTooltip:SetText(this:GetValue());
-						CryolysisConfig.RestockPortals = this:GetValue();
+						GameTooltip:SetText(self:GetValue());
+						CryolysisConfig.RestockPortals = self:GetValue();
 					</OnMouseUp>
 				</Scripts>
 			</Slider>
@@ -383,18 +383,18 @@
 				</Anchors>
 				<Scripts>
 					<OnEnter>
-						GameTooltip:SetOwner(this, "ANCHOR_RIGHT");
-						GameTooltip:SetText(this:GetValue());
+						GameTooltip:SetOwner(self, "ANCHOR_RIGHT");
+						GameTooltip:SetText(self:GetValue());
 					</OnEnter>
 					<OnValueChanged>
-						GameTooltip:SetText(this:GetValue());
+						GameTooltip:SetText(self:GetValue());
 					</OnValueChanged>
 					<OnLeave>
 						GameTooltip:Hide();
 					</OnLeave>
 					<OnMouseUp>
-						GameTooltip:SetText(this:GetValue());
-						CryolysisConfig.RestockPowder = this:GetValue();
+						GameTooltip:SetText(self:GetValue());
+						CryolysisConfig.RestockPowder = self:GetValue();
 					</OnMouseUp>
 				</Scripts>
 			</Slider>
@@ -413,7 +413,7 @@
 				</Anchors>
 				<Scripts>
 					<OnClick>
-						if (this:GetChecked()) then
+						if (self:GetChecked()) then
 							CryolysisConfig.ProvisionSort = true;
 						else
 							CryolysisConfig.ProvisionSort = false;
@@ -434,7 +434,7 @@
 				</Anchors>
 				<Scripts>
 					<OnClick>
-						if (this:GetChecked()) then
+						if (self:GetChecked()) then
 							CryolysisConfig.ProvisionDestroy = true;
 						else
 							CryolysisConfig.ProvisionDestroy = false;
@@ -455,7 +455,7 @@
 				</Anchors>
 				<Scripts>
 					<OnClick>
-						if (this:GetChecked()) then
+						if (self:GetChecked()) then
 							CryolysisConfig.Restock = true;
 						else
 							CryolysisConfig.Restock = false;
@@ -476,7 +476,7 @@
 				</Anchors>
 				<Scripts>
 					<OnClick>
-						if (this:GetChecked()) then
+						if (self:GetChecked()) then
 							CryolysisConfig.RestockConfirm = true;
 						else
 							CryolysisConfig.RestockConfirm = false;

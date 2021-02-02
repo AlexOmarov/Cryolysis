@@ -31,7 +31,7 @@ function Cryolysis_Msg(msg, type)
 				-- ...... or in the middle of the screen
 				UIErrorsFrame:AddMessage(Intro..msg, 0.2, 0.9, 0.95, 1.0, UIERRORS_HOLD_TIME);
 			end
-		-- If the type of the message is “WORLD”, the message will be sent in raid, failing this in group, and failing this in local chat
+		-- If the type of the message is “WORLD”, the message will be sent in raid, failing self in group, and failing self in local chat
 		elseif (type == "WORLD") then
 			if (GetNumRaidMembers() > 0) then
 				SendChatMessage(msg, "RAID");
