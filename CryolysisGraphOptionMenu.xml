@@ -272,7 +272,7 @@
 				<Scripts>
 					<OnEnter>
 						GameTooltip:SetOwner(self, "ANCHOR_RIGHT");
-						GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Anchor.Text);
+						GameTooltip:SetText(L["CRYOLYSIS_CONFIGURATION"].Anchor.Text);
 					</OnEnter>
 					<OnValueChanged>
 						GameTooltip:SetText(self:GetValue());
@@ -325,7 +325,7 @@
 				<Scripts>
 					<OnEnter>
 						GameTooltip:SetOwner(self, "ANCHOR_RIGHT");
-						GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Anchor.Text);
+						GameTooltip:SetText(L["CRYOLYSIS_CONFIGURATION"].Anchor.Text);
 					</OnEnter>
 					<OnValueChanged>
 						GameTooltip:SetText(self:GetValue());

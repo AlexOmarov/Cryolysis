@@ -1,165 +1,150 @@
-------------------------------------------------------------------------------------------------------
--- Cryolysis
---
--- Based on Necrosis LdC by Lomig and Nyx (http://necrosis.larmes-cenarius.net)
--- Original Necrosis Idea : Infernal (http://www.revolvus.com/games/interface/necrosis/)
--- Cryolysis Maintainer : Kaeldra of Aegwynn
---
--- Contact : darklyte@gmail.com
--- Send me in-game mail!  Yersinia on Aegwynn, Horde side.
--- Guild: <Working as Intended>
--- Version Date: 07.14.2006
-------------------------------------------------------------------------------------------------------
-
-
-
+------------------------------------------
+-- Russaian localization --
 ------------------------------------------------
--- ENGLISH  VERSION FUNCTIONS --
-------------------------------------------------
+print("CryolysisData.AppName: "..CryolysisData.AppName);
+local L = LibStub("AceLocale-3.0"):NewLocale(CryolysisData.AppName, "ruRU")
+if not L then return end
 --
-if ( GetLocale() == "enUS" ) or ( GetLocale() == "enGB" or ( GetLocale() == "ruRU") ) then
-
-CRYOLYSIS_UNIT_MAGE = "Mage";
+L["Cryolysis"] = "Cryolysis";
+L["CRYOLYSIS_UNIT_MAGE"] = "Mage";
 
 -- Word to search for Fire Vulnerability and Winter's chill  first (.+) is the target, second is the spell
-CRYOLYSIS_DEBUFF_SRCH = "(.+) is afflicted by (.+)."
-CRYOLYSIS_POLY_SRCH = "(.+) fades from (.+)."
+L["CRYOLYSIS_DEBUFF_SRCH"] = "(.+) is afflicted by (.+)."
+L["CRYOLYSIS_POLY_SRCH"]  = "(.+) fades from (.+)."
 
 function Cryolysis_SpellTableBuild()
-	CRYOLYSIS_SPELL_TABLE = {
+	L["CRYOLYSIS_SPELL_TABLE"] = {
 	[1] = {ID = nil, Rank = nil, CastTime = nil, Mana = nil,
-		Name = "Amplify Magic",			Length = 600,	Type = 0},
+		Name = "Усиление магии",			Length = 600,	Type = 0},
 	[2] = {ID = nil, Rank = nil, CastTime = nil, Mana = nil, 
-		Name = "Arcane Brilliance",		Length = 3600,	Type = 0},
+		Name = "Чародейская гениальность",		Length = 3600,	Type = 0},
 	[3] = {ID = nil, Rank = nil, CastTime = nil, Mana = nil, 
-		Name = "Arcane Explosion",		Length = 0,		Type = 0},
+		Name = "Чародейский взрыв",		Length = 0,		Type = 0},
 	[4] = {ID = nil, Rank = nil, CastTime = nil, Mana = nil, 
-		Name = "Arcane Intellect",		Length = 1800,	Type = 0},
+		Name = "Чародейский интеллект",		Length = 1800,	Type = 0},
 	[5] = {ID = nil, Rank = nil, CastTime = nil, Mana = nil, 
-		Name = "Arcane Missiles",		Length = 0,		Type = 0},
+		Name = "Чародейские снаряды",		Length = 0,		Type = 0},
 	[6] = {ID = nil, Rank = nil, CastTime = nil, Mana = nil, 
-		Name = "Blast Wave",			Length = 45,	Type = 3},
+		Name = "Взрывная волна",			Length = 45,	Type = 3},
 	[7] = {ID = nil, Rank = nil, CastTime = nil, Mana = nil, 
-		Name = "Blink",					Length = 15,	Type = 3},
+		Name = "Скачок",					Length = 15,	Type = 3},
 	[8] = {ID = nil, Rank = nil, CastTime = nil, Mana = nil, 
-		Name = "Blizzard",				Length = 0,		Type = 0},
+		Name = "Снежная буря",				Length = 0,		Type = 0},
 	[9] = {ID = nil, Rank = nil, CastTime = nil, Mana = nil, 
-		Name = "Cone of Cold",			Length = 10,	Type = 3},
+		Name = "Конус холода",			Length = 10,	Type = 3},
 	[10] = {ID = nil, Rank = nil, CastTime = nil, Mana = nil, 
-		Name = "Conjure Food",			Length = 0,		Type = 0},
+		Name = "Сотворение пищи",			Length = 0,		Type = 0},
 	[11] = {ID = nil, Rank = nil, CastTime = nil, Mana = nil, 
-		Name = "Conjure Water",			Length = 0,		Type = 0},
+		Name = "Сотворение воды",			Length = 0,		Type = 0},
 	[12] = {ID = nil, Rank = nil, CastTime = nil, Mana = nil, 
-		Name = "Counterspell",			Length = 30,	Type = 3},
+		Name = "Антимагия",			Length = 30,	Type = 3},
 	[13] = {ID = nil, Rank = nil, CastTime = nil, Mana = nil, 
-		Name = "Dampen Magic",			Length = 600,	Type = 0},
+		Name = "Ослабление магии",			Length = 600,	Type = 0},
 	[14] = {ID = nil, Rank = nil, CastTime = nil, Mana = nil, 
-		Name = "Fire Blast",			Length = 8,		Type = 3},
+		Name = "Огненный взрыв",			Length = 8,		Type = 3},
 	[15] = {ID = nil, Rank = nil, CastTime = nil, Mana = nil, 
-		Name = "Fire Ward",				Length = 30,	Type = 3},
+		Name = "Защита от огня",				Length = 30,	Type = 3},
 	[16] = {ID = nil, Rank = nil, CastTime = nil, Mana = nil, 
-		Name = "Fireball",				Length = 8,		Type = 5},
+		Name = "Огненный шар",				Length = 8,		Type = 5},
 	[17] = {ID = nil, Rank = nil, CastTime = nil, Mana = nil, 
-		Name = "Flamestrike",			Length = 8,		Type = 3},
+		Name = "Огненный столб",			Length = 8,		Type = 3},
 	[18] = {ID = nil, Rank = nil, CastTime = nil, Mana = nil, 
-		Name = "Frost Armor",			Length = 300,	Type = 0},
+		Name = "Ледяной доспех",			Length = 300,	Type = 0},
 	[19] = {ID = nil, Rank = nil, CastTime = nil, Mana = nil, 
-		Name = "Frost Nova",			Length = 25,	Type = 3},
+		Name = "Кольцо льда",			Length = 25,	Type = 3},
 	[20] = {ID = nil, Rank = nil, CastTime = nil, Mana = nil, 
-		Name = "Frost Ward",			Length = 30,	Type = 3},
+		Name = "Защита от магии льда",			Length = 30,	Type = 3},
 	[21] = {ID = nil, Rank = nil, CastTime = nil, Mana = nil, 
-		Name = "Frostbolt",				Length = 9,		Type = 5},
+		Name = "Ледяная стрела",				Length = 9,		Type = 5},
 	[22] = {ID = nil, Rank = nil, CastTime = nil, Mana = nil, 
-		Name = "Ice Armor",				Length = 300,	Type = 0},
+		Name = "Морозный доспех",				Length = 300,	Type = 0},
 	[23] = {ID = nil, Rank = nil, CastTime = nil, Mana = nil, 
-		Name = "Ice Barrier",			Length = 30,	Type = 3},
+		Name = "Ледяная преграда",			Length = 30,	Type = 3},
 	[24] = {ID = nil, Rank = nil, CastTime = nil, Mana = nil, 
-		Name = "Mage Armor",			Length = 300,	Type = 0},
+		Name = "Магический доспех",			Length = 300,	Type = 0},
 	[25] = {ID = nil, Rank = nil, CastTime = nil, Mana = nil, 
-		Name = "Mana Shield",			Length = 60,	Type = 0},
+		Name = "Щит маны",			Length = 60,	Type = 0},
 	[26] = {ID = nil, Rank = nil, CastTime = nil, Mana = nil, 
-		Name = "Polymorph",				Length = 50,	Type = 2},
+		Name = "Превращение",				Length = 50,	Type = 2},
 	[27] = {ID = nil, Rank = nil, CastTime = nil, Mana = nil, 
-		Name = "Portal: Darnassus",		Length = 0,		Type = 0},
+		Name = "Портал в Дарнасс",		Length = 0,		Type = 0},
 	[28] = {ID = nil, Rank = nil, CastTime = nil, Mana = nil, 
-		Name = "Portal: Ironforge",		Length = 0,		Type = 0},
+		Name = "Портал в Стальгорн",		Length = 0,		Type = 0},
 	[29] = {ID = nil, Rank = nil, CastTime = nil, Mana = nil, 
-		Name = "Portal: Stormwind",		Length = 0,		Type = 0},
+		Name = "Портал в Штормград",		Length = 0,		Type = 0},
 	[30] = {ID = nil, Rank = nil, CastTime = nil, Mana = nil, 
-		Name = "Portal: Thunder Bluff",	Length = 0,		Type = 0},
+		Name = "Портал в Громовой Утес",	Length = 0,		Type = 0},
 	[31] = {ID = nil, Rank = nil, CastTime = nil, Mana = nil, 
-		Name = "Portal: Undercity",		Length = 0,		Type = 0},
+		Name = "Портал в Подгород",		Length = 0,		Type = 0},
 	[32] = {ID = nil, Rank = nil, CastTime = nil, Mana = nil,
-		Name = "Pyroblast",				Length = 12,	Type = 5},
+		Name = "Огненная глыба",				Length = 12,	Type = 5},
 	[33] = {ID = nil, Rank = nil, CastTime = nil, Mana = nil, 
-		Name = "Remove Lesser Curse",	Length = 0,		Type = 0},
+		Name = "Снятие малого проклятия",	Length = 0,		Type = 0},
 	[34] = {ID = nil, Rank = nil, CastTime = nil, Mana = nil, 
-		Name = "Scorch",			Length = 0,			Type = 0},
+		Name = "Ожог",			Length = 0,			Type = 0},
 	[35] = {ID = nil, Rank = nil, CastTime = nil, Mana = nil, 
-		Name = "Slow Fall",				Length = 30,	Type = 0},
+		Name = "Замедленное падение",				Length = 30,	Type = 0},
 	[36] = {ID = nil, Rank = nil, CastTime = nil, Mana = nil, 
-		Name = "Teleport: Darnassus",	Length = 0,		Type = 0},
+		Name = "Телепортация в Дарнасс",	Length = 0,		Type = 0},
 	[37] = {ID = nil, Rank = nil, CastTime = nil, Mana = nil, 
-		Name = "Teleport: Ironforge",	Length = 0,		Type = 0},
+		Name = "Телепортация в Стальгорн",	Length = 0,		Type = 0},
 	[38] = {ID = nil, Rank = nil, CastTime = nil, Mana = nil, 
-		Name = "Teleport: Orgrimmar",	Length = 0,		Type = 0},
+		Name = "Телепортация в Оргриммар",	Length = 0,		Type = 0},
 	[39] = {ID = nil, Rank = nil, CastTime = nil, Mana = nil, 
-		Name = "Teleport: Thunder Bluff",	Length = 0,	Type = 0},
+		Name = "Телепортация в Громой Утес",	Length = 0,	Type = 0},
 	[40] = {ID = nil, Rank = nil, CastTime = nil, Mana = nil, 
-		Name = "Teleport: Undercity",	Length = 0,		Type = 0},
+		Name = "Телепортация в Подгород",	Length = 0,		Type = 0},
 	[41] = {ID = nil, Rank = nil, CastTime = nil, Mana = nil, 
-		Name = "Ice Block",			Length = 300,		Type = 3},
+		Name = "Ледяная глыба",			Length = 300,		Type = 3},
 	[42] = {ID = nil, Rank = nil, CastTime = nil, Mana = nil, 
-		Name = "Cold Snap",			Length = 600,		Type = 3},
+		Name = "Холодная хватка",			Length = 600,		Type = 3},
 	[43] = {ID = nil, Rank = nil, CastTime = nil, Mana = nil, 
-		Name = "Combustion",			Length = 180,	Type = 3},
+		Name = "Возгорание",			Length = 180,	Type = 3},
 	[44] = {ID = nil, Rank = nil, CastTime = nil, Mana = nil, 
-		Name = "Presence of Mind",		Length = 180,	Type = 3},
+		Name = "Присутствие разума",		Length = 180,	Type = 3},
 	[45] = {ID = nil, Rank = nil, CastTime = nil, Mana = nil, 
-		Name = "Arcane Power",			Length = 180,	Type = 3},
-	[46] = {ID = nil, Rank = nil, CastTime = nil, Mana = nil, 
-		Name = "Teleport: Darnassus",		Length = 0,	Type = 0},
-	[47] = {ID = nil, Rank = nil, CastTime = nil, Mana = nil, 
-		Name = "Portal: Orgrimmar",		Length = 0,		Type = 0},
-	[48] = {ID = nil, Rank = nil, CastTime = nil, Mana = nil, 
-		Name = "Polymorph: Pig",		Length = 50,	Type = 2},
-	[49] = {ID = nil, Rank = nil, CastTime = nil, Mana = nil, 
-		Name = "Evocation",			Length = 480,		Type = 3},
-	[50] = {ID = nil, Rank = nil, CastTime = nil, Mana = nil, 
-		Name = "Detect Magic",			Length = 120,	Type = 5},
-	[51] = {ID = nil, Rank = nil, CastTime = nil, Mana = nil, 
-		Name = "Teleport: Stormwind",		Length = 0,	Type = 0},
+		Name = "Мощь тайной магии",			Length = 180,	Type = 3},
+	[46] = {ID = nil, Rank = nil, CastTime = nil, Mana = nil,
+		Name = "Портал в Оргиммар",		Length = 0,		Type = 0},
+	[47] = {ID = nil, Rank = nil, CastTime = nil, Mana = nil,
+		Name = "Превращение в свинью",		Length = 50,	Type = 2},
+	[48] = {ID = nil, Rank = nil, CastTime = nil, Mana = nil,
+		Name = "Прилив сил",			Length = 480,		Type = 3},
+	[49] = {ID = nil, Rank = nil, CastTime = nil, Mana = nil,
+		Name = "Распознавание магии",			Length = 120,	Type = 5},
+	[50] = {ID = nil, Rank = nil, CastTime = nil, Mana = nil,
+		Name = "Телепорт в Штормград",		Length = 0,	Type = 0},
+	[51] = {ID = nil, Rank = nil, CastTime = nil, Mana = nil,
+		Name = "Превращение в черепаху",		Length = 50,	Type = 2},
 	[52] = {ID = nil, Rank = nil, CastTime = nil, Mana = nil,
-		Name = "Polymorph: Turtle",		Length = 50,	Type = 2},
+		Name = "Обморожение",				Length = 5,		Type = 6},
 	[53] = {ID = nil, Rank = nil, CastTime = nil, Mana = nil,
-		Name = "Frostbite",				Length = 5,		Type = 6},
+		Name = "Зимняя стужа",		Length = 15,	Type = 6},
 	[54] = {ID = nil, Rank = nil, CastTime = nil, Mana = nil,
-		Name = "Winter's Chill",		Length = 15,	Type = 6},
+		Name = "Зимняя стужа (2)",	Length = 15,	Type = 6},
 	[55] = {ID = nil, Rank = nil, CastTime = nil, Mana = nil,
-		Name = "Winter's Chill (2)",	Length = 15,	Type = 6},
+		Name = "Зимняя стужа (3)",	Length = 15,	Type = 6},
 	[56] = {ID = nil, Rank = nil, CastTime = nil, Mana = nil,
-		Name = "Winter's Chill (3)",	Length = 15,	Type = 6},
+		Name = "Зимняя стужа (4)",	Length = 15,	Type = 6},
 	[57] = {ID = nil, Rank = nil, CastTime = nil, Mana = nil,
-		Name = "Winter's Chill (4)",	Length = 15,	Type = 6},
+		Name = "Зимняя стужа (5)",	Length = 15,	Type = 6},
 	[58] = {ID = nil, Rank = nil, CastTime = nil, Mana = nil,
-		Name = "Winter's Chill (5)",	Length = 15,	Type = 6},
-	[59] = {ID = nil, Rank = nil, CastTime = nil, Mana = nil,
-		Name = "Fire Vulnerability",	Length = 30,	Type = 6},
-    [60] = {ID = nil, Rank = nil, CastTime = nil, Mana = nil,
-		Name = "Fire Vulnerability (2)",Length = 30,	Type = 6},
+		Name = "Улучшенный ожог",	Length = 30,	Type = 6},
+    [59] = {ID = nil, Rank = nil, CastTime = nil, Mana = nil,
+		Name = "Улучшенный ожог (2)",Length = 30,	Type = 6},
+	[60] = {ID = nil, Rank = nil, CastTime = nil, Mana = nil,
+		Name = "Улучшенный ожог (3)",Length = 30,	Type = 6},
 	[61] = {ID = nil, Rank = nil, CastTime = nil, Mana = nil,
-		Name = "Fire Vulnerability (3)",Length = 30,	Type = 6},
+		Name = "Улучшенный ожог (4)",Length = 30,	Type = 6},
 	[62] = {ID = nil, Rank = nil, CastTime = nil, Mana = nil,
-		Name = "Fire Vulnerability (4)",Length = 30,	Type = 6},
+		Name = "Улучшенный ожогy (5)",Length = 30,	Type = 6},
 	[63] = {ID = nil, Rank = nil, CastTime = nil, Mana = nil,
-		Name = "Fire Vulnerability (5)",Length = 30,	Type = 6},
+		Name = "Самоцвет маны",				Length = 120,	Type = 3},
 	[64] = {ID = nil, Rank = nil, CastTime = nil, Mana = nil,
-		Name = "Mana Gem",				Length = 120,	Type = 3},
+		Name = "Заморозка",				Length = 5,		Type = 6},
 	[65] = {ID = nil, Rank = nil, CastTime = nil, Mana = nil,
-		Name = "Freeze",				Length = 5,		Type = 6},
+		Name = "Кольцо льда",			Length = 8,		Type = 6},
 	[66] = {ID = nil, Rank = nil, CastTime = nil, Mana = nil,
-		Name = "Frost nova",			Length = 8,		Type = 6},
-	[67] = {ID = nil, Rank = nil, CastTime = nil, Mana = nil,
 		Name = "Poly Diminished",		Length = 15,	Type = 6},
 	};
 end
@@ -171,19 +156,19 @@ Cryolysis_SpellTableBuild();
 -- Type 4 = Debuff Timer
 -- Type 5 = Combat Timer
 -- Type 6 = Non-cast debuff.  Not to be removed by normal means
-CRYOLYSIS_ITEM = {
-	["LightFeather"] = "Light Feather",
-	["ArcanePowder"] = "Arcane Powder",
-	["RuneOfTeleportation"] = "Rune of Teleportation",
-	["RuneOfPortals"] = "Rune of Portals",
-	["Manastone"] = "Mana",
-	["Hearthstone"] = "Hearthstone",
+L["CRYOLYSIS_ITEM"] = {
+	["LightFeather"] = "Легкое перышко",
+	["ArcanePowder"] = "Порошок чар",
+	["RuneOfTeleportation"] = "Руна телепортации",
+	["RuneOfPortals"] = "Руна порталов",
+	["Manastone"] = "Мана",
+	["Hearthstone"] = "Камень возвращения",
 	["Provision"] = "Conjured",
 	["Evocation"] = "Evocation",
 	["Drink"] = "Drink",
-	["Food"] = "Food",
+	["Food"] = "Еда",
 };
-CRYOLYSIS_FOOD_RANK = {
+L["CRYOLYSIS_FOOD_RANK"] = {
 	[1] = " Muffin",
 	[2] = " Bread",
 	[3] = " Rye",
@@ -192,44 +177,40 @@ CRYOLYSIS_FOOD_RANK = {
 	[6] = " Sweet Roll", 
 	[7] = " Cinnamon Roll",
 };
-CRYOLYSIS_DRINK_RANK = {
-	[1] = " Water",
-	[2] = " Fresh Water",
+L["CRYOLYSIS_DRINK_RANK"] = {
+	[1] = " Сотворенная вода",
+	[2] = " Сотворенная свежая вода",
 	[3] = " Purified Water",
-	[4] = " Spring Water",
-	[5] = " Mineral Water",
-	[6] = " Sparkling Water",
-	[7] = " Crystal Water",
+	[4] = " Сотворенная ключевая вода",
+	[5] = " Сотворенная минеральная вода",
+	[6] = " Сотворенная шипучка",
+	[7] = " Сотворенная талая вода",
 };
-CRYOLYSIS_STONE_RANK = {
-	[1] = " Agate",		-- Rank Minor
-	[2] = " Jade",		-- Rank Lesser
-	[3] = " Citrine",	-- Rank Greater
-	[4] = " Ruby"		-- Rank Major
+L["CRYOLYSIS_STONE_RANK"] = {
+	[1] = " Агат",		-- Rank Minor
+	[2] = " Нефрит",		-- Rank Lesser
+	[3] = " Цитрин",	-- Rank Greater
+	[4] = " Рубин"		-- Rank Major
 };
-CRYOLYSIS_STONE_RANK2 = {
-	[1] = "Agate",		-- Rank Minor
-	[2] = "Jade",		-- Rank Lesser
-	[3] = "Citrine",	-- Rank Greater
-	[4] = "Ruby"		-- Rank Major
+L["CRYOLYSIS_STONE_RANK2"] = {
+	[1] = "Агат",		-- Rank Minor
+	[2] = "Нефрит",		-- Rank Lesser
+	[3] = "Цитрин",	-- Rank Greater
+	[4] = "Рубин"		-- Rank Major
 };
-
-CRYOLYSIS_MANASTONE_NAMES = {
-	[1] = "Conjure Mana Agate",
-	[2] = "Conjure Mana Jade",
-	[3] = "Conjure Mana Citrine",
-	[4] = "Conjure Mana Ruby"
+L["CRYOLYSIS_MANASTONE_NAMES"] = {
+	[1] = "Сотворение агата маны",
+	[2] = "Сотворение нефрита маны",
+	[3] = "Сотворение цитрина маны",
+	[4] = "Сотворение рубина маны"
 };
-	
-
-CRYOLYSIS_CREATE = {
+L["CRYOLYSIS_CREATE"] = {
 	[1] = "Evocation",
 	[2] = "Conjure Mana",
-	[3] = "Conjure Drink",
-	[4] = "Conjure Food"
+	[3] = "Сотворение воды",
+	[4] = "Сотворение пищи"
 };
-
-CRYOLYSIS_MOUNT_TABLE = {
+L["CRYOLYSIS_MOUNT_TABLE"] = {
 	-- [1] Frostwolf Howler Icon
 	{ "Horn of the Frostwolf Howler" }, 
 	-- [2] Ram Icon
@@ -265,29 +246,28 @@ CRYOLYSIS_MOUNT_TABLE = {
 	-- [17] Black Qiraji Resonating Crystal
 	{ "Black Qiraji Resonating Crystal" },
 }
-CRYOLYSIS_MOUNT_PREFIX = {
+L["CRYOLYSIS_MOUNT_PREFIX"] = {
 	"Horn of the ",
 	"Whistle of the ",
 	"Reins of the ",	
 }
-CRYOLYSIS_AQMOUNT_TABLE = {
+L["CRYOLYSIS_AQMOUNT_TABLE"] = {
 	"Blue Qiraji Resonating Crystal",
  	"Green Qiraji Resonating Crystal",
  	"Red Qiraji Resonating Crystal",
 	"Yellow Qiraji Resonating Crystal",
 }
-CRYOLYSIS_AQMOUNT_NAME = {
+L["CRYOLYSIS_AQMOUNT_NAME"]  = {
 	"Summon Black Qiraji Tank",
 	"Summon Blue Qiraji Tank",
  	"Summon Green Qiraji Tank",
  	"Summon Red Qiraji Tank",
 	"Summon Yellow Qiraji Tank",
 }
-
-CRYOLYSIS_TRANSLATION = {
-	["Cooldown"] = "Cooldown",
-	["Hearth"] = "Hearthstone",
-	["Rank"] = "Rank",
+L["CRYOLYSIS_TRANSLATION"] = {
+	["Cooldown"] = "Перезадярка",
+	["Hearth"] = "Камень возвращения",
+	["Rank"] = "Уровень",
 	["Invisible"] = "Detect Invisibility",
 	["LesserInvisible"] = "Detect Lesser Invisibility",
 	["GreaterInvisible"] = "Detect Greater Invisibility",
@@ -295,4 +275,3 @@ CRYOLYSIS_TRANSLATION = {
 	["SacrificeGain"] = "You gain Sacrifice.",
 	["SummoningRitual"] = "Ritual of Summoning"
 };
-end

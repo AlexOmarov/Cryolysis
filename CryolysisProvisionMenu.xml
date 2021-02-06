@@ -119,28 +119,28 @@
 					<OnEnter>
 						GameTooltip:SetOwner(self, "ANCHOR_RIGHT");
 						if self:GetValue() == 1 then
-							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Button.Consume);
+							GameTooltip:SetText(L["CRYOLYSIS_CONFIGURATION"].Button.Consume);
 						elseif self:GetValue() == 2 then
-							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Button.Evocation);
+							GameTooltip:SetText(L["CRYOLYSIS_CONFIGURATION"].Button.Evocation);
 						elseif self:GetValue() == 3 then
-							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Button.Polymorph);
+							GameTooltip:SetText(L["CRYOLYSIS_CONFIGURATION"].Button.Polymorph);
 						elseif self:GetValue() == 4 then
-							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Button.Manastone);
+							GameTooltip:SetText(L["CRYOLYSIS_CONFIGURATION"].Button.Manastone);
 						elseif self:GetValue() == 5 then
-							GameTooltip:SetText(CRYOLYSIS_SPELL_TABLE[7].Name);
+							GameTooltip:SetText(L["CRYOLYSIS_SPELL_TABLE"][7].Name);
 						end
 					</OnEnter>
 					<OnValueChanged>
 						if self:GetValue() == 1 then
-							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Button.Consume);
+							GameTooltip:SetText(L["CRYOLYSIS_CONFIGURATION"].Button.Consume);
 						elseif self:GetValue() == 2 then
-							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Button.Evocation);
+							GameTooltip:SetText(L["CRYOLYSIS_CONFIGURATION"].Button.Evocation);
 						elseif self:GetValue() == 3 then
-							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Button.Polymorph);
+							GameTooltip:SetText(L["CRYOLYSIS_CONFIGURATION"].Button.Polymorph);
 						elseif self:GetValue() == 4 then
-							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Button.Manastone);	
+							GameTooltip:SetText(L["CRYOLYSIS_CONFIGURATION"].Button.Manastone);
 						elseif self:GetValue() == 5 then
-							GameTooltip:SetText(CRYOLYSIS_SPELL_TABLE[7].Name);
+							GameTooltip:SetText(L["CRYOLYSIS_SPELL_TABLE"][7].Name);
 						end
 						CryolysisConfig.Button = self:GetValue();
 						</OnValueChanged>
@@ -164,44 +164,44 @@
 					<OnEnter>
 						GameTooltip:SetOwner(self, "ANCHOR_RIGHT");
 						if self:GetValue() == 0 then
-							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Count.None);
+							GameTooltip:SetText(L["CRYOLYSIS_CONFIGURATION"].Count.None);
 						elseif self:GetValue() == 1 then
-							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Count.Provision);
+							GameTooltip:SetText(L["CRYOLYSIS_CONFIGURATION"].Count.Provision);
 						elseif self:GetValue() == 2 then
-							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Count.Provision2);
+							GameTooltip:SetText(L["CRYOLYSIS_CONFIGURATION"].Count.Provision2);
 						elseif self:GetValue() == 3 then
-							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Count.Health);
+							GameTooltip:SetText(L["CRYOLYSIS_CONFIGURATION"].Count.Health);
 						elseif self:GetValue() == 4 then
-							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Count.HealthPercent);
+							GameTooltip:SetText(L["CRYOLYSIS_CONFIGURATION"].Count.HealthPercent);
 						elseif self:GetValue() == 5 then
-							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Count.Mana);
+							GameTooltip:SetText(L["CRYOLYSIS_CONFIGURATION"].Count.Mana);
 						elseif self:GetValue() == 6 then
-							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Count.ManaPercent);
+							GameTooltip:SetText(L["CRYOLYSIS_CONFIGURATION"].Count.ManaPercent);
 						elseif self:GetValue() == 7 then
-							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Count.Manastone);
+							GameTooltip:SetText(L["CRYOLYSIS_CONFIGURATION"].Count.Manastone);
 						else
-							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Count.Evocation);
+							GameTooltip:SetText(L["CRYOLYSIS_CONFIGURATION"].Count.Evocation);
 						end
 					</OnEnter>
 					<OnValueChanged>
 						if self:GetValue() == 0 then
-							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Count.None);
+							GameTooltip:SetText(L["CRYOLYSIS_CONFIGURATION"].Count.None);
 						elseif self:GetValue() == 1 then
-							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Count.Provision);
+							GameTooltip:SetText(L["CRYOLYSIS_CONFIGURATION"].Count.Provision);
 						elseif self:GetValue() == 2 then
-							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Count.Provision2);
+							GameTooltip:SetText(L["CRYOLYSIS_CONFIGURATION"].Count.Provision2);
 						elseif self:GetValue() == 3 then
-							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Count.Health);
+							GameTooltip:SetText(L["CRYOLYSIS_CONFIGURATION"].Count.Health);
 						elseif self:GetValue() == 4 then
-							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Count.HealthPercent);
+							GameTooltip:SetText(L["CRYOLYSIS_CONFIGURATION"].Count.HealthPercent);
 						elseif self:GetValue() == 5 then
-							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Count.Mana);
+							GameTooltip:SetText(L["CRYOLYSIS_CONFIGURATION"].Count.Mana);
 						elseif self:GetValue() == 6 then
-							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Count.ManaPercent);
+							GameTooltip:SetText(L["CRYOLYSIS_CONFIGURATION"].Count.ManaPercent);
 						elseif self:GetValue() == 7 then
-							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Count.Manastone);
+							GameTooltip:SetText(L["CRYOLYSIS_CONFIGURATION"].Count.Manastone);
 						else
-							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Count.Evocation);
+							GameTooltip:SetText(L["CRYOLYSIS_CONFIGURATION"].Count.Evocation);
 						end
 						CryolysisConfig.CountType = self:GetValue();
 						</OnValueChanged>
@@ -225,28 +225,28 @@
 					<OnEnter>
 						GameTooltip:SetOwner(self, "ANCHOR_RIGHT");
 						if self:GetValue() == 0 then
-							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Circle.None);
+							GameTooltip:SetText(L["CRYOLYSIS_CONFIGURATION"].Circle.None);
 						elseif self:GetValue() == 1 then
-							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Circle.HP);
+							GameTooltip:SetText(L["CRYOLYSIS_CONFIGURATION"].Circle.HP);
 						elseif self:GetValue() == 2 then
-							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Circle.Mana);
+							GameTooltip:SetText(L["CRYOLYSIS_CONFIGURATION"].Circle.Mana);
 						elseif self:GetValue() == 3 then
-							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Circle.Manastone);
+							GameTooltip:SetText(L["CRYOLYSIS_CONFIGURATION"].Circle.Manastone);
 						else
-							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Circle.Evocation);
+							GameTooltip:SetText(L["CRYOLYSIS_CONFIGURATION"].Circle.Evocation);
 						end
 					</OnEnter>
 					<OnValueChanged>
 						if self:GetValue() == 0 then
-							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Circle.None);
+							GameTooltip:SetText(L["CRYOLYSIS_CONFIGURATION"].Circle.None);
 						elseif self:GetValue() == 1 then
-							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Circle.HP);
+							GameTooltip:SetText(L["CRYOLYSIS_CONFIGURATION"].Circle.HP);
 						elseif self:GetValue() == 2 then
-							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Circle.Mana);
+							GameTooltip:SetText(L["CRYOLYSIS_CONFIGURATION"].Circle.Mana);
 						elseif self:GetValue() == 3 then
-							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Circle.Manastone);
+							GameTooltip:SetText(L["CRYOLYSIS_CONFIGURATION"].Circle.Manastone);
 						else
-							GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Circle.Evocation);
+							GameTooltip:SetText(L["CRYOLYSIS_CONFIGURATION"].Circle.Evocation);
 						end
 						CryolysisConfig.Circle = self:GetValue();
 					</OnValueChanged>

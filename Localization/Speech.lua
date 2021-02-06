@@ -1,10 +1,12 @@
 -------------------------------------
 --  ENGLISH VERSION --
 -------------------------------------
+local L = LibStub("AceLocale-3.0"):GetLocale(CryolysisData.AppName,true)
+if not L then return end
 
 function Cryolysis_Localization_Speech_En()
 
-	CRYOLYSIS_TELEPORT_MESSAGE = {
+	L["CRYOLYSIS_TELEPORT_MESSAGE"] = {
 		[1] = "I'm heading straight to <portal>! You can't stop the signal!",
 		[2] = "Err...something's come up. I've got to be in <portal> like, NOW for another freaking meeting. Stupid 'Mage Meeting' and all that crap.",
 		[3] = "Oh look! What's over there! *VANISH* Where'd I go? Buah hahaha. Actually, just look in <portal>, I'll probably be at the repair shop.",
@@ -15,7 +17,7 @@ function Cryolysis_Localization_Speech_En()
 		[8] = "10 silver to get to <portal>?!  Well, it's better than waiting an hour",
 		[9] = "I can think of two places I'd rather be than here.  Sadly, the most convenient one is <portal>",
 	};
-	CRYOLYSIS_PORTAL_MESSAGE = {
+	L["CRYOLYSIS_PORTAL_MESSAGE"] = {
 		[1] = "Step right up! Fly the friendly skies of <player>'s Air Service, now departing for <portal>.",
 		[2] = "No promises that you'll actually get to <portal> by clicking self. Seriously.",
 		[3] = "Chortle chortle, it's a portal!",
@@ -30,7 +32,7 @@ function Cryolysis_Localization_Speech_En()
 		[12] = "Whatever you do, DON'T TOUCH THE PORTAL",
 		[13] = "Gateway to hell? Coming right up!",
 	};
-	CRYOLYSIS_POLY_MESSAGE = {
+	L["CRYOLYSIS_POLY_MESSAGE"] = {
 		["Sheep"] = {
 			[1] = "<target> has been baaaaaaaaad!",
 			[2] = "I'm little bopeep! Don't touch the sheep!",
@@ -84,12 +86,12 @@ function Cryolysis_Localization_Speech_En()
 			[5] = "<target> is a hero on the half-shell!",
 		},
 	};
-	CRYOLYSIS_STEED_MESSAGE = {
+	L["CRYOLYSIS_STEED_MESSAGE"] = {
 		[1] = "If it wasn't for my <mount>, I wouldn't have spent that year in college.",
 		[2] = "The directions said to just add water and... WHOA a <mount>!",
 		[3] = "My <mount> ate all my conjured food again!  Better make more...",
 	};
-	CRYOLYSIS_FREEZE_MESSAGE = {
+	L["CRYOLYSIS_FREEZE_MESSAGE"] = {
 		[1] = "I enjoy my <target>s on the rocks",
 		[2] = "Looks like <target> needs to get a sweater!",
 		[3] = "<3 Freezing Band",
@@ -101,7 +103,7 @@ function Cryolysis_Localization_Speech_En()
 		[9] = "Iceberg! Dead ahead!",
 		[10] = "I don't know how we're gonna get <target> thawed!",
 	};
-	CRYOLYSIS_SHORT_MESSAGES = {
+	L["CRYOLYSIS_SHORT_MESSAGES"] = {
 		[1] = "--> Opening a portal to <portal> <--",
 		[2] = "Polymorph ==> <target>",
 	};

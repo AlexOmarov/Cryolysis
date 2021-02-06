@@ -1,33 +1,17 @@
-------------------------------------------------------------------------------------------------------
--- Cryolysis
---
--- Based on Necrosis LdC by Lomig and Nyx (http://necrosis.larmes-cenarius.net)
--- Original Necrosis Idea : Infernal (http://www.revolvus.com/games/interface/necrosis/)
--- Cryolysis Maintainer : Kaeldra of Aegwynn
---
--- Contact : darklyte@gmail.com
--- Send me in-game mail!  Yersinia on Aegwynn, Horde side.
--- Guild: <Working as Intended>
--- Version Date: 07.14.2006
-------------------------------------------------------------------------------------------------------
-
-
-------------------------------------------------
--- ENGLISH  VERSION TEXTS --
-------------------------------------------------
+local L = LibStub("AceLocale-3.0"):GetLocale(CryolysisData.AppName,true)
+if not L then return end
 
 function Cryolysis_Localization_Dialog_En()
-
 	function CryolysisLocalization()
 		Cryolysis_Localization_Speech_En();
 	end
 
-	CRYOLYSIS_COOLDOWN = {
+	L["CRYOLYSIS_COOLDOWN"] = {
 		["Evocation"] = "Evocation Cooldown",
 		["Manastone"] = "Mana Gem Cooldown"
 	};
 
-	CryolysisTooltipData = {
+	L["CryolysisTooltipData"] = {
 		["Main"] = {
 			Label = "|c00FFFFFFCryolysis|r",
 			Stone = {
@@ -104,10 +88,10 @@ function Cryolysis_Localization_Dialog_En()
 			Label = "|c00FFFFFFCold Snap|r"
 		},
 		["IceBarrier"] = {
-			Label = "|c00FFFFFF"..CRYOLYSIS_SPELL_TABLE[23].Name.."|r"
+			Label = "|c00FFFFFF"..L["CRYOLYSIS_SPELL_TABLE"][23].Name.."|r"
 		},
 		["ManaShield"] = {
-			Label = "|c00FFFFFF"..CRYOLYSIS_SPELL_TABLE[25].Name.."|r"
+			Label = "|c00FFFFFF"..L["CRYOLYSIS_SPELL_TABLE"][25].Name.."|r"
 		},
 		["DetectMagic"] = {
 			Label = "|c00FFFFFFDetect Magic|r"
@@ -178,7 +162,7 @@ function Cryolysis_Localization_Dialog_En()
 	};
 
 
-	CRYOLYSIS_SOUND = {
+	L["CRYOLYSIS_SOUND"]  = {
 		["SheepWarn"] = "Interface\\AddOns\\Cryolysis\\sounds\\Sheep01.mp3",
 		["SheepBreak"] = "Interface\\AddOns\\Cryolysis\\sounds\\Sheep02.mp3",
 		["PigWarn"] = "Interface\\AddOns\\Cryolysis\\sounds\\Pig01.mp3",
@@ -192,7 +176,7 @@ function Cryolysis_Localization_Dialog_En()
 --	};
 
 
-	CRYOLYSIS_MESSAGE = {
+	L["CRYOLYSIS_MESSAGE"]  = {
 		["Error"] = {
 			["RuneOfTeleportationNotPresent"] = "You need a Rune of Teleportation to do that!",
 			["RuneOfPortals"] = "You need a Rune of Portals to do that !",
@@ -252,7 +236,7 @@ function Cryolysis_Localization_Dialog_En()
 
 	-- Gestion XML - Menu de configuration
 
-	CRYOLYSIS_COLOR_TOOLTIP = {
+	L["CRYOLYSIS_COLOR_TOOLTIP"] = {
 		["Purple"] = "Purple",
 		["Blue"] = "Blue",
 		["Pink"] = "Pink",
@@ -260,8 +244,8 @@ function Cryolysis_Localization_Dialog_En()
 		["Turquoise"] = "Turquoise",
 		["X"] = "X"
 	};
-	
-	CRYOLYSIS_CONFIGURATION = {
+
+	L["CRYOLYSIS_CONFIGURATION"] = {
 		["Menu1"] = "Inventory Settings",
 		["Menu2"] = "Message Settings",
 		["Menu3"] = "Button Settings",
@@ -371,14 +355,14 @@ function Cryolysis_Localization_Dialog_En()
 			["Below"] = "Below"
 		},
 		["SpellButton"] = {	
-			["Armor"] = CRYOLYSIS_SPELL_TABLE[22].Name.."/"..CRYOLYSIS_SPELL_TABLE[24].Name, -- "Ice Armor / Mage Armor"
-			["ArcaneInt"] = CRYOLYSIS_SPELL_TABLE[4].Name.."/"..CRYOLYSIS_SPELL_TABLE[2].Name, --"Arcane Int / Arcane Brilliance",
-			["DampenMagic"] = CRYOLYSIS_SPELL_TABLE[13].Name.."/"..CRYOLYSIS_SPELL_TABLE[1].Name, -- "Dampen Magic / Amplify Magic",
-			["IceBarrier"] = CRYOLYSIS_SPELL_TABLE[23].Name.."/"..CRYOLYSIS_SPELL_TABLE[25].Name, -- "Ice Barrier / Mana Shield",
-			["FireWard"] = CRYOLYSIS_SPELL_TABLE[15].Name.."/"..CRYOLYSIS_SPELL_TABLE[20].Name, -- "Fire Ward / Frost Ward",
-			["DetectMagic"] = CRYOLYSIS_SPELL_TABLE[50].Name, -- "Detect Magic"
-			["RemoveCurse"] = CRYOLYSIS_SPELL_TABLE[33].Name, -- Remove Lesser curse
-			["SlowFall"] = CRYOLYSIS_SPELL_TABLE[35].Name, -- Slow Fall
+			["Armor"] = L["CRYOLYSIS_SPELL_TABLE"][22].Name.."/"..L["CRYOLYSIS_SPELL_TABLE"][24].Name, -- "Ice Armor / Mage Armor"
+			["ArcaneInt"] = L["CRYOLYSIS_SPELL_TABLE"][4].Name.."/"..L["CRYOLYSIS_SPELL_TABLE"][2].Name, --"Arcane Int / Arcane Brilliance",
+			["DampenMagic"] = L["CRYOLYSIS_SPELL_TABLE"][13].Name.."/"..L["CRYOLYSIS_SPELL_TABLE"][1].Name, -- "Dampen Magic / Amplify Magic",
+			["IceBarrier"] = L["CRYOLYSIS_SPELL_TABLE"][23].Name.."/"..L["CRYOLYSIS_SPELL_TABLE"][25].Name, -- "Ice Barrier / Mana Shield",
+			["FireWard"] = L["CRYOLYSIS_SPELL_TABLE"][15].Name.."/"..L["CRYOLYSIS_SPELL_TABLE"][20].Name, -- "Fire Ward / Frost Ward",
+			["DetectMagic"] = L["CRYOLYSIS_SPELL_TABLE"][50].Name, -- "Detect Magic"
+			["RemoveCurse"] = L["CRYOLYSIS_SPELL_TABLE"][33].Name, -- Remove Lesser curse
+			["SlowFall"] = L["CRYOLYSIS_SPELL_TABLE"][35].Name, -- Slow Fall
 		},		
 	};
 end                                                         

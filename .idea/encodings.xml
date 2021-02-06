@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/Localization/attrs.lua" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/libs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/libs/AceLocale-3.0" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/libs/LibStub" charset="UTF-8" />
     <file url="PROJECT" charset="windows-1251" />
   </component>
 </project>

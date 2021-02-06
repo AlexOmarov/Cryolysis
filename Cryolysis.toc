@@ -1,11 +1,24 @@
-## Interface: 11360
-## Title: Cryolysis
-## Notes: Management of Mage spells, abilities, and reagents
-## OptionalDeps:
-## Dependencies:
-## DefaultState:
-## SavedVariables:
+## Interface: 11306
+## Title: Cryolysis 2.0
+## Title-ruRU: Cryolysis (Русский)
+## Notes: Mage UI & Utility management
+## Notes-ruRU: Менеджер заклинаний vfuf.
+## Version: 2.0
+## DefaultState: Enabled
+## X-Original-Author: Lomig
+## X-Localizations: ruRU
+## X-Category: Mage
+## LoadOnDemand: 0
 ## SavedVariablesPerCharacter: CryolysisConfig
+libs\LibStub\LibStub.lua
+libs\AceLocale-3.0\AceLocale-3.0.xml
+
+
+Localization.lua
+Localization\localization_ruRU.lua
+Localization\dialog_ruRU.lua
+Localization\Speech.lua
+
 CryolysisGeneral.xml
 Cryolysis.xml
 CryolysisTimer.xml

@@ -1,17 +1,17 @@
 ------------------------------------------------------------------------------------------------------
 -- FONCTIONS D'INSERTION
 ------------------------------------------------------------------------------------------------------
-
+local L = LibStub("AceLocale-3.0"):GetLocale(CryolysisData.AppName, true)
 -- La table des timers est là pour ça !
 function Cryolysis_InsertTimerParTable(IndexTable, Target, LevelTarget, SpellGroup, SpellTimer, TimerTable)
 
 	-- Insertion de l'entrée dans le tableau
 	table.insert(SpellTimer,
 		{
-			Name = CRYOLYSIS_SPELL_TABLE[IndexTable].Name,
-			Time = CRYOLYSIS_SPELL_TABLE[IndexTable].Length,
-			TimeMax = floor(GetTime() + CRYOLYSIS_SPELL_TABLE[IndexTable].Length),
-			Type = CRYOLYSIS_SPELL_TABLE[IndexTable].Type,
+			Name = L["CRYOLYSIS_SPELL_TABLE"][IndexTable].Name,
+			Time = L["CRYOLYSIS_SPELL_TABLE"][IndexTable].Length,
+			TimeMax = floor(GetTime() + L["CRYOLYSIS_SPELL_TABLE"][IndexTable].Length),
+			Type = L["CRYOLYSIS_SPELL_TABLE"][IndexTable].Type,
 			Target = Target,
 			TargetLevel = LevelTarget,
 			Group = 0,
@@ -69,10 +69,10 @@ function Cryolysis_InsertTimerStone(Stone, start, duration, SpellGroup, SpellTim
 	elseif Stone == "Soulstone" then
 		table.insert(SpellTimer,
 			{
-				Name = CRYOLYSIS_SPELL_TABLE[11].Name,
+				Name = L["CRYOLYSIS_SPELL_TABLE"][11].Name,
 				Time = floor(duration - GetTime() + start),
 				TimeMax = floor(start + duration),
-				Type = CRYOLYSIS_SPELL_TABLE[11].Type,
+				Type = L["CRYOLYSIS_SPELL_TABLE"][11].Type,
 				Target = "???",
 				TargetLevel = "",
 				Group = 1,
@@ -261,7 +261,7 @@ function Cryolysis_DisplayTimer(display, index, SpellGroup, SpellTimer, Graphica
 	end
 
 	-- Mise en place d'un Chrono plutôt qu'un Compte à Rebours pour l'asservissement
-	if SpellTimer[index].Name == CRYOLYSIS_SPELL_TABLE[10].Name then
+	if SpellTimer[index].Name == L["CRYOLYSIS_SPELL_TABLE"][10].Name then
 		seconds = floor(GetTime()) - (SpellTimer[index].TimeMax - SpellTimer[index].Time);
 	else
 		seconds = SpellTimer[index].TimeMax - floor(GetTime());
@@ -285,7 +285,7 @@ function Cryolysis_DisplayTimer(display, index, SpellGroup, SpellTimer, Graphica
 	display = display.."<white>"..affichage.." - <close>";
 
 	-- Crée le tableau qui servira aux timers graphiques
-	if (SpellTimer[index].Type == 1 or SpellTimer[index].Name == CRYOLYSIS_SPELL_TABLE[26].Name)
+	if (SpellTimer[index].Type == 1 or SpellTimer[index].Name == L["CRYOLYSIS_SPELL_TABLE"][26].Name)
 	and (SpellTimer[index].Target ~= "") then
 		if CryolysisConfig.SpellTimerPos == 1 then
 			affichage = affichage.." - "..SpellTimer[index].Target;
@@ -301,7 +301,7 @@ function Cryolysis_DisplayTimer(display, index, SpellGroup, SpellTimer, Graphica
 	table.insert(GraphicalTimer.Gtimer, SpellTimer[index].Gtimer);
 	
 	display = display..color..SpellTimer[index].Name.."<close><white>";
-	if (SpellTimer[index].Type == 1 or SpellTimer[index].Name == CRYOLYSIS_SPELL_TABLE[26].Name)
+	if (SpellTimer[index].Type == 1 or SpellTimer[index].Name == L["CRYOLYSIS_SPELL_TABLE"][26].Name)
 		and (SpellTimer[index].Target ~= "")
 		then
 		display = display.." -SPEE "..SpellTimer[index].Target.."<close>\n";

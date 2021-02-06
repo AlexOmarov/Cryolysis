@@ -146,7 +146,7 @@
 				<Scripts>
 					<OnEnter>
 						GameTooltip:SetOwner(self, "ANCHOR_RIGHT");
-						GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Menu1);
+						GameTooltip:SetText(L["CRYOLYSIS_CONFIGURATION"].Menu1);
 					</OnEnter>
 					<OnLeave>
 						GameTooltip:Hide();
@@ -169,7 +169,7 @@
 				<Scripts>
 					<OnEnter>
 						GameTooltip:SetOwner(self, "ANCHOR_RIGHT");
-						GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Menu2);
+						GameTooltip:SetText(L["CRYOLYSIS_CONFIGURATION"].Menu2);
 					</OnEnter>
 					<OnLeave>
 						GameTooltip:Hide();
@@ -192,7 +192,7 @@
 				<Scripts>
 					<OnEnter>
 						GameTooltip:SetOwner(self, "ANCHOR_RIGHT");
-						GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Menu3);
+						GameTooltip:SetText(L["CRYOLYSIS_CONFIGURATION"].Menu3);
 					</OnEnter>
 					<OnLeave>
 						GameTooltip:Hide();
@@ -214,7 +214,7 @@
 				<Scripts>
 					<OnEnter>
 						GameTooltip:SetOwner(self, "ANCHOR_RIGHT");
-						GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Menu4);
+						GameTooltip:SetText(L["CRYOLYSIS_CONFIGURATION"].Menu4);
 					</OnEnter>
 					<OnLeave>
 						GameTooltip:Hide();
@@ -236,7 +236,7 @@
 				<Scripts>
 					<OnEnter>
 						GameTooltip:SetOwner(self, "ANCHOR_RIGHT");
-						GameTooltip:SetText(CRYOLYSIS_CONFIGURATION.Menu5);
+						GameTooltip:SetText(L["CRYOLYSIS_CONFIGURATION"].Menu5);
 					</OnEnter>
 					<OnLeave>
 						GameTooltip:Hide();

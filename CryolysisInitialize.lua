@@ -1,6 +1,7 @@
 ------------------------------------------------------------------------------------------------------
 -- FONCTION D'INITIALISATION
 ------------------------------------------------------------------------------------------------------
+local L = LibStub("AceLocale-3.0"):GetLocale(CryolysisData.AppName, true)
 
 function Cryolysis_Initialize()
 	Cryolysis_Localization_Dialog_En();
@@ -26,7 +27,7 @@ function Cryolysis_Initialize()
 			CryolysisConfig = {};
 			CryolysisConfig = Default_CryolysisConfig;
 --			if UnitLevel("player") < 40 then CryolysisConfig.StonePosition[8] = false; end
-			Cryolysis_Msg(CRYOLYSIS_MESSAGE.Interface.DefaultConfig, "USER");
+			Cryolysis_Msg(L["CRYOLYSIS_MESSAGE"].Interface.DefaultConfig, "USER");
 		
 			CryolysisButton:ClearAllPoints();
 --			CryolysisConcentrationButton:ClearAllPoints();
@@ -38,14 +39,14 @@ function Cryolysis_Initialize()
 			CryolysisSpellTimerButton:SetPoint("CENTER", "UIParent", "CENTER",120,340);
 
 		else
-			Cryolysis_Msg(CRYOLYSIS_MESSAGE.Interface.UserConfig, "USER");
+			Cryolysis_Msg(L["CRYOLYSIS_MESSAGE"].Interface.UserConfig, "USER");
 		end
 		-----------------------------------------------------------
 		-- Exécution des fonctions de démarrage
 		-----------------------------------------------------------
 
 		-- Affichage d'un message sur la console
-		Cryolysis_Msg(CRYOLYSIS_MESSAGE.Interface.Welcome, "USER");
+		Cryolysis_Msg(L["CRYOLYSIS_MESSAGE"].Interface.Welcome, "USER");
 		-- Création de la liste des sorts disponibles
 		Cryolysis_SpellSetup();
 		-- Création de la liste des emplacements des fragments
@@ -56,10 +57,10 @@ function Cryolysis_Initialize()
 		-- Lecture de la configuration dans le SavedVariables.lua, écriture dans les variables définies
 
 
-		if not CRYOLYSIS_SPELL_TABLE[25].ID then CryolysisConfig.LeftSpell = 1; end
-		if not CRYOLYSIS_SPELL_TABLE[15].ID then 
+		if not L["CRYOLYSIS_SPELL_TABLE"][25].ID then CryolysisConfig.LeftSpell = 1; end
+		if not L["CRYOLYSIS_SPELL_TABLE"][15].ID then
 			CryolysisConfig.RightSpell = 2;
-			if not CRYOLYSIS_SPELL_TABLE[2].ID then
+			if not L["CRYOLYSIS_SPELL_TABLE"][2].ID then
 				CryolysisConfig.StonePosition[6] = false;
 			end
 		end		
@@ -114,6 +115,7 @@ function Cryolysis_Initialize()
   		----------------------------------------
 		-- Message Menu Setup
 		----------------------------------------
+--[[
 
 		if CryolysisConfig.CryolysisLanguage == "frFR" then
 			CryolysisLanguage_Slider:SetValue(1);
@@ -129,6 +131,7 @@ function Cryolysis_Initialize()
 		CryolysisLanguage_SliderText:SetText("Langue / Language / Sprache / èªžè¨€ / è¯­è¨€");
 		CryolysisLanguage_SliderLow:SetText("");
 		CryolysisLanguage_SliderHigh:SetText("")
+]]
 
 		if (CryolysisConfig.CryolysisToolTip) then CryolysisShowTooltips_Button:SetChecked(1); end
 		if (CryolysisConfig.Sound) then CryolysisSound_Button:SetChecked(1); end
@@ -146,8 +149,8 @@ function Cryolysis_Initialize()
      	----------------------------------------
 		-- Button Menu Setup
 		----------------------------------------
-		CryolysisShowButton_String:SetText(CRYOLYSIS_CONFIGURATION.Show.Text)
-		CryolysisOnButton_String:SetText(CRYOLYSIS_CONFIGURATION.Text.Text)
+		CryolysisShowButton_String:SetText(L["CRYOLYSIS_CONFIGURATION"].Show.Text)
+		CryolysisOnButton_String:SetText(L["CRYOLYSIS_CONFIGURATION"].Text.Text)
 		if (CryolysisConfig.StonePosition[1]) then CryolysisShowFood_Button:SetChecked(1); end
 		if (CryolysisConfig.StonePosition[2]) then CryolysisShowDrink_Button:SetChecked(1); end
 		if (CryolysisConfig.StonePosition[3]) then CryolysisShowManaStone_Button:SetChecked(1); end
@@ -273,103 +276,98 @@ function Cryolysis_Initialize()
 end
 
 function Cryolysis_LanguageInitialize()
-	
+
 	-- Localisation du speech.lua
 	CryolysisLocalization();
 
-	-- Localisation du XML
-	CryolysisVersion:SetText(CryolysisData.Label);		
-	
-	----------------------------------------
-	-- Inventory Menu Dialog Setup
-	----------------------------------------
+-- Localisation du XML
+CryolysisVersion:SetText(CryolysisData.Label);
 
-	CryolysisProvisionSort_Option:SetText(CRYOLYSIS_CONFIGURATION.ProvisionMove);
-	CryolysisProvisionDestroy_Option:SetText(CRYOLYSIS_CONFIGURATION.ProvisionDestroy);
-	CryolysisButton_SliderText:SetText(CRYOLYSIS_CONFIGURATION.Button.Text);
-	CryolysisCircle_SliderText:SetText(CRYOLYSIS_CONFIGURATION.Circle.Text);
-	CryolysisRestock_Option:SetText(CRYOLYSIS_CONFIGURATION.Restock.Restock);
-	CryolysisRestockConfirm_Option:SetText(CRYOLYSIS_CONFIGURATION.Restock.Confirm);
-	CryolysisTeleport_SliderText:SetText(CRYOLYSIS_ITEM.RuneOfTeleportation);
-    CryolysisPortal_SliderText:SetText(CRYOLYSIS_ITEM.RuneOfPortals);
-	CryolysisPowder_SliderText:SetText(CRYOLYSIS_ITEM.ArcanePowder);
-	CryolysisCountType_SliderText:SetText(CRYOLYSIS_CONFIGURATION.CountType);
-	CryolysisFood_SliderText:SetText(CRYOLYSIS_CONFIGURATION.Food);
-	CryolysisBag_SliderText:SetText(CRYOLYSIS_CONFIGURATION.BagSelect);
-	CryolysisButtonScale_SliderText:SetText(CRYOLYSIS_CONFIGURATION.CryolysisSize);
-	CryolysisStoneScale_SliderText:SetText(CRYOLYSIS_CONFIGURATION.StoneScale)
-	CryolysisDrink_SliderText:SetText(CRYOLYSIS_CONFIGURATION.Skin);
+----------------------------------------
+-- Inventory Menu Dialog Setup
+----------------------------------------
+
+CryolysisProvisionSort_Option:SetText(L["CRYOLYSIS_CONFIGURATION"].ProvisionMove);
+CryolysisProvisionDestroy_Option:SetText(L["CRYOLYSIS_CONFIGURATION"].ProvisionDestroy);
+CryolysisButton_SliderText:SetText(L["CRYOLYSIS_CONFIGURATION"].Button.Text);
+CryolysisCircle_SliderText:SetText(L["CRYOLYSIS_CONFIGURATION"].Circle.Text);
+CryolysisRestock_Option:SetText(L["CRYOLYSIS_CONFIGURATION"].Restock.Restock);
+CryolysisRestockConfirm_Option:SetText(L["CRYOLYSIS_CONFIGURATION"].Restock.Confirm);
+CryolysisTeleport_SliderText:SetText(L["CRYOLYSIS_ITEM"].RuneOfTeleportation);
+CryolysisPortal_SliderText:SetText(L["CRYOLYSIS_ITEM"].RuneOfPortals);
+CryolysisPowder_SliderText:SetText(L["CRYOLYSIS_ITEM"].ArcanePowder);
+CryolysisCountType_SliderText:SetText(L["CRYOLYSIS_CONFIGURATION"].CountType);
+CryolysisFood_SliderText:SetText(L["CRYOLYSIS_CONFIGURATION"].Food);
+CryolysisBag_SliderText:SetText(L["CRYOLYSIS_CONFIGURATION"].BagSelect);
+CryolysisButtonScale_SliderText:SetText(L["CRYOLYSIS_CONFIGURATION"].CryolysisSize);
+CryolysisStoneScale_SliderText:SetText(L["CRYOLYSIS_CONFIGURATION"].StoneScale)
+CryolysisDrink_SliderText:SetText(L["CRYOLYSIS_CONFIGURATION"].Skin);
 
 
 
-	----------------------------------------
-	-- Message Menu Dialog Setup
-	----------------------------------------
-	
-	CryolysisSound_Option:SetText(CRYOLYSIS_CONFIGURATION.Sound);
-	CryolysisShowMessage_Option:SetText(CRYOLYSIS_CONFIGURATION.ShowMessage);
-	CryolysisShowPolyMessage_Option:SetText(CRYOLYSIS_CONFIGURATION.ShowPolyMessage);
-	CryolysisShowPortalMessage_Option:SetText(CRYOLYSIS_CONFIGURATION.ShowPortalMessage);
-    CryolysisShowSteedMessage_Option:SetText(CRYOLYSIS_CONFIGURATION.ShowSteedMessage);
-	CryolysisPolyWarn_Option:SetText(CRYOLYSIS_CONFIGURATION.Polymorph.Warn);
-	CryolysisPolyBreak_Option:SetText(CRYOLYSIS_CONFIGURATION.Polymorph.Break);
-	CryolysisChatType_Option:SetText(CRYOLYSIS_CONFIGURATION.ChatType);
-	
-	----------------------------------------
-	-- Button Menu Dialog Setup
-	----------------------------------------
-	
-	CryolysisShowFood_Option:SetText(CRYOLYSIS_CONFIGURATION.Show.Food);
-	CryolysisShowDrink_Option:SetText(CRYOLYSIS_CONFIGURATION.Show.Drink);
-	CryolysisShowManaStone_Option:SetText(CRYOLYSIS_CONFIGURATION.Show.Manastone);
-	CryolysisShowLeftSpell_Option:SetText(CRYOLYSIS_CONFIGURATION.Show.LeftSpell);
-	CryolysisShowEvocation_Option:SetText(CRYOLYSIS_CONFIGURATION.Show.Evocation);
-	CryolysisShowRightSpell_Option:SetText(CRYOLYSIS_CONFIGURATION.Show.RightSpell);
-	CryolysisShowMount_Option:SetText(CRYOLYSIS_CONFIGURATION.Show.Steed);
-	CryolysisShowBuffMenu_Option:SetText(CRYOLYSIS_CONFIGURATION.Show.Buff);
-	CryolysisShowPortalMenu_Option:SetText(CRYOLYSIS_CONFIGURATION.Show.Portal);
-	CryolysisShowTooltips_Option:SetText(CRYOLYSIS_CONFIGURATION.Show.Tooltips);
-	CryolysisQuickBuff_Option:SetText(CRYOLYSIS_CONFIGURATION.QuickBuff);
+----------------------------------------
+-- Message Menu Dialog Setup
+----------------------------------------
 
-	CryolysisMessagePlayer_Section:SetText(CRYOLYSIS_CONFIGURATION.SpellMenu2);
-    CryolysisManaStoneOrder_SliderText:SetText(CRYOLYSIS_CONFIGURATION.ManaStoneOrder);
+CryolysisSound_Option:SetText(L["CRYOLYSIS_CONFIGURATION"].Sound);
+CryolysisShowMessage_Option:SetText(L["CRYOLYSIS_CONFIGURATION"].ShowMessage);
+CryolysisShowPolyMessage_Option:SetText(L["CRYOLYSIS_CONFIGURATION"].ShowPolyMessage);
+CryolysisShowPortalMessage_Option:SetText(L["CRYOLYSIS_CONFIGURATION"].ShowPortalMessage);
+CryolysisShowSteedMessage_Option:SetText(L["CRYOLYSIS_CONFIGURATION"].ShowSteedMessage);
+CryolysisPolyWarn_Option:SetText(L["CRYOLYSIS_CONFIGURATION"].Polymorph.Warn);
+CryolysisPolyBreak_Option:SetText(L["CRYOLYSIS_CONFIGURATION"].Polymorph.Break);
+CryolysisChatType_Option:SetText(L["CRYOLYSIS_CONFIGURATION"].ChatType);
 
-	CryolysisFoodText_Option:SetText(CRYOLYSIS_CONFIGURATION.Text.Food);
-	CryolysisDrinkText_Option:SetText(CRYOLYSIS_CONFIGURATION.Text.Drink);
-	CryolysisManaStoneText_Option:SetText(CRYOLYSIS_CONFIGURATION.Text.Manastone);
-	CryolysisEvocationText_Option:SetText(CRYOLYSIS_CONFIGURATION.Text.Evocation);	
-	CryolysisPowderText_Option:SetText(CRYOLYSIS_CONFIGURATION.Text.Powder);
-	CryolysisFeatherText_Option:SetText(CRYOLYSIS_CONFIGURATION.Text.Feather);
-	CryolysisRuneText_Option:SetText(CRYOLYSIS_CONFIGURATION.Text.Rune);
-	
-	----------------------------------------
-	-- Timer Menu Dialog Setup
-	----------------------------------------
-	
-	CryolysisShowSpellTimers_Option:SetText(CRYOLYSIS_CONFIGURATION.SpellTime);
-	CryolysisTimerButton_Option:SetText(CRYOLYSIS_CONFIGURATION.Show.Spelltimer);
-	CryolysisGraphicalTimer_Section:SetText(CRYOLYSIS_CONFIGURATION.TimerMenu);
-	CryolysisGraphicalTimer_Option:SetText(CRYOLYSIS_CONFIGURATION.GraphicalTimer);
-	CryolysisTimerColor_Option:SetText(CRYOLYSIS_CONFIGURATION.TimerColor);
+----------------------------------------
+-- Button Menu Dialog Setup
+----------------------------------------
 
-	CryolysisTimerDirection_Option:SetText(CRYOLYSIS_CONFIGURATION.TimerDirection);
-	
-	----------------------------------------
-	-- Graphical Menu Dialog Setup
-	----------------------------------------
+CryolysisShowFood_Option:SetText(L["CRYOLYSIS_CONFIGURATION"].Show.Food);
+CryolysisShowDrink_Option:SetText(L["CRYOLYSIS_CONFIGURATION"].Show.Drink);
+CryolysisShowManaStone_Option:SetText(L["CRYOLYSIS_CONFIGURATION"].Show.Manastone);
+CryolysisShowLeftSpell_Option:SetText(L["CRYOLYSIS_CONFIGURATION"].Show.LeftSpell);
+CryolysisShowEvocation_Option:SetText(L["CRYOLYSIS_CONFIGURATION"].Show.Evocation);
+CryolysisShowRightSpell_Option:SetText(L["CRYOLYSIS_CONFIGURATION"].Show.RightSpell);
+CryolysisShowMount_Option:SetText(L["CRYOLYSIS_CONFIGURATION"].Show.Steed);
+CryolysisShowBuffMenu_Option:SetText(L["CRYOLYSIS_CONFIGURATION"].Show.Buff);
+CryolysisShowPortalMenu_Option:SetText(L["CRYOLYSIS_CONFIGURATION"].Show.Portal);
+CryolysisShowTooltips_Option:SetText(L["CRYOLYSIS_CONFIGURATION"].Show.Tooltips);
+CryolysisQuickBuff_Option:SetText(L["CRYOLYSIS_CONFIGURATION"].QuickBuff);
 
-	CryolysisLock_Option:SetText(CRYOLYSIS_CONFIGURATION.MainLock);
-	CryolysisBuffMenu_Option:SetText(CRYOLYSIS_CONFIGURATION.BuffMenu);
-	CryolysisPortalMenu_Option:SetText(CRYOLYSIS_CONFIGURATION.PortalMenu);
-	CryolysisSTimer_Option:SetText(CRYOLYSIS_CONFIGURATION.STimerLeft);
-	CryolysisIconsLock_Option:SetText(CRYOLYSIS_CONFIGURATION.ButtonLock);
-	CryolysisButtonRotate_SliderText:SetText(CRYOLYSIS_CONFIGURATION.MainRotation);
+CryolysisMessagePlayer_Section:SetText(L["CRYOLYSIS_CONFIGURATION"].SpellMenu2);
+CryolysisManaStoneOrder_SliderText:SetText(L["CRYOLYSIS_CONFIGURATION"].ManaStoneOrder);
 
-	
-		
-		
+CryolysisFoodText_Option:SetText(L["CRYOLYSIS_CONFIGURATION"].Text.Food);
+CryolysisDrinkText_Option:SetText(L["CRYOLYSIS_CONFIGURATION"].Text.Drink);
+CryolysisManaStoneText_Option:SetText(L["CRYOLYSIS_CONFIGURATION"].Text.Manastone);
+CryolysisEvocationText_Option:SetText(L["CRYOLYSIS_CONFIGURATION"].Text.Evocation);
+CryolysisPowderText_Option:SetText(L["CRYOLYSIS_CONFIGURATION"].Text.Powder);
+CryolysisFeatherText_Option:SetText(L["CRYOLYSIS_CONFIGURATION"].Text.Feather);
+CryolysisRuneText_Option:SetText(L["CRYOLYSIS_CONFIGURATION"].Text.Rune);
+
+----------------------------------------
+-- Timer Menu Dialog Setup
+----------------------------------------
+
+CryolysisShowSpellTimers_Option:SetText(L["CRYOLYSIS_CONFIGURATION"].SpellTime);
+CryolysisTimerButton_Option:SetText(L["CRYOLYSIS_CONFIGURATION"].Show.Spelltimer);
+CryolysisGraphicalTimer_Section:SetText(L["CRYOLYSIS_CONFIGURATION"].TimerMenu);
+CryolysisGraphicalTimer_Option:SetText(L["CRYOLYSIS_CONFIGURATION"].GraphicalTimer);
+CryolysisTimerColor_Option:SetText(L["CRYOLYSIS_CONFIGURATION"].TimerColor);
+
+CryolysisTimerDirection_Option:SetText(L["CRYOLYSIS_CONFIGURATION"].TimerDirection);
+
+----------------------------------------
+-- Graphical Menu Dialog Setup
+----------------------------------------
+
+CryolysisLock_Option:SetText(L["CRYOLYSIS_CONFIGURATION"].MainLock);
+CryolysisBuffMenu_Option:SetText(L["CRYOLYSIS_CONFIGURATION"].BuffMenu);
+CryolysisPortalMenu_Option:SetText(L["CRYOLYSIS_CONFIGURATION"].PortalMenu);
+CryolysisSTimer_Option:SetText(L["CRYOLYSIS_CONFIGURATION"].STimerLeft);
+CryolysisIconsLock_Option:SetText(L["CRYOLYSIS_CONFIGURATION"].ButtonLock);
+CryolysisButtonRotate_SliderText:SetText(L["CRYOLYSIS_CONFIGURATION"].MainRotation);
 end
-
 
 
 ------------------------------------------------------------------------------------------------------
@@ -416,9 +414,9 @@ function Cryolysis_SlashHandler(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, 
 			ShowUIPanel(CryolysisButton)
 		end
 	else
-		if CRYOLYSIS_MESSAGE.Help ~= nil then
-			for i = 1, table.getn(CRYOLYSIS_MESSAGE.Help), 1 do
-				Cryolysis_Msg(CRYOLYSIS_MESSAGE.Help[i], "USER");
+		if L["CRYOLYSIS_MESSAGE"].Help ~= nil then
+			for i = 1, table.getn(L["CRYOLYSIS_MESSAGE"].Help), 1 do
+				Cryolysis_Msg(L["CRYOLYSIS_MESSAGE"].Help[i], "USER");
 			end
 		end
 		Cryolysis_Toggle();
