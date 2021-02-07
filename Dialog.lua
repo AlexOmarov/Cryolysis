@@ -1,17 +1,13 @@
-﻿------------------------------------------------------------------------------------------------------
--- Cryolysis
---
--- Based on Necrosis LdC by Lomig and Nyx (http://necrosis.larmes-cenarius.net)
--- Original Necrosis Idea : Infernal (http://www.revolvus.com/games/interface/necrosis/)
--- Cryolysis Maintainer : Kaeldra of Aegwynn
---
--- Contact : darklyte@gmail.com
--- Send me in-game mail!  Yersinia on Aegwynn, Horde side.
--- Guild: <Working as Intended>
--- Version Date: 07.14.2006
-------------------------------------------------------------------------------------------------------
+local L = require "Localization.lua"
 
-
+Cryolysis.Config.Panel = {
+	L["CONFIG_MESSAGE"],
+	L["CONFIG_SPHERE"],
+	L["CONFIG_BUTTON"],
+	L["CONFIG_MENU"],
+	L["CONFIG_TIMER"],
+	L["CONFIG_MISC"],
+}
 
 CryolysisData = {};
 CryolysisData.Version = "1.2.7";
@@ -70,3 +66,5 @@ BINDING_HEADER_LEFTSPELLLEFT = "Left Spell Button: Main Function";
 BINDING_HEADER_LEFTSPELLRIGHT = "Left Spell Button: Secondary Function";
 BINDING_HEADER_RIGHTSPELLLEFT = "Right Spell Button: Main Function";
 BINDING_HEADER_RIGHTSPELLRIGHT = "Right Spell Button: Secondary Function";
+
+CryolysisConfig = {};

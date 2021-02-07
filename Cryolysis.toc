@@ -14,16 +14,7 @@ libs\LibStub\LibStub.lua
 libs\AceLocale-3.0\AceLocale-3.0.xml
 
 
-Localization.lua
-Localization\localization_ruRU.lua
-Localization\dialog_ruRU.lua
-Localization\Speech.lua
 
-CryolysisGeneral.xml
+
+
 Cryolysis.xml
-CryolysisTimer.xml
-CryolysisProvisionMenu.xml
-CryolysisMessageMenu.xml
-CryolysisButtonMenu.xml
-CryolysisTimerMenu.xml
-CryolysisGraphOptionMenu.xml
