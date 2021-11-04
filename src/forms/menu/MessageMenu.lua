@@ -7,19 +7,7 @@ require "Settings.lua"
 require "FormUtils.lua"
 
 
-------------------------------------------------------------------------------------------------------
--- Get timer menu panel
-------------------------------------------------------------------------------------------------------
-function Cryolysis:GetMessageMenuPanel()
-	local frame = _G["CryolysisMessageMenu"]
-	if not frame then frame = createMessageMenuPanel() end
-	return frame
-end
-
-------------------------------------------------------------------------------------------------------
 				   -- Inner functions to encapsulate creation logic --
-------------------------------------------------------------------------------------------------------
-
 ------------------------------------------------------------------------------------------------------
 -- Create Message menu panel
 ------------------------------------------------------------------------------------------------------
@@ -174,4 +162,14 @@ function createMessageMenuSlider(name, min, max, step, x, y, width, height,
 				 "CENTER", "CryolysisMessageMenu", "TOP", x, y,
 				 width, height, nil, nil,
 				 onEnter, onValueChanged, onLeave, onMouseUp)
+end
+
+									-- Message menu API --
+------------------------------------------------------------------------------------------------------
+-- Get timer menu panel
+------------------------------------------------------------------------------------------------------
+function Cryolysis:GetMessageMenuPanel()
+	local frame = _G["CryolysisMessageMenu"]
+	if not frame then frame = createMessageMenuPanel() end
+	return frame
 end

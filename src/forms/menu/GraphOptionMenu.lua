@@ -6,19 +6,7 @@ require "Globals.lua"
 require "Settings.lua"
 require "FormUtils.lua"
 
-------------------------------------------------------------------------------------------------------
--- Get graph options menu panel
-------------------------------------------------------------------------------------------------------
-function Cryolysis:GetGraphOptionMenuPanel()
-	local frame = _G["CryolysisGraphOptionMenu"]
-	if not frame then frame = createGraphOptionMenuPanel() end
-	return frame
-end
-
-------------------------------------------------------------------------------------------------------
                       -- Inner functions to encapsulate creation logic --
-------------------------------------------------------------------------------------------------------
-
 ------------------------------------------------------------------------------------------------------
 -- Create GraphOption menu panel
 ------------------------------------------------------------------------------------------------------
@@ -242,3 +230,14 @@ function createGraphOptionMenuSlider(name, min, max, step, x, y, width, height,
 				 width, height, nil, nil,
 				 onEnter, onValueChanged, onLeave, onMouseUp)
 end
+
+									-- GraphOption menu API --
+------------------------------------------------------------------------------------------------------
+-- Get graph options menu panel
+------------------------------------------------------------------------------------------------------
+function Cryolysis:GetGraphOptionMenuPanel()
+	local frame = _G["CryolysisGraphOptionMenu"]
+	if not frame then frame = createGraphOptionMenuPanel() end
+	return frame
+end
+

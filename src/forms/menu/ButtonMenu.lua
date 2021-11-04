@@ -6,19 +6,7 @@ require "Globals.lua"
 require "Settings.lua"
 require "FormUtils.lua"
 
-
-------------------------------------------------------------------------------------------------------
--- Get timer menu panel
-------------------------------------------------------------------------------------------------------
-function Cryolysis:GetButtonMenuPanel()
-	local frame = _G["CryolysisButtonMenu"]
-	if not frame then frame = createButtonMenuPanel() end
-	return frame
-end
-
-------------------------------------------------------------------------------------------------------
-                     -- Inner functions to encapsulate creation logic --
-------------------------------------------------------------------------------------------------------
+					-- Inner functions to encapsulate filling logic --
 
 ------------------------------------------------------------------------------------------------------
 -- Create Button menu panel
@@ -468,7 +456,6 @@ function createButtonMenuButton(name, inherit, x, y, enableMouse, text, width, h
 		onClick, nil, nil, nil, nil, nil, nil, nil, nil
 	)
 end
-
 ------------------------------------------------------------------------------------------------------
 -- Create Button menu slider
 ------------------------------------------------------------------------------------------------------
@@ -480,3 +467,15 @@ function createButtonMenuSlider(name, min, max, step, x, y, width, height, onEnt
         width, height, nil, nil,
         onEnter, onValueChanged, onLeave, onMouseUp)
 end
+
+									-- Button menu API --
+------------------------------------------------------------------------------------------------------
+-- Get timer menu panel
+------------------------------------------------------------------------------------------------------
+function Cryolysis:GetButtonMenuPanel()
+	local frame = _G["CryolysisButtonMenu"]
+	if not frame then frame = createButtonMenuPanel() end
+	return frame
+end
+
+------------------------------------------------------------------------------------------------------

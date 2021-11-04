@@ -5,18 +5,8 @@ local _G = _G
 require "Globals.lua"
 require "FormUtils.lua"
 
-------------------------------------------------------------------------------------------------------
--- Get settings panel
-------------------------------------------------------------------------------------------------------
-function Cryolysis:GetConfigPanel()
-	local frame = _G["CryolysisGeneralFrame"]
-	if not frame then frame = createConfigPanel() end
-	return frame
-end
 
-------------------------------------------------------------------------------------------------------
 				  -- Inner functions to encapsulate creation logic --
-------------------------------------------------------------------------------------------------------
 
 ------------------------------------------------------------------------------------------------------
 -- Create settings panel
@@ -117,4 +107,14 @@ local function openPanel(PanelCode)
             HideUIPanel(v.GetName())
         end
     end
+end
+
+										-- TimerMenu API --
+------------------------------------------------------------------------------------------------------
+-- Get settings panel
+------------------------------------------------------------------------------------------------------
+function Cryolysis:GetConfigPanel()
+	local frame = _G["CryolysisGeneralFrame"]
+	if not frame then frame = createConfigPanel() end
+	return frame
 end

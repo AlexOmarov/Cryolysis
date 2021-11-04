@@ -6,19 +6,9 @@ require "Globals.lua"
 require "Settings.lua"
 require "FormUtils.lua"
 
-------------------------------------------------------------------------------------------------------
--- Get timer menu panel
-------------------------------------------------------------------------------------------------------
-function Cryolysis:GetProvisionMenuPanel()
-	local frame = _G["CryolysisProvisionMenu"]
-	if not frame then frame = createProvisionMenuPanel() end
-	return frame
-end
 
-------------------------------------------------------------------------------------------------------
+
 					-- Inner functions to encapsulate creation logic --
-------------------------------------------------------------------------------------------------------
-
 ------------------------------------------------------------------------------------------------------
 -- Create provision menu panel
 ------------------------------------------------------------------------------------------------------
@@ -313,4 +303,14 @@ function createProvisionMenuSlider(name, min, max, step, x, y, width, height,
 				 "CENTER", "CryolysisProvisionMenu", "TOP", x, y,
 				 width, height, nil, nil,
 				 onEnter, onValueChanged, onLeave, onMouseUp)
+end
+
+									-- Provision menu API --
+------------------------------------------------------------------------------------------------------
+-- Get timer menu panel
+------------------------------------------------------------------------------------------------------
+function Cryolysis:GetProvisionMenuPanel()
+	local frame = _G["CryolysisProvisionMenu"]
+	if not frame then frame = createProvisionMenuPanel() end
+	return frame
 end

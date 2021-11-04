@@ -1,17 +1,9 @@
-local L = require "Localization.lua"
-local framePositions = require "Utils.lua"
-local _G = _G
-
 require "Globals.lua"
-require "Settings.lua"
 require "FormUtils.lua"
 
+local _G = _G
 
-
-------------------------------------------------------------------------------------------------------
-					-- Inner functions to encapsulate filling logic --
-------------------------------------------------------------------------------------------------------
-
+					    -- Inner functions to encapsulate filling logic --
 ------------------------------------------------------------------------------------------------------
 -- Create Main panel font string
 ------------------------------------------------------------------------------------------------------
@@ -23,21 +15,16 @@ end
 ------------------------------------------------------------------------------------------------------
 -- Create Button menu button
 ------------------------------------------------------------------------------------------------------
-local function createMainMenuButton(name, x, y, normalTexture, pushedTexture, highlightTexture, onClick, tooltip, anchor, width, height, onUpdate, onEvent)
-
+local function createMainMenuButton(name, x, y, normalTexture, pushedTexture, highlightTexture, onClick, tooltip,
+									anchor, width, height, onUpdate, onEvent)
 	return createButton(
-			name, "UIParent", nil, "CENTER", "UIParent", "CENTER",
-			x, y, "true", nil, width or 34, height or 34,
-			normalTexture, pushedTexture, nil, highlightTexture, "ADD", onClick,
-			function() self:StartMoving() end,
+			name, "UIParent", nil, "CENTER", "UIParent", "CENTER", x, y, "true", nil, width or 34, height or 34,
+			normalTexture, pushedTexture, nil, highlightTexture, "ADD", onClick, function() self:StartMoving() end,
 			function() Cryolysis_OnDragStop(self); end,
 			function() Cryolysis_BuildTooltip(self, tooltip, anchor or "ANCHOR_LEFT"); end,
-			function() GameTooltip:Hide(); end,
-			function() Cryolysis_OnDragStop(self); end,
-			function() self:RegisterForDrag("LeftButton"); self:RegisterForClicks("LeftButtonUp", "RightButtonUp"); self:Hide(); end,
-			"MEDIUM", "true",
-			onUpdate, onEvent
-	)
+			function() GameTooltip:Hide(); end, function() Cryolysis_OnDragStop(self); end,
+			function() self:RegisterForDrag("LeftButton"); self:RegisterForClicks("LeftButtonUp", "RightButtonUp");
+				self:Hide(); end, "MEDIUM", "true", onUpdate, onEvent)
 end
 
 ------------------------------------------------------------------------------------------------------
@@ -117,10 +104,7 @@ local function createMainPanel()
 end
 
 
-------------------------------------------------------------------------------------------------------
 										-- Main panel API --
-------------------------------------------------------------------------------------------------------
-
 ------------------------------------------------------------------------------------------------------
 -- Get main menu panel
 ------------------------------------------------------------------------------------------------------
