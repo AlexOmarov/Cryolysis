@@ -23,7 +23,7 @@ src\Globals.lua
 src\utils\FormUtils.lua
 src\utils\MessageUtils.lua
 src\utils\MetaInfoUtils.lua
-src\utils\MovingUtils.lua
+src\utils\Utils.lua
 
 # Addon localizations
 resources\locales\ruRU.lua
