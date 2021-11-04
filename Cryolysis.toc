@@ -4,8 +4,7 @@
 ## Notes: Mage UI & Utility management
 ## Notes-ruRU: Менеджер заклинаний мага.
 ## Version: 2.0
-## Author: Shtil
-## eMail: shtil.a@yandex.ru
+## Author: shtil.a@yandex.ru
 ## DefaultState: Enabled
 ## X-Original-Author: Lomig
 ## X-Localizations: ruRU
@@ -13,7 +12,33 @@
 ## LoadOnDemand: 0
 ## SavedVariablesPerCharacter: CryolysisConfig
 
+# Third party libraries
 libs\LibStub\LibStub.lua
 libs\AceLocale-3.0\AceLocale-3.0.xml
 
-Cryolysis.xml
+# Global variables of addon
+src\Globals.lua
+
+# Addon utils
+src\utils\FormUtils.lua
+src\utils\MessageUtils.lua
+src\utils\MetaInfoUtils.lua
+src\utils\MovingUtils.lua
+
+# Addon localizations
+resources\locales\ruRU.lua
+
+# Localization proxy
+src\localization\Localization.lua
+
+# Addon forms
+src\forms\settings\Settings.lua
+src\forms\menu\ButtonMenu.lua
+src\forms\menu\GraphOptionMenu.lua
+src\forms\menu\MessageMenu.lua
+src\forms\menu\ProvisionMenu.lua
+src\forms\menu\TimerMenu.lua
+src\forms\main\Main.lua
+
+# Addon entry point
+src\Cryolysis.lua

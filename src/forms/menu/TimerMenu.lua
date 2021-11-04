@@ -2,26 +2,36 @@ local L = require "Localization.lua"
 local framePositions = require "MovingUtils.lua"
 local _G = _G
 
-require "Storage.lua"
+require "Globals.lua"
 require "Settings.lua"
 require "FormUtils.lua"
 
+
+
+					-- Inner functions to encapsulate creation logic --
+
 ------------------------------------------------------------------------------------------------------
--- Get timer menu panel
-------------------------------------------------------------------------------------------------------
-function Cryolysis:GetTimerMenuPanel()
-	local frame = _G["CryolysisTimerMenu"]
-	if not frame then frame = createTimerMenuPanel() end
-	return frame
+-- Create timer menu option
+
+local function createTimerMenuOption(name, width, height)
+	createFontString(name, nil, "GameFontNormalSmall", {1, 1, 1},
+			nil, nil, nil, "TOPLEFT", "CryolysisTimerMenu", "TOPLEFT", width, height)
 end
 ------------------------------------------------------------------------------------------------------
-			      -- Inner functions to encapsulate creation logic --
+
+------------------------------------------------------------------------------------------------------
+-- Create timer menu checkbox
+
+local function createTimerMenuCheckButton(name, width, height, x, y, func)
+	createFrame("CheckBox", name, nil, "UICheckButtonTemplate", true, width, height,
+			"TOPLEFT", "CryolysisTimerMenu", "TOPLEFT", x, y, "OnClick", func)
+end
 ------------------------------------------------------------------------------------------------------
 
 ------------------------------------------------------------------------------------------------------
 -- Create timer menu panel
-------------------------------------------------------------------------------------------------------
-function createTimerMenuPanel()
+
+local function createTimerMenuPanel()
 	local frame = CreateFrame("Frame", "CryolysisTimerMenu", "CryolysisGeneralFrame")
 
 	frame:SetFrameStrata("DIALOG")
@@ -42,61 +52,55 @@ function createTimerMenuPanel()
 	createTimerMenuOption("CryolysisTimerDirection_Option", 60 -175);
 
 	createTimerMenuCheckButton("CryolysisShowSpellTimers_Button", 24, 24, 30, -35,
-		function(self) CryolysisConfig.ShowSpellTimers = self:GetChecked() end);
+			function(self) CryolysisConfig.ShowSpellTimers = self:GetChecked() end);
 
 	createTimerMenuCheckButton("CryolysisTimerButton_Button", 24, 24, 30, -55,
-		function(self) CryolysisConfig.ShowSpellTimerButton = self:GetChecked() end);
+			function(self) CryolysisConfig.ShowSpellTimerButton = self:GetChecked() end);
 
 	createTimerMenuCheckButton("CryolysisSTimer_Button", 24, 24, 30, -75,
-		function(self)
-			if (self:GetChecked()) then
-				CryolysisConfig.SpellTimerPos = -1;
-				CryolysisConfig.SpellTimerJust = "RIGHT";
-				AnchorSpellTimerTooltip = "ANCHOR_LEFT"
-			else
-				CryolysisConfig.SpellTimerPos = 1;
-				CryolysisConfig.SpellTimerJust = "LEFT";
-				AnchorSpellTimerTooltip = "ANCHOR_RIGHT";
-			end
-			CryolysisListSpells:ClearAllPoints();
-			CryolysisListSpells:SetJustifyH(CryolysisConfig.SpellTimerJust);
-			CryolysisListSpells:SetPoint("TOP"..CryolysisConfig.SpellTimerJust, "CryolysisSpellTimerButton", "CENTER", CryolysisConfig.SpellTimerPos * 23, 10);
-		end);
+			function(self)
+				if (self:GetChecked()) then
+					CryolysisConfig.SpellTimerPos = -1;
+					CryolysisConfig.SpellTimerJust = "RIGHT";
+					AnchorSpellTimerTooltip = "ANCHOR_LEFT"
+				else
+					CryolysisConfig.SpellTimerPos = 1;
+					CryolysisConfig.SpellTimerJust = "LEFT";
+					AnchorSpellTimerTooltip = "ANCHOR_RIGHT";
+				end
+				CryolysisListSpells:ClearAllPoints();
+				CryolysisListSpells:SetJustifyH(CryolysisConfig.SpellTimerJust);
+				CryolysisListSpells:SetPoint("TOP"..CryolysisConfig.SpellTimerJust, "CryolysisSpellTimerButton", "CENTER", CryolysisConfig.SpellTimerPos * 23, 10);
+			end);
 
 	createTimerMenuCheckButton("CryolysisGraphicalTimer_Button", 24, 24, 30, -130,
-		function(self)
-			CryolysisConfig.Graphical = self:GetChecked();
-			Cryolysis_HideGraphTimer();
-		end);
+			function(self)
+				CryolysisConfig.Graphical = self:GetChecked();
+				Cryolysis_HideGraphTimer();
+			end);
 
 	createTimerMenuCheckButton("CryolysisTimerColor_Button", 24, 24, 30, -150,
-		function(self) CryolysisConfig.Yellow = not self:GetChecked(); end);
+			function(self) CryolysisConfig.Yellow = not self:GetChecked(); end);
 
 	createTimerMenuCheckButton("CryolysisTimerDirection_Button", 24, 24, 30, -170,
-		function(self)
-			if (self:GetChecked()) then
-				CryolysisConfig.SensListe = -1;
-			else
-				CryolysisConfig.SensListe = 1;
-			end
-		end);
+			function(self)
+				if (self:GetChecked()) then
+					CryolysisConfig.SensListe = -1;
+				else
+					CryolysisConfig.SensListe = 1;
+				end
+			end);
 
 
 	return frame
 end
-
 ------------------------------------------------------------------------------------------------------
--- Create timer menu option
+					                     -- TimerMenu API --
 ------------------------------------------------------------------------------------------------------
-function createTimerMenuOption(name, width, height)
-	createFontString(name, nil, "GameFontNormalSmall", {1, 1, 1},
-		nil, nil, nil, "TOPLEFT", "CryolysisTimerMenu", "TOPLEFT", width, height)
-end
-
+-- Get timer menu panel
 ------------------------------------------------------------------------------------------------------
--- Create timer menu checkbox
-------------------------------------------------------------------------------------------------------
-function createTimerMenuCheckButton(name, width, height, x, y, func)
-	createFrame("CheckBox", name, nil, "UICheckButtonTemplate", true, width, height,
-		"TOPLEFT", "CryolysisTimerMenu", "TOPLEFT", x, y, "OnClick", func)
+function Cryolysis:GetTimerMenuPanel()
+	local frame = _G["CryolysisTimerMenu"]
+	if not frame then frame = createTimerMenuPanel() end
+	return frame
 end

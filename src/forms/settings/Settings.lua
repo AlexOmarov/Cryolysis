@@ -2,7 +2,7 @@ local L = require "Localization.lua"
 local framePositions = require "MovingUtils.lua"
 local _G = _G
 
-require "Storage.lua"
+require "Globals.lua"
 require "FormUtils.lua"
 
 ------------------------------------------------------------------------------------------------------
@@ -21,7 +21,7 @@ end
 ------------------------------------------------------------------------------------------------------
 -- Create settings panel
 ------------------------------------------------------------------------------------------------------
-function createConfigPanel()
+local function createConfigPanel()
 	local frame = CreateFrame("Frame", "CryolysisGeneralFrame", UIParent)
 
 	frame:SetFrameStrata("DIALOG")
@@ -108,7 +108,7 @@ end
 ------------------------------------------------------------------------------------------------------
 -- Function to display different pages of the settings panel
 ------------------------------------------------------------------------------------------------------
-function openPanel(PanelCode)
+local function openPanel(PanelCode)
     for k, v in ipairs(_G["CryolysisGeneralTabs"]) do
         if v.GetName() == PanelCode then
             Cryolysis:ShowPanel(v)

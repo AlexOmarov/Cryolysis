@@ -2,7 +2,7 @@ local L = require "Localization.lua"
 local framePositions = require "MovingUtils.lua"
 local _G = _G
 
-require "Storage.lua"
+require "Globals.lua"
 require "Settings.lua"
 require "FormUtils.lua"
 
