@@ -23,20 +23,20 @@ end
 ------------------------------------------------------------------------------------------------------
 -- Create Button menu button
 ------------------------------------------------------------------------------------------------------
-local function createMainMenuButton(name, x, y, normalTexture, pushedTexture, highlightTexture, onClick, tooltip)
+local function createMainMenuButton(name, x, y, normalTexture, pushedTexture, highlightTexture, onClick, tooltip, anchor, width, height, onUpdate, onEvent)
 
 	return createButton(
 			name, "UIParent", nil, "CENTER", "UIParent", "CENTER",
-			x, y, "true", nil, 34, 34,
+			x, y, "true", nil, width or 34, height or 34,
 			normalTexture, pushedTexture, nil, highlightTexture, "ADD", onClick,
 			function() Cryolysis_OnDragStart(self); end,
 			function() Cryolysis_OnDragStop(self); end,
-			function() Cryolysis_BuildTooltip(self, tooltip, "ANCHOR_LEFT"); end,
+			function() Cryolysis_BuildTooltip(self, tooltip, anchor or "ANCHOR_LEFT"); end,
 			function() GameTooltip:Hide(); end,
 			function() Cryolysis_OnDragStop(self); end,
 			function() self:RegisterForDrag("LeftButton"); self:RegisterForClicks("LeftButtonUp", "RightButtonUp"); self:Hide(); end,
 			"MEDIUM", "true",
-			function() Cryolysis_OnUpdate(); end, function() Cryolysis_OnEvent(event); end
+			onUpdate, onEvent
 	)
 end
 
@@ -44,6 +44,17 @@ end
 -- Create Main menu panel
 ------------------------------------------------------------------------------------------------------
 local function createMainPanel()
+
+	local frame = createFrame("Frame", "CryolysisGeneralFrame", nil, nil, true, nil, nil,
+			nil, nil, nil, nil, nil, "OnLoad", function ()
+				self:RegisterEvent("PLAYER_LOGIN")
+				self:RegisterEvent("SPELLS_CHANGED")
+			end
+	)
+
+	frame:SetScript("OnEvent", Cryolysis:OnLoad(event))
+
+	createFrame("GameTooltip", "CryolysisTooltip", "UIParent", "GameTooltipTemplate", true)
 
 	createMainMenuButton("CryolysisSpellTimerButton",  120, 340, "SpellTimerButton-Normal",
 			"SpellTimerButton-Pushed", "SpellTimerButton-Highlight",
@@ -69,228 +80,30 @@ local function createMainPanel()
 			nil, "BaseMenu-02", function() Cryolysis_UseItem("Manastone", arg1); end,
 			"Manastone")
 
---[[	TODO: Перевести все кнопки на новый метод + создавать фрейм
-<Frame name="CryolysisGeneralFrame" hidden="false">
-	<Scripts>
-		<OnLoad>
-			self:RegisterEvent("PLAYER_LOGIN")
-			self:RegisterEvent("SPELLS_CHANGED")
-		</OnLoad>
-		<OnEvent>
-			Cryolysis:OnLoad(event)
-		</OnEvent>
-	</Scripts>
-</Frame>
+	createMainMenuButton("CryolysisDrinkButton", -17, -100, "DrinkButton-01",
+			nil, "BaseMenu-02", function() Cryolysis_UseItem("Drink", arg1); end,
+			"Drink")
 
-<GameTooltip name="CryolysisTooltip" inherits="GameTooltipTemplate" parent="UIParent" toplevel="true" movable="true" frameStrata="LOW" />
-</Ui>
-]]
+	createMainMenuButton("CryolysisFoodButton", -17, -100, "FoodButton-01",
+			nil, "BaseMenu-02", function() Cryolysis_UseItem("Food", arg1); end,
+			"Food")
 
-	createMainMenuButton("CryolysisDrinkButton", "UIParent",nil, -17, -100,
-			"true", nil, 34, 34,
-			"CENTER", "UIParent", "CENTER",
-			"Interface\AddOns\Cryolysis\UI\DrinkButton-01",
-			nil,
-			nil,
-			"Interface\AddOns\Cryolysis\UI\BaseMenu-02",
-			function()Cryolysis_UseItem("Drink", arg1); end,
-			function() if not CryolysisLockServ then Cryolysis_OnDragStart(self); end end,
-			function() Cryolysis_OnDragStop(self); end,
-			function() Cryolysis_BuildTooltip(self, "Drink", "ANCHOR_LEFT"); end,
-			function() GameTooltip:Hide(); end,
-			function() Cryolysis_OnDragStop(self); end,
-			function()
-				self:RegisterForDrag("LeftButton");
-				self:RegisterForClicks("LeftButtonUp", "RightButtonUp");
-				HideUIPanel(self);
-			end,
-			"MEDIUM", "true",
-			function()  end,
-			function() end
-	)
+	createMainMenuButton("CryolysisMountButton", -17, -100, "MountButton-01",
+			nil, "BaseMenu-02", function() Cryolysis_UseItem("Mount", arg1); end,
+			"Mount", "ANCHOR_RIGHT")
 
-	createMainMenuButton("CryolysisFoodButton", "UIParent",nil, -17, -100,
-			"true", nil, 34, 34,
-			"CENTER", "UIParent", "CENTER",
-			"Interface\AddOns\Cryolysis\UI\DrinkButton-01",
-			nil,
-			nil,
-			"Interface\AddOns\Cryolysis\UI\BaseMenu-02",
-			function()Cryolysis_UseItem("Drink", arg1); end,
-			function() if not CryolysisLockServ then Cryolysis_OnDragStart(self); end end,
-			function() Cryolysis_OnDragStop(self); end,
-			function() Cryolysis_BuildTooltip(self, "Drink", "ANCHOR_LEFT"); end,
-			function() GameTooltip:Hide(); end,
-			function() Cryolysis_OnDragStop(self); end,
-			function()
-				self:RegisterForDrag("LeftButton");
-				self:RegisterForClicks("LeftButtonUp", "RightButtonUp");
-				HideUIPanel(self);
-			end,
-			"MEDIUM", "true",
-			function()  end,
-			function() end
-	)
+	createMainMenuButton("CryolysisBuffMenuButton", 17, -100, "BuffMenuButton-01",
+			nil, "BaseMenu-02", function() Cryolysis_BuffMenu(arg1); end,
+			"Buff", "ANCHOR_RIGHT")
 
-	createMainMenuButton("CryolysisMountButton", "UIParent",nil, -17, -100,
-			"true", nil, 34, 34,
-			"CENTER", "UIParent", "CENTER",
-			"Interface\AddOns\Cryolysis\UI\MountButton-01",
-			nil,
-			nil,
-			"Interface\AddOns\Cryolysis\UI\BaseMenu-02",
-			function() Cryolysis_UseItem("Mount", arg1); end,
-			function() if not CryolysisLockServ then Cryolysis_OnDragStart(self); end end,
-			function() Cryolysis_OnDragStop(self); end,
-			function() Cryolysis_BuildTooltip(self, "Mount", "ANCHOR_RIGHT"); end,
-			function() GameTooltip:Hide(); end,
-			function() Cryolysis_OnDragStop(self); end,
-			function()
-				self:RegisterForDrag("LeftButton");
-				self:RegisterForClicks("LeftButtonUp", "RightButtonUp");
-				HideUIPanel(self);
-			end,
-			"MEDIUM", "true",
-			function()  end,
-			function() end
-	)
+	createMainMenuButton("CryolysisBuffMenu1", 17, -100, "FrostArmor-01",
+			nil, "BaseBuff-02", function() Cryolysis_BuffCast(22, arg1); end,
+			"Armor", "ANCHOR_RIGHT")
 
-	createMainMenuButton("CryolysisBuffMenuButton", "UIParent",nil, 17, -100,
-			"true", nil, 34, 34,
-			"CENTER", "UIParent", "CENTER",
-			"Interface\AddOns\Cryolysis\UI\BuffMenuButton-01",
-			nil,
-			nil,
-			"Interface\AddOns\Cryolysis\UI\BaseMenu-02",
-			function() Cryolysis_BuffMenu(arg1); end,
-			function() if not CryolysisLockServ then Cryolysis_OnDragStart(self); end end,
-			function() Cryolysis_OnDragStop(self); end,
-			function() Cryolysis_BuildTooltip(self, "Buff", "ANCHOR_RIGHT");
-				if CryolysisConfig.QuickBuff then Cryolysis_BuffMenu("LeftButton"); end end,
-			function() GameTooltip:Hide(); end,
-			function() Cryolysis_OnDragStop(self); end,
-			function()
-				self:RegisterForDrag("LeftButton");
-				self:RegisterForClicks("LeftButtonUp", "RightButtonUp");
-				HideUIPanel(self);
-			end,
-			"MEDIUM", "true",
-			function()  end,
-			function() end
-	)
-
-	createMainMenuButton("CryolysisBuffMenu1", "UIParent",nil, 17, -100,
-			"true", nil, 40, 40,
-			"CENTER", "UIParent", "CENTER",
-			"Interface\AddOns\Cryolysis\UI\FrostArmor-01",
-			nil,
-			nil,
-			"Interface\AddOns\Cryolysis\UI\BaseBuff-02",
-			function() Cryolysis_BuffCast(22, arg1); end,
-			function() if not CryolysisLockServ then Cryolysis_OnDragStart(self); end end,
-			function() Cryolysis_OnDragStop(self); end,
-			function() Cryolysis_BuildTooltip(self, "Armor", "ANCHOR_RIGHT");
-				if CryolysisConfig.QuickBuff then Cryolysis_BuffMenu("LeftButton"); end end,
-			function() GameTooltip:Hide(); end,
-			function() Cryolysis_OnDragStop(self); end,
-			function()
-				self:RegisterForDrag("LeftButton");
-				self:RegisterForClicks("LeftButtonUp", "RightButtonUp");
-				HideUIPanel(self);
-			end,
-			"MEDIUM", "true",
-			function()  end,
-			function() end
-	)
-
-	createMainMenuButton("CryolysisBuffMenu2", "UIParent",nil, 17, -100,
-			"true", nil, 40, 40,
-			"CENTER", "UIParent", "CENTER",
-			"Interface\AddOns\Cryolysis\UI\FrostArmor-01",
-			nil,
-			nil,
-			"Interface\AddOns\Cryolysis\UI\BaseBuff-02",
-			function() Cryolysis_BuffCast(22, arg1); end,
-			function() if not CryolysisLockServ then Cryolysis_OnDragStart(self); end end,
-			function() Cryolysis_OnDragStop(self); end,
-			function() Cryolysis_BuildTooltip(self, "ArcaneInt", "ANCHOR_RIGHT"); end,
-			function() GameTooltip:Hide(); end,
-			function() Cryolysis_OnDragStop(self); end,
-			function()
-				self:RegisterForDrag("LeftButton");
-				self:RegisterForClicks("LeftButtonUp", "RightButtonUp");
-				HideUIPanel(self);
-			end,
-			"MEDIUM", "true",
-			function()  end,
-			function() end
-	)
-	createMainMenuButton("CryolysisBuffMenu3", "UIParent",nil, 17, -100,
-			"true", nil, 40, 40,
-			"CENTER", "UIParent", "CENTER",
-			"Interface\AddOns\Cryolysis\UI\FrostArmor-01",
-			nil,
-			nil,
-			"Interface\AddOns\Cryolysis\UI\BaseBuff-02",
-			function() Cryolysis_BuffCast(22, arg1); end,
-			function() if not CryolysisLockServ then Cryolysis_OnDragStart(self); end end,
-			function() Cryolysis_OnDragStop(self); end,
-			function() Cryolysis_BuildTooltip(self, "ArcaneInt", "ANCHOR_RIGHT"); end,
-			function() GameTooltip:Hide(); end,
-			function() Cryolysis_OnDragStop(self); end,
-			function()
-				self:RegisterForDrag("LeftButton");
-				self:RegisterForClicks("LeftButtonUp", "RightButtonUp");
-				HideUIPanel(self);
-			end,
-			"MEDIUM", "true",
-			function()  end,
-			function() end
-	)
-	createMainMenuButton("CryolysisBuffMenu4", "UIParent",nil, 17, -100,
-			"true", nil, 40, 40,
-			"CENTER", "UIParent", "CENTER",
-			"Interface\AddOns\Cryolysis\UI\FrostArmor-01",
-			nil,
-			nil,
-			"Interface\AddOns\Cryolysis\UI\BaseBuff-02",
-			function() Cryolysis_BuffCast(22, arg1); end,
-			function() if not CryolysisLockServ then Cryolysis_OnDragStart(self); end end,
-			function() Cryolysis_OnDragStop(self); end,
-			function() Cryolysis_BuildTooltip(self, "ArcaneInt", "ANCHOR_RIGHT"); end,
-			function() GameTooltip:Hide(); end,
-			function() Cryolysis_OnDragStop(self); end,
-			function()
-				self:RegisterForDrag("LeftButton");
-				self:RegisterForClicks("LeftButtonUp", "RightButtonUp");
-				HideUIPanel(self);
-			end,
-			"MEDIUM", "true",
-			function()  end,
-			function() end
-	)
-	createMainMenuButton("CryolysisBuffMenu5", "UIParent",nil, 17, -100,
-			"true", nil, 40, 40,
-			"CENTER", "UIParent", "CENTER",
-			"Interface\AddOns\Cryolysis\UI\FrostArmor-01",
-			nil,
-			nil,
-			"Interface\AddOns\Cryolysis\UI\BaseBuff-02",
-			function() Cryolysis_BuffCast(22, arg1); end,
-			function() if not CryolysisLockServ then Cryolysis_OnDragStart(self); end end,
-			function() Cryolysis_OnDragStop(self); end,
-			function() Cryolysis_BuildTooltip(self, "ArcaneInt", "ANCHOR_RIGHT"); end,
-			function() GameTooltip:Hide(); end,
-			function() Cryolysis_OnDragStop(self); end,
-			function()
-				self:RegisterForDrag("LeftButton");
-				self:RegisterForClicks("LeftButtonUp", "RightButtonUp");
-				HideUIPanel(self);
-			end,
-			"MEDIUM", "true",
-			function()  end,
-			function() end
-	)
+	createMainMenuButton("CryolysisButton", 0, -100,
+			"Shard", nil, nil, function() Cryolysis_Toggle(arg1); end,
+			"Main", "ANCHOR_LEFT", 58, 58, function() Cryolysis_OnUpdate(); end,
+			function() Cryolysis_OnEvent(event); end)
 
 	createMainFontString("CryolysisListSpells", "CryolysisSpellTimerButton")
 	createMainFontString("CryolysisFoodCount", "CryolysisFoodButton")
@@ -298,27 +111,6 @@ local function createMainPanel()
 	createMainFontString("CryolysisManastoneCooldown", "CryolysisManastoneButton")
 	createMainFontString("CryolysisEvocationCooldown", "CryolysisButton")
 	createMainFontString("CryolysisShardCount", "CryolysisButton")
-
-
-	createMainMenuButton("CryolysisButton", "UIParent",nil, 0, -100,
-			"true", nil, 58, 58,
-			"CENTER", "UIParent", "CENTER",
-			"Interface\AddOns\Cryolysis\UI\Shard",
-			nil,
-			nil,
-			nil,
-			function() Cryolysis_Toggle(arg1); end,
-			function() Cryolysis_OnDragStart(self); end,
-			function() Cryolysis_OnDragStop(self); end,
-			function() Cryolysis_BuildTooltip(self, "Main", "ANCHOR_LEFT"); end,
-			function() GameTooltip:Hide(); end,
-			function() Cryolysis_OnDragStop(self); end,
-			function() Cryolysis_OnLoad();
-				HideUIPanel(self); end,
-			"MEDIUM", "true",
-			function() Cryolysis_OnUpdate(); end,
-			function() Cryolysis_OnEvent(event); end
-	)
 
 
 	return frame
