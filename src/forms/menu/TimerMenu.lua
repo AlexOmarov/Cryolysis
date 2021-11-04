@@ -6,10 +6,7 @@ require "Globals.lua"
 require "Settings.lua"
 require "FormUtils.lua"
 
-
-
 					-- Inner functions to encapsulate creation logic --
-
 ------------------------------------------------------------------------------------------------------
 -- Create timer menu option
 
