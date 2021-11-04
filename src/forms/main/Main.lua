@@ -86,6 +86,55 @@ function fillMainMenuPanel(frame)
 	createFontString("CryolysisShardCount", "ARTWORK", "GameFontNormal", {1, 1, 1, 1}, nil, nil, nil, "CENTER", "CENTER", "CryolysisButton", 23, 0)
 
 
+	createMainMenuButton("CryolysisEvocationButton", "UIParent",nil, -53, -100,
+			"true", nil, 34, 34,
+			"CENTER", "UIParent", "CENTER",
+			"Interface\AddOns\Cryolysis\UI\EvocationButton-01",
+			nil,
+			nil,
+			"Interface\AddOns\Cryolysis\UI\BaseMenu-02",
+			function()  Cryolysis_BuffCast(49); end,
+			function() if not CryolysisLockServ then Cryolysis_OnDragStart(self); end end,
+			function() Cryolysis_OnDragStop(self); end,
+			function()  end,
+			function() GameTooltip:Hide(); end,
+			function() Cryolysis_OnDragStop(self); end,
+			function()
+				self:RegisterForDrag("LeftButton");
+				self:RegisterForClicks("LeftButtonUp", "RightButtonUp");
+				HideUIPanel(self);
+			end,
+			"MEDIUM", "true",
+			function()  end,
+			function() end
+	)
+	createFontString("CryolysisEvocationCooldown", "ARTWORK", "GameFontNormal", {1, 1, 1, 1}, nil, nil, nil, "CENTER", "CENTER", "CryolysisButton", 23, 0)
+
+
+	createMainMenuButton("CryolysisRightSpellButton", "UIParent",nil, -17, -100,
+			"true", nil, 34, 34,
+			"CENTER", "UIParent", "CENTER",
+			"Interface\AddOns\Cryolysis\UI\Shard",
+			nil,
+			nil,
+			"Interface\AddOns\Cryolysis\UI\BaseMenu-02",
+			function() Cryolysis_SpellButtonCast("Right", arg1);  end,
+			function() if not CryolysisLockServ then Cryolysis_OnDragStart(self); end end,
+			function() Cryolysis_OnDragStop(self); end,
+			function() Cryolysis_BuildSpellTooltip(self, "Right", "ANCHOR_RIGHT"); end,
+			function() GameTooltip:Hide(); end,
+			function() Cryolysis_OnDragStop(self); end,
+			function()
+				self:RegisterForDrag("LeftButton");
+				self:RegisterForClicks("LeftButtonUp", "RightButtonUp");
+				HideUIPanel(self);
+			end,
+			"MEDIUM", "true",
+			function()  end,
+			function() end
+	)
+
+
 	return frame
 end
 

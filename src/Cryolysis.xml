@@ -4,99 +4,6 @@
 
 	<!--TODO: Перенести все кнопки в lua-->
 
-	<Button  name="CryolysisEvocationButton" hidden="false" parent="UIParent" movable="true">
-		<Size>
-			<AbsDimension x="34" y="34"/>
-		</Size>
-		<Layers>
-			<Layer level="ARTWORK">
-				<FontString name="CryolysisEvocationCooldown" inherits="GameFontNormal">
-					<Color r="1.0" g="1.0" b="1.0" a="1"/>
-					<Anchors>
-						<Anchor point="CENTER" relativeTo="CryolysisEvocationButton" relativeFrom="CENTER">
-							<Offset>
-								<AbsDimension x="0" y="0"/>
-							</Offset>
-						</Anchor>
-					</Anchors>
-				</FontString>
-			</Layer>
-		</Layers>
-		<Anchors>
-			<Anchor point="CENTER" relativeTo="UIParent" relativePoint="CENTER">
-				<Offset>
-					<AbsDimension x="-53" y="-100"/>
-				</Offset>
-			</Anchor>
-		</Anchors>
-		<Scripts>
-			<OnLoad>
-					self:RegisterForDrag("LeftButton");
-					self:RegisterForClicks("LeftButtonUp", "RightButtonUp");
-				HideUIPanel(self);
-			</OnLoad>
-			<OnEnter>
-				Cryolysis_BuildTooltip(self, "Evocation", "ANCHOR_LEFT");
-			</OnEnter>
-			<OnLeave>
-				GameTooltip:Hide();
-			</OnLeave>
-			<OnClick>
-				Cryolysis_BuffCast(49);
-			</OnClick>
-			<OnDragStart>
-				if not CryolysisLockServ then Cryolysis_OnDragStart(self); end
-			</OnDragStart>
-			<OnDragStop>
-				Cryolysis_OnDragStop(self);
-			</OnDragStop>
-			<OnMouseUp>
-				Cryolysis_OnDragStop(self);
-			</OnMouseUp>
-		</Scripts>
-		<NormalTexture file="Interface\AddOns\Cryolysis\UI\EvocationButton-01"/>
-		<HighlightTexture file="Interface\AddOns\Cryolysis\UI\BaseMenu-02"/>
-	</Button>
-	<Button  name="CryolysisRightSpellButton" hidden="false" parent="UIParent" movable="true">
-		<Size>
-			<AbsDimension x="34" y="34"/>
-		</Size>
-		<Anchors>
-			<Anchor point="CENTER" relativeTo="UIParent" relativePoint="CENTER">
-				<Offset>
-					<AbsDimension x="-17" y="-100"/>
-				</Offset>
-			</Anchor>
-		</Anchors>
-		<Scripts>
-			<OnLoad>
-				self:RegisterForDrag("LeftButton");
-				self:RegisterForClicks("LeftButtonUp", "RightButtonUp");
-				HideUIPanel(self);
-			</OnLoad>
-			<OnEnter>
-				Cryolysis_BuildSpellTooltip(self, "Right", "ANCHOR_RIGHT");
-			</OnEnter>
-			<OnLeave>
-				GameTooltip:Hide();
-			</OnLeave>
-			<OnClick>
-				Cryolysis_SpellButtonCast("Right", arg1);
-			</OnClick>
-			<OnDragStart>
-				if not CryolysisLockServ then Cryolysis_OnDragStart(self); end
-			</OnDragStart>
-			<OnDragStop>
-				Cryolysis_OnDragStop(self);
-			</OnDragStop>
-			<OnMouseUp>
-				Cryolysis_OnDragStop(self);
-			</OnMouseUp>
-		</Scripts>
-		<NormalTexture file="Interface\AddOns\Cryolysis\UI\Shard"/>
-		<HighlightTexture file="Interface\AddOns\Cryolysis\UI\BaseMenu-02"/>
-	</Button>
-
 	<Button  name="CryolysisManastoneButton" hidden="false" parent="UIParent" movable="true">
 		<Size>
 			<AbsDimension x="34" y="34"/>
@@ -1231,7 +1138,6 @@
 		<HighlightTexture file="Interface\Addons\Cryolysis\UI\AntiFear-02"/>
 	</Button>
 
-	<GameTooltip name="CryolysisTooltip" frameStrata="LOW" toplevel="true" movable="true" parent="UIParent" inherits="GameTooltipTemplate" />
 </Ui>
 
 <Ui xmlns="http://www.blizzard.com/wow/ui" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
