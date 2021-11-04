@@ -2,7 +2,7 @@
 ## Title: Cryolysis 2.0
 ## Title-ruRU: Cryolysis (Русский)
 ## Notes: Mage UI & Utility management
-## Notes-ruRU: Менеджер заклинаний vfuf.
+## Notes-ruRU: Менеджер заклинаний мага.
 ## Version: 2.0
 ## DefaultState: Enabled
 ## X-Original-Author: Lomig
@@ -10,11 +10,8 @@
 ## X-Category: Mage
 ## LoadOnDemand: 0
 ## SavedVariablesPerCharacter: CryolysisConfig
+
 libs\LibStub\LibStub.lua
 libs\AceLocale-3.0\AceLocale-3.0.xml
-
-
-
-
 
 Cryolysis.xml

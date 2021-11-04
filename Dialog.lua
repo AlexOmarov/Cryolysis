@@ -10,8 +10,8 @@ Cryolysis.Config.Panel = {
 }
 
 CryolysisData = {};
-CryolysisData.Version = "1.2.7";
-CryolysisData.Author = "Kaeldra";
+CryolysisData.Version = "2.0";
+CryolysisData.Author = "Shtil";
 CryolysisData.AppName = "Cryolysis";
 CryolysisData.Label = CryolysisData.AppName.." "..CryolysisData.Version.." by "..CryolysisData.Author;
 

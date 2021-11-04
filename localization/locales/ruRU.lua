@@ -11,6 +11,8 @@ if not L then return end
 -- Word to search for Fire Vulnerability and Winter's chill  first (.+) is the target, second is the spell
 L["CRYOLYSIS_DEBUFF_SRCH"] = "(.+) is afflicted by (.+)."
 L["CRYOLYSIS_POLY_SRCH"]  = "(.+) fades from (.+)."
+L["Cryolysis"] = "Cryolysis";
+L["CRYOLYSIS_UNIT_MAGE"] = "Mage";
 
 function Cryolysis_SpellTableBuild()
 	L["CRYOLYSIS_SPELL_TABLE"] = {
