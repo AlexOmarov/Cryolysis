@@ -68,7 +68,7 @@ function createButton(name, parent, inherit,
                       point, pointRelative, relativeFrom, x, y,
                       enableMouse, text, width, height,
                       normalTexture, pushedTexture, disabledTexture, highlightTexture, alphaMod,
-                      onClick, OnDragStart, OnDragStop, OnEnter, OnLeave, OnMouseUp, OnLoad, frameStrata, movable)
+                      onClick, OnDragStart, OnDragStop, OnEnter, OnLeave, OnMouseUp, OnLoad, frameStrata, movable, OnUpdate, OnEvent)
     local button = CreateFrame("Button", name, parent, inherit)
     button:SetText(text)
     button:EnableMouse(enableMouse)
