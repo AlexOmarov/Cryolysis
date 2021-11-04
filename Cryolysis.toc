@@ -21,8 +21,7 @@ src\Globals.lua
 
 # Addon utils
 src\utils\FormUtils.lua
-src\utils\MessageUtils.lua
-src\utils\MetaInfoUtils.lua
+src\utils\ChatUtils.lua
 src\utils\Utils.lua
 
 # Addon localizations
