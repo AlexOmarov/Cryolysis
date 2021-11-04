@@ -3,10 +3,19 @@
 ------------------------------------------------------------------------------------------------------
 
 -- Cryolysis main object, holds references for all Cryolysis inner API (for all modules, like TimerMenu etc.)
-Cryolysis = {};
+CRYOLYSIS = {};
 -- Cryolysis config, holds all settings per player
-CryolysisConfig = {};
+CRYOLYSIS_CONFIG = {};
 -- Object which holds positions of all the frames
-FramePositions = {};
+FRAME_POSITIONS = {};
 -- Object which holds meta information about addon
-CryolysisData = {};
+CRYOLYSIS_DATA = {};
+
+-- Path to textures
+TEXTURES_PATH = "resources\\UI\\";
+TEXTURES_BLUE_PATH = "resources\\UI\Bleu\\";
+TEXTURES_ORANGE_PATH = "resources\\UI\Orange\\";
+TEXTURES_VIOLET_PATH = "resources\\UI\Violet\\";
+
+-- Path to sounds
+SOUNDS_PATH = "resources\\sounds\\";

@@ -7,158 +7,84 @@ require "Settings.lua"
 require "FormUtils.lua"
 
 
+
 ------------------------------------------------------------------------------------------------------
--- Fill main menu panel
+					-- Inner functions to encapsulate filling logic --
 ------------------------------------------------------------------------------------------------------
-function Cryolysis:FillMainMenuPanel()
-	return fillMainMenuPanel(_G["CryolysisGeneralFrame"])
+
+------------------------------------------------------------------------------------------------------
+-- Create Main panel font string
+------------------------------------------------------------------------------------------------------
+local function createMainFontString(name, relative)
+	return createFontString(name, "ARTWORK", "GameFontNormal", {1, 1, 1, 1}, nil, nil,
+			nil, "CENTER", "CENTER", relative, 23, 0)
 end
 
 ------------------------------------------------------------------------------------------------------
-                     -- Inner functions to encapsulate filling logic --
+-- Create Button menu button
 ------------------------------------------------------------------------------------------------------
+local function createMainMenuButton(name, x, y, normalTexture, pushedTexture, highlightTexture, onClick, tooltip)
+
+	return createButton(
+			name, "UIParent", nil, "CENTER", "UIParent", "CENTER",
+			x, y, "true", nil, 34, 34,
+			normalTexture, pushedTexture, nil, highlightTexture, "ADD", onClick,
+			function() Cryolysis_OnDragStart(self); end,
+			function() Cryolysis_OnDragStop(self); end,
+			function() Cryolysis_BuildTooltip(self, tooltip, "ANCHOR_LEFT"); end,
+			function() GameTooltip:Hide(); end,
+			function() Cryolysis_OnDragStop(self); end,
+			function() self:RegisterForDrag("LeftButton"); self:RegisterForClicks("LeftButtonUp", "RightButtonUp"); self:Hide(); end,
+			"MEDIUM", "true",
+			function() Cryolysis_OnUpdate(); end, function() Cryolysis_OnEvent(event); end
+	)
+end
 
 ------------------------------------------------------------------------------------------------------
 -- Create Main menu panel
 ------------------------------------------------------------------------------------------------------
-function fillMainMenuPanel(frame)
+local function createMainPanel()
 
-	createMainMenuButton("CryolysisSpellTimerButton", "UIParent",nil, 120, 340,
-			"true", nil, 34, 34,
-			"CENTER", nil, nil,
-	        "Interface\AddOns\Cryolysis\UI\SpellTimerButton-Normal",
-			"Interface\AddOns\Cryolysis\UI\SpellTimerButton-Pushed",
-			nil,
-			"Interface\AddOns\Cryolysis\UI\SpellTimerButton-Highlight",
-			function() Cryolysis_UseItem("Hearthstone", arg1) end,
-			function() Cryolysis_OnDragStart(self); end,
-			function() Cryolysis_OnDragStop(self); end,
-			function() Cryolysis_BuildTooltip(self, "SpellTimer", AnchorSpellTimerTooltip); end,
-			function() GameTooltip:Hide(); end,
-			function() Cryolysis_OnDragStop(self); end,
-			function() self:RegisterForDrag("LeftButton");
-				self:RegisterForClicks("LeftButtonUp", "RightButtonUp");
-				self:Hide(); end, "MEDIUM", "true"
-	)
-	createFontString("CryolysisListSpells", "ARTWORK", "GameFontNormalSmall", {1, 1, 1, 1}, CryolysisData.Label, nil, nil, "LEFT", "LEFT", "CryolysisSpellTimerButton", 23, 0)
+	createMainMenuButton("CryolysisSpellTimerButton",  120, 340, "SpellTimerButton-Normal",
+			"SpellTimerButton-Pushed", "SpellTimerButton-Highlight",
+			function() Cryolysis_UseItem("Hearthstone", arg1) end, "SpellTimer")
 
-	createMainMenuButton("CryolysisButton", "UIParent",nil, 0, -100,
-			"true", nil, 58, 58,
-			"CENTER", "UIParent", "CENTER",
-			"Interface\AddOns\Cryolysis\UI\Shard",
-			nil,
-			nil,
-			nil,
-			function() Cryolysis_Toggle(arg1); end,
-			function() Cryolysis_OnDragStart(self); end,
-			function() Cryolysis_OnDragStop(self); end,
-			function() Cryolysis_BuildTooltip(self, "Main", "ANCHOR_LEFT"); end,
-			function() GameTooltip:Hide(); end,
-			function() Cryolysis_OnDragStop(self); end,
-			function() Cryolysis_OnLoad();
-				HideUIPanel(self); end,
-			"MEDIUM", "true",
-			function() Cryolysis_OnUpdate(); end,
-			function() Cryolysis_OnEvent(event); end
-	)
-	createFontString("CryolysisShardCount", "ARTWORK", "GameFontNormal", {1, 1, 1, 1}, nil, nil, nil, "CENTER", "CENTER", "CryolysisButton", 23, 0)
+	createMainMenuButton("CryolysisLeftSpellButton", 0, -100, "Shard", nil,
+			"BaseMenu-02", function() Cryolysis_SpellButtonCast("Left", arg1); end,
+			"Left")
 
-	createMainMenuButton("CryolysisLeftSpellButton", "UIParent",nil, 0, -100,
-			"true", nil, 34, 34,
-			"CENTER", "UIParent", "CENTER",
-			"Interface\AddOns\Cryolysis\UI\Shard",
-			nil,
-			nil,
-			"Interface\AddOns\Cryolysis\UI\BaseMenu-02",
-			function() Cryolysis_SpellButtonCast("Left", arg1); end,
-			function() if not CryolysisLockServ then Cryolysis_OnDragStart(self); end end,
-			function() Cryolysis_OnDragStop(self); end,
-			function() Cryolysis_BuildSpellTooltip(self, "Left", "ANCHOR_LEFT"); end,
-			function()  end,
-			function() Cryolysis_OnDragStop(self); end,
-			function() self:RegisterForDrag("LeftButton");
-				self:RegisterForClicks("LeftButtonUp", "RightButtonUp");
-				HideUIPanel(self); end,
-			"MEDIUM", "true",
-			function()  end,
-			function() end
-	)
-	createFontString("CryolysisShardCount", "ARTWORK", "GameFontNormal", {1, 1, 1, 1}, nil, nil, nil, "CENTER", "CENTER", "CryolysisButton", 23, 0)
+	createMainMenuButton("CryolysisEvocationButton", -53, -100, "EvocationButton-01",
+			nil, "BaseMenu-02", function() Cryolysis_BuffCast(49); end,
+			"Evocation")
 
+	createMainMenuButton("CryolysisRightSpellButton", -17, -100, "BaseMenu-02",
+			nil, "BaseMenu-02", function() Cryolysis_SpellButtonCast("Right", arg1); end,
+			"Right")
 
-	createMainMenuButton("CryolysisEvocationButton", "UIParent",nil, -53, -100,
-			"true", nil, 34, 34,
-			"CENTER", "UIParent", "CENTER",
-			"Interface\AddOns\Cryolysis\UI\EvocationButton-01",
-			nil,
-			nil,
-			"Interface\AddOns\Cryolysis\UI\BaseMenu-02",
-			function()  Cryolysis_BuffCast(49); end,
-			function() if not CryolysisLockServ then Cryolysis_OnDragStart(self); end end,
-			function() Cryolysis_OnDragStop(self); end,
-			function()  end,
-			function() GameTooltip:Hide(); end,
-			function() Cryolysis_OnDragStop(self); end,
-			function()
-				self:RegisterForDrag("LeftButton");
-				self:RegisterForClicks("LeftButtonUp", "RightButtonUp");
-				HideUIPanel(self);
-			end,
-			"MEDIUM", "true",
-			function()  end,
-			function() end
-	)
-	createFontString("CryolysisEvocationCooldown", "ARTWORK", "GameFontNormal", {1, 1, 1, 1},
-			nil, nil, nil, "CENTER", "CENTER", "CryolysisButton", 23, 0)
+	createMainMenuButton("CryolysisManastoneButton", -17, -100, "ManastoneButton-01",
+			nil, "BaseMenu-02", function() Cryolysis_UseItem("Manastone", arg1); end,
+			"Manastone")
 
+	createMainMenuButton("CryolysisManastoneButton", -17, -100, "ManastoneButton-01",
+			nil, "BaseMenu-02", function() Cryolysis_UseItem("Manastone", arg1); end,
+			"Manastone")
 
-	createMainMenuButton("CryolysisRightSpellButton", "UIParent",nil, -17, -100,
-			"true", nil, 34, 34,
-			"CENTER", "UIParent", "CENTER",
-			"Interface\AddOns\Cryolysis\UI\Shard",
-			nil,
-			nil,
-			"Interface\AddOns\Cryolysis\UI\BaseMenu-02",
-			function() Cryolysis_SpellButtonCast("Right", arg1);  end,
-			function() if not CryolysisLockServ then Cryolysis_OnDragStart(self); end end,
-			function() Cryolysis_OnDragStop(self); end,
-			function() Cryolysis_BuildSpellTooltip(self, "Right", "ANCHOR_RIGHT"); end,
-			function() GameTooltip:Hide(); end,
-			function() Cryolysis_OnDragStop(self); end,
-			function()
-				self:RegisterForDrag("LeftButton");
-				self:RegisterForClicks("LeftButtonUp", "RightButtonUp");
-				HideUIPanel(self);
-			end,
-			"MEDIUM", "true",
-			function()  end,
-			function() end
-	)
+--[[	TODO: Перевести все кнопки на новый метод + создавать фрейм
+<Frame name="CryolysisGeneralFrame" hidden="false">
+	<Scripts>
+		<OnLoad>
+			self:RegisterEvent("PLAYER_LOGIN")
+			self:RegisterEvent("SPELLS_CHANGED")
+		</OnLoad>
+		<OnEvent>
+			Cryolysis:OnLoad(event)
+		</OnEvent>
+	</Scripts>
+</Frame>
 
-	createMainMenuButton("CryolysisManastoneButton", "UIParent",nil, -17, -100,
-			"true", nil, 34, 34,
-			"CENTER", "UIParent", "CENTER",
-			"Interface\AddOns\Cryolysis\UI\ManastoneButton-01",
-			nil,
-			nil,
-			"Interface\AddOns\Cryolysis\UI\BaseMenu-02",
-			function() Cryolysis_UseItem("Manastone", arg1); end,
-			function() if not CryolysisLockServ then Cryolysis_OnDragStart(self); end end,
-			function() Cryolysis_OnDragStop(self); end,
-			function() Cryolysis_BuildTooltip(self, "Manastone", "ANCHOR_LEFT"); end,
-			function() GameTooltip:Hide(); end,
-			function() Cryolysis_OnDragStop(self); end,
-			function()
-				self:RegisterForDrag("LeftButton");
-				self:RegisterForClicks("LeftButtonUp", "RightButtonUp");
-				HideUIPanel(self);
-			end,
-			"MEDIUM", "true",
-			function()  end,
-			function() end
-	)
-	createFontString("CryolysisManastoneCooldown", "ARTWORK", "GameFontNormal", {1, 1, 1, 1},
-			nil, nil, nil, "CENTER", "CENTER", "CryolysisManastoneButton", 23, 0)
+<GameTooltip name="CryolysisTooltip" inherits="GameTooltipTemplate" parent="UIParent" toplevel="true" movable="true" frameStrata="LOW" />
+</Ui>
+]]
 
 	createMainMenuButton("CryolysisDrinkButton", "UIParent",nil, -17, -100,
 			"true", nil, 34, 34,
@@ -182,8 +108,6 @@ function fillMainMenuPanel(frame)
 			function()  end,
 			function() end
 	)
-	createFontString("CryolysisDrinkCount", "ARTWORK", "GameFontNormal", {1, 1, 1, 1},
-			nil, nil, nil, "CENTER", "CENTER", "CryolysisDrinkButton", 23, 0)
 
 	createMainMenuButton("CryolysisFoodButton", "UIParent",nil, -17, -100,
 			"true", nil, 34, 34,
@@ -207,8 +131,6 @@ function fillMainMenuPanel(frame)
 			function()  end,
 			function() end
 	)
-	createFontString("CryolysisFoodCount", "ARTWORK", "GameFontNormal", {1, 1, 1, 1},
-			nil, nil, nil, "CENTER", "CENTER", "CryolysisFoodButton", 23, 0)
 
 	createMainMenuButton("CryolysisMountButton", "UIParent",nil, -17, -100,
 			"true", nil, 34, 34,
@@ -370,20 +292,48 @@ function fillMainMenuPanel(frame)
 			function() end
 	)
 
+	createMainFontString("CryolysisListSpells", "CryolysisSpellTimerButton")
+	createMainFontString("CryolysisFoodCount", "CryolysisFoodButton")
+	createMainFontString("CryolysisDrinkCount", "CryolysisDrinkButton")
+	createMainFontString("CryolysisManastoneCooldown", "CryolysisManastoneButton")
+	createMainFontString("CryolysisEvocationCooldown", "CryolysisButton")
+	createMainFontString("CryolysisShardCount", "CryolysisButton")
+
+
+	createMainMenuButton("CryolysisButton", "UIParent",nil, 0, -100,
+			"true", nil, 58, 58,
+			"CENTER", "UIParent", "CENTER",
+			"Interface\AddOns\Cryolysis\UI\Shard",
+			nil,
+			nil,
+			nil,
+			function() Cryolysis_Toggle(arg1); end,
+			function() Cryolysis_OnDragStart(self); end,
+			function() Cryolysis_OnDragStop(self); end,
+			function() Cryolysis_BuildTooltip(self, "Main", "ANCHOR_LEFT"); end,
+			function() GameTooltip:Hide(); end,
+			function() Cryolysis_OnDragStop(self); end,
+			function() Cryolysis_OnLoad();
+				HideUIPanel(self); end,
+			"MEDIUM", "true",
+			function() Cryolysis_OnUpdate(); end,
+			function() Cryolysis_OnEvent(event); end
+	)
+
 
 	return frame
 end
 
+
 ------------------------------------------------------------------------------------------------------
--- Create Button menu button
+										-- Main panel API --
 ------------------------------------------------------------------------------------------------------
-function createMainMenuButton(name, parent, inherit, x, y, enableMouse, text, width, height, point, relative, relativePoint,
-							    normalTexture, pushedTexture, disabledTexture, highlightTexture, onClick, OnDragStart, OnDragStop, OnEnter, OnLeave, OnMouseUp, OnLoad, frameStrata, movable, OnUpdate, OnEvent)
-	return createButton(
-		name, parent, inherit,
-		point, relative, relativePoint, x, y,
-		enableMouse, nil, width, height,
-		normalTexture, pushedTexture, disabledTexture, highlightTexture, "ADD",
-		onClick, OnDragStart, OnDragStop, OnEnter, OnLeave, OnMouseUp, OnLoad, frameStrata, movable, OnUpdate, OnEvent
-	)
+
+------------------------------------------------------------------------------------------------------
+-- Get main menu panel
+------------------------------------------------------------------------------------------------------
+function Cryolysis:GetMainMenuPanel()
+	local frame = _G["CryolysisGeneralFrame"]
+	if not frame then frame = createMainPanel() end
+	return frame
 end
