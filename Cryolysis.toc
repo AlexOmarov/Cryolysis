@@ -1,9 +1,11 @@
 ## Interface: 11306
 ## Title: Cryolysis 2.0
-## Title-ruRU: Cryolysis (Русский)
+## Title-ruRU: Cryolysis 2.0 (Русский)
 ## Notes: Mage UI & Utility management
 ## Notes-ruRU: Менеджер заклинаний мага.
 ## Version: 2.0
+## Author: Shtil
+## eMail: shtil.a@yandex.ru
 ## DefaultState: Enabled
 ## X-Original-Author: Lomig
 ## X-Localizations: ruRU

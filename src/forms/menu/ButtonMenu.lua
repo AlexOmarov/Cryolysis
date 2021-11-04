@@ -36,7 +36,9 @@ function createButtonMenuPanel()
     frame:ClearAllPoints()
     frame:SetPoint("BOTTOMLEFT", "CryolysisGeneralFrame")
 	createButton("ReorderTemplate", nil, nil, nil, nil, nil, nil, nil, nil, nil, nil,
-		nil, nil, nil, nil, "Interface\Buttons\CheckButtonHilight", "ADD", function() Reorder.OnClick(-1) end)
+		nil, nil, nil, nil,
+			"Interface\Buttons\CheckButtonHilight", "ADD", function() Reorder.OnClick(-1) end,
+			nil, nil, nil, nil, nil,  nil, nil, nil)
 	createSlider("SpellButtonSliderTemplate",
 		nil,
 		"OptionsSliderTemplate",
@@ -463,7 +465,7 @@ function createButtonMenuButton(name, inherit, x, y, enableMouse, text, width, h
 		point, relative, relativePoint, x, y,
 		enableMouse, nil, "29", "29",
 		normalTexture, pushedTexture, disabledTexture, highlightTexture, "ADD",
-		onClick
+		onClick, nil, nil, nil, nil, nil, nil, nil, nil
 	)
 end
 

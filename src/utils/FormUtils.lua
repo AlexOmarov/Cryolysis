@@ -17,7 +17,7 @@ end
 ------------------------------------------------------------------------------------------------------
 function createFontString(name, type, parent, color, text, width, height, point, pointRelative, pointRelativeFrom, x, y)
     local fontString = frame:CreateFontString(name, nil, parent)
-    fontString:SetTextColor(color[1], color[2], color[3])
+    fontString:SetTextColor(color[1], color[2], color[3], color[4])
     fontString:SetText(text)
     fontString:SetWidth(width)
     fontString:SetHeight(height)
@@ -68,7 +68,7 @@ function createButton(name, parent, inherit,
                       point, pointRelative, relativeFrom, x, y,
                       enableMouse, text, width, height,
                       normalTexture, pushedTexture, disabledTexture, highlightTexture, alphaMod,
-                      onClick)
+                      onClick, OnDragStart, OnDragStop, OnEnter, OnLeave, OnMouseUp, OnLoad, frameStrata, movable)
     local button = CreateFrame("Button", name, parent, inherit)
     button:SetText(text)
     button:EnableMouse(enableMouse)
