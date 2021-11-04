@@ -1,15 +1,29 @@
 local L = require "Localization.lua"
 local framePositions = require "Moving.lua"
+local _G = _G
+
 require "Dialog.lua"
 require "Settings.lua"
 require "FormUtils.lua"
 
-local _G = _G
+
+------------------------------------------------------------------------------------------------------
+-- Get timer menu panel
+------------------------------------------------------------------------------------------------------
+function Cryolysis:GetMessageMenuPanel()
+	local frame = _G["CryolysisMessageMenu"]
+	if not frame then frame = createMessageMenuPanel() end
+	return frame
+end
+
+------------------------------------------------------------------------------------------------------
+				   -- Inner functions to encapsulate creation logic --
+------------------------------------------------------------------------------------------------------
 
 ------------------------------------------------------------------------------------------------------
 -- Create Message menu panel
 ------------------------------------------------------------------------------------------------------
-function Cryolysis:CreateMessageMenuPanel()
+function createMessageMenuPanel()
 	local frame = CreateFrame("Frame", "CryolysisMessageMenu", "CryolysisGeneralFrame")
 
 	frame:SetFrameStrata("DIALOG")
@@ -135,15 +149,6 @@ function Cryolysis:CreateMessageMenuPanel()
 end
 
 ------------------------------------------------------------------------------------------------------
--- Get timer menu panel
-------------------------------------------------------------------------------------------------------
-function Cryolysis:GetMessageMenuPanel()
-    local frame = _G["CryolysisMessageMenu"]
-    if not frame then frame = self:CreateMessageMenuPanel() end
-	return frame
-end
-
-------------------------------------------------------------------------------------------------------
 -- Create Message menu option
 ------------------------------------------------------------------------------------------------------
 function createMessageMenuOption(name, width, height)
@@ -162,8 +167,7 @@ end
 ------------------------------------------------------------------------------------------------------
 -- Create Message menu slider
 ------------------------------------------------------------------------------------------------------
-function createMessageMenuSlider(name, min, max, step, x, y,
-								   width, height,
+function createMessageMenuSlider(name, min, max, step, x, y, width, height,
 								   onEnter, onValueChanged, onLeave, onMouseUp)
 	createSlider(name, "CryolysisMessageMenu", "OptionsSliderTemplate", min, max, step,
 				 "HORIZONTAL", nil, nil,

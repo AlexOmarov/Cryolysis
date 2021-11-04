@@ -1,15 +1,29 @@
 local L = require "Localization.lua"
 local framePositions = require "Moving.lua"
+local _G = _G
+
 require "Dialog.lua"
 require "Settings.lua"
 require "FormUtils.lua"
 
-local _G = _G
+
+------------------------------------------------------------------------------------------------------
+-- Get timer menu panel
+------------------------------------------------------------------------------------------------------
+function Cryolysis:GetButtonMenuPanel()
+	local frame = _G["CryolysisButtonMenu"]
+	if not frame then frame = createButtonMenuPanel() end
+	return frame
+end
+
+------------------------------------------------------------------------------------------------------
+                     -- Inner functions to encapsulate creation logic --
+------------------------------------------------------------------------------------------------------
 
 ------------------------------------------------------------------------------------------------------
 -- Create Button menu panel
 ------------------------------------------------------------------------------------------------------
-function Cryolysis:CreateButtonMenuPanel()
+function createButtonMenuPanel()
     local frame = CreateFrame("Frame", "CryolysisButtonMenu", "CryolysisGeneralFrame")
 
     frame:SetFrameStrata("DIALOG")
@@ -424,15 +438,6 @@ function Cryolysis:CreateButtonMenuPanel()
 end
 
 ------------------------------------------------------------------------------------------------------
--- Get timer menu panel
-------------------------------------------------------------------------------------------------------
-function Cryolysis:GetButtonMenuPanel()
-    local frame = _G["CryolysisButtonMenu"]
-    if not frame then frame = self:CreateButtonMenuPanel() end
-    return frame
-end
-
-------------------------------------------------------------------------------------------------------
 -- Create Button menu option
 ------------------------------------------------------------------------------------------------------
 function createButtonMenuOption(name, width, height)
@@ -451,11 +456,8 @@ end
 ------------------------------------------------------------------------------------------------------
 -- Create Button menu button
 ------------------------------------------------------------------------------------------------------
-function createButtonMenuButton(name, inherit, x, y,
-							    enableMouse, text, width, height,
-							    point, relative, relativePoint,
-							    normalTexture, pushedTexture, disabledTexture, highlightTexture,
-							    onClick)
+function createButtonMenuButton(name, inherit, x, y, enableMouse, text, width, height, point, relative, relativePoint,
+							    normalTexture, pushedTexture, disabledTexture, highlightTexture, onClick)
 	createButton(
 		name, "CryolysisButtonMenu", inherit,
 		point, relative, relativePoint, x, y,
@@ -468,9 +470,8 @@ end
 ------------------------------------------------------------------------------------------------------
 -- Create Button menu slider
 ------------------------------------------------------------------------------------------------------
-function createButtonMenuSlider(name, min, max, step, x, y,
-width, height,
-onEnter, onValueChanged, onLeave, onMouseUp)
+function createButtonMenuSlider(name, min, max, step, x, y, width, height, onEnter, onValueChanged,
+								onLeave, onMouseUp)
     createSlider(name, "CryolysisButtonMenu", "OptionsSliderTemplate", min, max, step,
         "HORIZONTAL", nil, nil,
         "CENTER", "CryolysisButtonMenu", "TOP", x, y,

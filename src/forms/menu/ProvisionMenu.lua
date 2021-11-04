@@ -1,15 +1,28 @@
 local L = require "Localization.lua"
 local framePositions = require "Moving.lua"
+local _G = _G
+
 require "Dialog.lua"
 require "Settings.lua"
 require "FormUtils.lua"
 
-local _G = _G
+------------------------------------------------------------------------------------------------------
+-- Get timer menu panel
+------------------------------------------------------------------------------------------------------
+function Cryolysis:GetProvisionMenuPanel()
+	local frame = _G["CryolysisProvisionMenu"]
+	if not frame then frame = createProvisionMenuPanel() end
+	return frame
+end
+
+------------------------------------------------------------------------------------------------------
+					-- Inner functions to encapsulate creation logic --
+------------------------------------------------------------------------------------------------------
 
 ------------------------------------------------------------------------------------------------------
 -- Create provision menu panel
 ------------------------------------------------------------------------------------------------------
-function Cryolysis:CreateProvisionMenuPanel()
+function createProvisionMenuPanel()
 	local frame = CreateFrame("Frame", "CryolysisProvisionMenu", "CryolysisGeneralFrame")
 
 	frame:SetFrameStrata("DIALOG")
@@ -275,15 +288,6 @@ function Cryolysis:CreateProvisionMenuPanel()
 end
 
 ------------------------------------------------------------------------------------------------------
--- Get timer menu panel
-------------------------------------------------------------------------------------------------------
-function Cryolysis:GetProvisionMenuPanel()
-    local frame = _G["CryolysisProvisionMenu"]
-    if not frame then frame = self:CreateProvisionMenuPanel() end
-	return frame
-end
-
-------------------------------------------------------------------------------------------------------
 -- Create Provision menu option
 ------------------------------------------------------------------------------------------------------
 function createProvisionMenuOption(name, width, height)
@@ -302,8 +306,7 @@ end
 ------------------------------------------------------------------------------------------------------
 -- Create Provision menu slider
 ------------------------------------------------------------------------------------------------------
-function createProvisionMenuSlider(name, min, max, step, x, y,
-								   width, height,
+function createProvisionMenuSlider(name, min, max, step, x, y, width, height,
 								   onEnter, onValueChanged, onLeave, onMouseUp)
 	createSlider(name, "CryolysisProvisionMenu", "OptionsSliderTemplate", min, max, step,
 				 "HORIZONTAL", nil, nil,

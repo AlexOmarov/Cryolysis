@@ -1,15 +1,28 @@
 local L = require "Localization.lua"
 local framePositions = require "Moving.lua"
+local _G = _G
+
 require "Dialog.lua"
 require "Settings.lua"
 require "FormUtils.lua"
 
-local _G = _G
+------------------------------------------------------------------------------------------------------
+-- Get graph options menu panel
+------------------------------------------------------------------------------------------------------
+function Cryolysis:GetGraphOptionMenuPanel()
+	local frame = _G["CryolysisGraphOptionMenu"]
+	if not frame then frame = createGraphOptionMenuPanel() end
+	return frame
+end
+
+------------------------------------------------------------------------------------------------------
+                      -- Inner functions to encapsulate creation logic --
+------------------------------------------------------------------------------------------------------
 
 ------------------------------------------------------------------------------------------------------
 -- Create GraphOption menu panel
 ------------------------------------------------------------------------------------------------------
-function Cryolysis:CreateGraphOptionMenuPanel()
+function createGraphOptionMenuPanel()
 	local frame = CreateFrame("Frame", "CryolysisGraphOptionMenu", "CryolysisGeneralFrame")
 
 	frame:SetFrameStrata("DIALOG")
@@ -203,15 +216,6 @@ function Cryolysis:CreateGraphOptionMenuPanel()
 end
 
 ------------------------------------------------------------------------------------------------------
--- Get timer menu panel
-------------------------------------------------------------------------------------------------------
-function Cryolysis:GetGraphOptionMenuPanel()
-    local frame = _G["CryolysisGraphOptionMenu"]
-    if not frame then frame = self:CreateGraphOptionMenuPanel() end
-	return frame
-end
-
-------------------------------------------------------------------------------------------------------
 -- Create GraphOption menu option
 ------------------------------------------------------------------------------------------------------
 function createGraphOptionMenuOption(name, width, height)
@@ -230,8 +234,7 @@ end
 ------------------------------------------------------------------------------------------------------
 -- Create GraphOption menu slider
 ------------------------------------------------------------------------------------------------------
-function createGraphOptionMenuSlider(name, min, max, step, x, y,
-								   width, height,
+function createGraphOptionMenuSlider(name, min, max, step, x, y, width, height,
 								   onEnter, onValueChanged, onLeave, onMouseUp)
 	createSlider(name, "CryolysisGraphOptionMenu", "OptionsSliderTemplate", min, max, step,
 				 "HORIZONTAL", nil, nil,

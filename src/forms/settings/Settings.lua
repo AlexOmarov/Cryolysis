@@ -1,14 +1,27 @@
 local L = require "Localization.lua"
 local framePositions = require "Moving.lua"
+local _G = _G
+
 require "Dialog.lua"
 require "FormUtils.lua"
 
-local _G = _G
+------------------------------------------------------------------------------------------------------
+-- Get settings panel
+------------------------------------------------------------------------------------------------------
+function Cryolysis:GetConfigPanel()
+	local frame = _G["CryolysisGeneralFrame"]
+	if not frame then frame = createConfigPanel() end
+	return frame
+end
+
+------------------------------------------------------------------------------------------------------
+				  -- Inner functions to encapsulate creation logic --
+------------------------------------------------------------------------------------------------------
 
 ------------------------------------------------------------------------------------------------------
 -- Create settings panel
 ------------------------------------------------------------------------------------------------------
-function Cryolysis:CreateConfigPanel()
+function createConfigPanel()
 	local frame = CreateFrame("Frame", "CryolysisGeneralFrame", UIParent)
 
 	frame:SetFrameStrata("DIALOG")
@@ -71,7 +84,7 @@ function Cryolysis:CreateConfigPanel()
 			GameTooltip:SetText(L[name])
 		end)
 		checkButton:SetScript("OnLeave", function() GameTooltip:Hide() end)
-		checkButton:SetScript("OnClick", function() Cryolysis:OpenPanel(name) end)
+		checkButton:SetScript("OnClick", function() openPanel(name) end)
 
 		createTexture("SkillLineTab", "BACKGROUND", 64, 64,
 			"Interface\\SpellBook\\SpellBook-SkillLineTab", "TOPLEFT", -3, 11)
@@ -88,23 +101,14 @@ function Cryolysis:CreateConfigPanel()
 			checkButton:SetNormalTexture("Interface\\Icons\\" .. frame:GetName())
 		end
 	end
-	self:OpenPanel(_G["CryolysisGeneralTabs"][1]:GetName())
-	return frame
-end
-
-------------------------------------------------------------------------------------------------------
--- Get settings panel
-------------------------------------------------------------------------------------------------------
-function Cryolysis:GetConfigPanel()
-    local frame = _G["CryolysisGeneralFrame"]
-    if not frame then frame = self:CreateConfigPanel() end
+	openPanel(_G["CryolysisGeneralTabs"][1]:GetName())
 	return frame
 end
 
 ------------------------------------------------------------------------------------------------------
 -- Function to display different pages of the settings panel
 ------------------------------------------------------------------------------------------------------
-function Cryolysis:OpenPanel(PanelCode)
+function openPanel(PanelCode)
     for k, v in ipairs(_G["CryolysisGeneralTabs"]) do
         if v.GetName() == PanelCode then
             Cryolysis:ShowPanel(v)

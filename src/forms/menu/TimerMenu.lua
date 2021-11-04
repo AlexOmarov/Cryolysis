@@ -1,15 +1,27 @@
 local L = require "Localization.lua"
 local framePositions = require "Moving.lua"
+local _G = _G
+
 require "Dialog.lua"
 require "Settings.lua"
 require "FormUtils.lua"
 
-local _G = _G
+------------------------------------------------------------------------------------------------------
+-- Get timer menu panel
+------------------------------------------------------------------------------------------------------
+function Cryolysis:GetTimerMenuPanel()
+	local frame = _G["CryolysisTimerMenu"]
+	if not frame then frame = createTimerMenuPanel() end
+	return frame
+end
+------------------------------------------------------------------------------------------------------
+			      -- Inner functions to encapsulate creation logic --
+------------------------------------------------------------------------------------------------------
 
 ------------------------------------------------------------------------------------------------------
 -- Create timer menu panel
 ------------------------------------------------------------------------------------------------------
-function Cryolysis:CreateTimerMenuPanel()
+function createTimerMenuPanel()
 	local frame = CreateFrame("Frame", "CryolysisTimerMenu", "CryolysisGeneralFrame")
 
 	frame:SetFrameStrata("DIALOG")
@@ -70,15 +82,6 @@ function Cryolysis:CreateTimerMenuPanel()
 		end);
 
 
-	return frame
-end
-
-------------------------------------------------------------------------------------------------------
--- Get timer menu panel
-------------------------------------------------------------------------------------------------------
-function Cryolysis:GetTimerMenuPanel()
-    local frame = _G["CryolysisTimerMenu"]
-    if not frame then frame = self:CreateTimerMenuPanel() end
 	return frame
 end
 

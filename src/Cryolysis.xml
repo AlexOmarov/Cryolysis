@@ -4,15 +4,11 @@
 
 	<Script file="libs\LibStub\LibStub.lua"/>
 	<Script file="libs\AceLocale-3.0\AceLocale-3.0.lua"/>
-	<Script file="Localization.lua"/>
-	<Script file="Localization\localization_ruRu.lua"/>
-	<Script file="Localization\Speech.lua"/>
-	<Script file="Localization\dialog_ruRu.lua"/>
+	<Script file="localization\Localization.lua"/>
+	<Script file="Dialog.lua"/>
 	<Script file="Cryolysis.lua"/>
 	<Script file="CryolysisInitialize.lua"/>
 	<Script file="CryolysisMessage.lua"/>
-	<Script file="CryolysisTimerFunction.lua"/>
-	<Script file="CryolysisGraphicalTimer.lua"/>
 	
 	<Button  name="CryolysisSpellTimerButton" frameStrata="MEDIUM" enableMouse="true" movable="true" parent="UIParent">
 		<Size>
@@ -260,8 +256,6 @@
 		<HighlightTexture file="Interface\AddOns\Cryolysis\UI\BaseMenu-02"/>
 	</Button>
 
-
-
 	<Button  name="CryolysisManastoneButton" hidden="false" parent="UIParent" movable="true">
 		<Size>
 			<AbsDimension x="34" y="34"/>
@@ -315,7 +309,6 @@
 		<NormalTexture file="Interface\AddOns\Cryolysis\UI\ManastoneButton-01"/>
 		<HighlightTexture file="Interface\AddOns\Cryolysis\UI\BaseMenu-02"/>
 	</Button>
-
 	<Button  name="CryolysisDrinkButton" hidden="false" enableMouse="true"  toplevel="true" parent="UIParent" movable="true">
 		<Size>
 			<AbsDimension x="34" y="34"/>
@@ -369,7 +362,6 @@
 		<NormalTexture file="Interface\AddOns\Cryolysis\UI\DrinkButton-01"/>
 		<HighlightTexture file="Interface\AddOns\Cryolysis\UI\BaseMenu-02"/>
 	</Button>
-
 	<Button  name="CryolysisFoodButton" hidden="false" enableMouse="true"  toplevel="true" parent="UIParent" movable="true">
 		<Size>
 			<AbsDimension x="34" y="34"/>
@@ -423,7 +415,6 @@
 		<NormalTexture file="Interface\AddOns\Cryolysis\UI\FoodButton-01"/>
 		<HighlightTexture file="Interface\AddOns\Cryolysis\UI\BaseMenu-02"/>
 	</Button>
-	
 	<Button  name="CryolysisMountButton" hidden="false" enableMouse="true"  toplevel="true" parent="UIParent" movable="true">
 		<Size>
 			<AbsDimension x="34" y="34"/>
@@ -463,7 +454,6 @@
 		<NormalTexture file="Interface\AddOns\Cryolysis\UI\MountButton-01"/>
 		<HighlightTexture file="Interface\AddOns\Cryolysis\UI\BaseMenu-02"/>
 	</Button>
-
 	<Button  name="CryolysisBuffMenuButton" hidden="false" enableMouse="true"  toplevel="true" parent="UIParent" movable="true">
 		<Size>
 			<AbsDimension x="34" y="34"/>
@@ -504,7 +494,6 @@
 		<NormalTexture file="Interface\AddOns\Cryolysis\UI\BuffMenuButton-01"/>
 		<HighlightTexture file="Interface\AddOns\Cryolysis\UI\BaseMenu-02"/>
 	</Button>
-
 	<Button  name="CryolysisBuffMenu1" frameStrata="HIGH" hidden="false" enableMouse="true"  toplevel="true" parent="UIParent" movable="true">
 		<Size>
 			<AbsDimension x="40" y="40"/>
@@ -664,7 +653,7 @@
 		<NormalTexture file="Interface\AddOns\Cryolysis\UI\FireWard-01"/>
 		<HighlightTexture file="Interface\AddOns\Cryolysis\UI\BaseBuff-02"/>
 	</Button>
-		<Button  name="CryolysisBuffMenu6" frameStrata="HIGH" hidden="false" enableMouse="true"  toplevel="true" parent="UIParent" movable="true">
+	<Button  name="CryolysisBuffMenu6" frameStrata="HIGH" hidden="false" enableMouse="true"  toplevel="true" parent="UIParent" movable="true">
 		<Size>
 			<AbsDimension x="40" y="40"/>
 		</Size>
@@ -765,7 +754,6 @@
 		<NormalTexture file="Interface\AddOns\Cryolysis\UI\SlowFall-01"/>
 		<HighlightTexture file="Interface\AddOns\Cryolysis\UI\BaseBuff-02"/>
 	</Button>
-
 	<Button  name="CryolysisPortalMenuButton" hidden="false" enableMouse="true"  toplevel="true" parent="UIParent" movable="true">
 		<Size>
 			<AbsDimension x="34" y="34"/>
@@ -805,7 +793,6 @@
 		<NormalTexture file="Interface\AddOns\Cryolysis\UI\PortalMenuButton-01"/>
 		<HighlightTexture file="Interface\AddOns\Cryolysis\UI\BaseMenu-02"/>
 	</Button>
-	
 	<Button  name="CryolysisPortalMenu1" frameStrata="HIGH" hidden="false" enableMouse="true"  toplevel="true" parent="UIParent" movable="true">
 		<Size>
 			<AbsDimension x="40" y="40"/>
@@ -849,7 +836,6 @@
 		<NormalTexture file="Interface\AddOns\Cryolysis\UI\TeleportOrgrimmar-01"/>
 		<HighlightTexture file="Interface\AddOns\Cryolysis\UI\BaseBuff-02"/>
 	</Button>
-	
 	<Button  name="CryolysisPortalMenu2" frameStrata="HIGH" hidden="false" enableMouse="true"  toplevel="true" parent="UIParent" movable="true">
 		<Size>
 			<AbsDimension x="40" y="40"/>
@@ -893,7 +879,6 @@
 		<NormalTexture file="Interface\AddOns\Cryolysis\UI\TeleportUndercity-01"/>
 		<HighlightTexture file="Interface\AddOns\Cryolysis\UI\BaseBuff-02"/>
 	</Button>
-	
 	<Button  name="CryolysisPortalMenu3" frameStrata="HIGH" hidden="false" enableMouse="true"  toplevel="true" parent="UIParent" movable="true">
 		<Size>
 			<AbsDimension x="40" y="40"/>
@@ -937,7 +922,6 @@
 		<NormalTexture file="Interface\AddOns\Cryolysis\UI\TeleportThunderbluff-01"/>
 		<HighlightTexture file="Interface\AddOns\Cryolysis\UI\BaseBuff-02"/>
 	</Button>
-	
 	<Button  name="CryolysisPortalMenu4" frameStrata="HIGH" hidden="false" enableMouse="true"  toplevel="true" parent="UIParent" movable="true">
 		<Size>
 			<AbsDimension x="40" y="40"/>
@@ -981,7 +965,6 @@
 		<NormalTexture file="Interface\AddOns\Cryolysis\UI\TeleportIronforge-01"/>
 		<HighlightTexture file="Interface\AddOns\Cryolysis\UI\BaseBuff-02"/>
 	</Button>
-	
 	<Button  name="CryolysisPortalMenu5" frameStrata="HIGH" hidden="false" enableMouse="true"  toplevel="true" parent="UIParent" movable="true">
 		<Size>
 			<AbsDimension x="40" y="40"/>
@@ -1025,7 +1008,6 @@
 		<NormalTexture file="Interface\AddOns\Cryolysis\UI\TeleportStormwind-01"/>
 		<HighlightTexture file="Interface\AddOns\Cryolysis\UI\BaseBuff-02"/>
 	</Button>
-	
 	<Button  name="CryolysisPortalMenu6" frameStrata="HIGH" hidden="false" enableMouse="true"  toplevel="true" parent="UIParent" movable="true">
 		<Size>
 			<AbsDimension x="40" y="40"/>
@@ -1069,7 +1051,6 @@
 		<NormalTexture file="Interface\AddOns\Cryolysis\UI\TeleportDarnassus-01"/>
 		<HighlightTexture file="Interface\AddOns\Cryolysis\UI\BaseBuff-02"/>
 	</Button>
-
 	<Button  name="CryolysisPortalMenu7" frameStrata="HIGH" hidden="false" enableMouse="true"  toplevel="true" parent="UIParent" movable="true">
 		<Size>
 			<AbsDimension x="40" y="40"/>
@@ -1113,7 +1094,6 @@
 		<NormalTexture file="Interface\AddOns\Cryolysis\UI\PortalOrgrimmar-01"/>
 		<HighlightTexture file="Interface\AddOns\Cryolysis\UI\BaseBuff-02"/>
 	</Button>
-
 	<Button  name="CryolysisPortalMenu8" frameStrata="HIGH" hidden="false" enableMouse="true"  toplevel="true" parent="UIParent" movable="true">
 		<Size>
 			<AbsDimension x="40" y="40"/>
@@ -1157,7 +1137,6 @@
 		<NormalTexture file="Interface\AddOns\Cryolysis\UI\PortalUndercity-01"/>
 		<HighlightTexture file="Interface\AddOns\Cryolysis\UI\BaseBuff-02"/>
 	</Button>
-
 	<Button  name="CryolysisPortalMenu9" frameStrata="HIGH" hidden="false" enableMouse="true"  toplevel="true" parent="UIParent" movable="true">
 		<Size>
 			<AbsDimension x="40" y="40"/>
@@ -1201,7 +1180,6 @@
 		<NormalTexture file="Interface\AddOns\Cryolysis\UI\PortalThunderbluff-01"/>
 		<HighlightTexture file="Interface\AddOns\Cryolysis\UI\BaseBuff-02"/>
 	</Button>
-
 	<Button  name="CryolysisPortalMenu10" frameStrata="HIGH" hidden="false" enableMouse="true"  toplevel="true" parent="UIParent" movable="true">
 		<Size>
 			<AbsDimension x="40" y="40"/>
@@ -1245,8 +1223,6 @@
 		<NormalTexture file="Interface\AddOns\Cryolysis\UI\PortalIronforge-01"/>
 		<HighlightTexture file="Interface\AddOns\Cryolysis\UI\BaseBuff-02"/>
 	</Button>
-	
-
 	<Button  name="CryolysisPortalMenu11" frameStrata="HIGH" hidden="false" enableMouse="true"  toplevel="true" parent="UIParent" movable="true">
 		<Size>
 			<AbsDimension x="40" y="40"/>
@@ -1290,7 +1266,6 @@
 		<NormalTexture file="Interface\AddOns\Cryolysis\UI\PortalStormwind-01"/>
 		<HighlightTexture file="Interface\AddOns\Cryolysis\UI\BaseBuff-02"/>
 	</Button>
-
 	<Button  name="CryolysisPortalMenu12" frameStrata="HIGH" hidden="false" enableMouse="true"  toplevel="true" parent="UIParent" movable="true">
 		<Size>
 			<AbsDimension x="40" y="40"/>
@@ -1334,7 +1309,6 @@
 		<NormalTexture file="Interface\AddOns\Cryolysis\UI\PortalDarnassus-01"/>
 		<HighlightTexture file="Interface\AddOns\Cryolysis\UI\BaseBuff-02"/>
 	</Button>
-
 	<Button  name="CryolysisShadowTranceButton" frameStrata="MEDIUM" movable="true" parent="UIParent">
 		<Size>
 			<AbsDimension x="40" y="40"/>
@@ -1387,7 +1361,6 @@
 		<PushedTexture file="Interface\Addons\Cryolysis\UI\ShadowTrance-Icon-03"/>
 		<HighlightTexture file="Interface\Addons\Cryolysis\UI\ShadowTrance-Icon-02"/>
 	</Button>
-	
 	<Button  name="CryolysisAntiFearButton" frameStrata="MEDIUM" movable="true" parent="UIParent">
 		<Size>
 			<AbsDimension x="43" y="43"/>
