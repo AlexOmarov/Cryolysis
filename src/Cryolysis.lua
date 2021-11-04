@@ -1274,7 +1274,7 @@ function Cryolysis_MerchantCheck()
                 end
             end
             if display then
-                Cryolysis_Msg(Cryolysis_MsgAddColor(L["CRYOLYSIS_ITEM"].RuneOfTeleportation .. ": " .. CryolysisTimerColor(color) .. Count.RuneOfTeleportation .. "/" .. CryolysisConfig.RestockTeleport), "USER");
+                Cryolysis_Msg(Cryolysis_MsgAddColor(L["CRYOLYSIS_ITEM"].RuneOfTeleportation .. ": " .. CRYOLYSIS:ColorizeTimer(color) .. Count.RuneOfTeleportation .. "/" .. CryolysisConfig.RestockTeleport), "USER");
                 display = false;
             end
             -- Check for portals
@@ -1289,7 +1289,7 @@ function Cryolysis_MerchantCheck()
                 end
             end
             if display then
-                Cryolysis_Msg(Cryolysis_MsgAddColor(L["CRYOLYSIS_ITEM"].RuneOfPortals .. ": " .. CryolysisTimerColor(color) .. Count.RuneOfPortals .. "/" .. CryolysisConfig.RestockPortals), "USER");
+                Cryolysis_Msg(Cryolysis_MsgAddColor(L["CRYOLYSIS_ITEM"].RuneOfPortals .. ": " .. CRYOLYSIS:ColorizeTimer(color) .. Count.RuneOfPortals .. "/" .. CryolysisConfig.RestockPortals), "USER");
                 display = false;
             end
             -- Check for powder
@@ -1301,7 +1301,7 @@ function Cryolysis_MerchantCheck()
                 end;
             end
             if display then
-                Cryolysis_Msg(Cryolysis_MsgAddColor(L["CRYOLYSIS_ITEM"].ArcanePowder .. ": " .. CryolysisTimerColor(color) .. Count.ArcanePowder .. "/" .. CryolysisConfig.RestockPowder), "USER");
+                Cryolysis_Msg(Cryolysis_MsgAddColor(L["CRYOLYSIS_ITEM"].ArcanePowder .. ": " .. CRYOLYSIS:ColorizeTimer(color) .. Count.ArcanePowder .. "/" .. CryolysisConfig.RestockPowder), "USER");
                 display = false;
             end
             if Purchase then
@@ -1479,12 +1479,6 @@ function Cryolysis_Toggle(button, keybind)
         CryolysisGeneralTab_OnClick(1);
         return;
     end
-end
-
--- Function allowing the movement of elements of Cryolysis on the screen
-function Cryolysis_OnDragStart(button)
-    if (button == "CryolysisIcon") then GameTooltip:Hide(); end
-    button:StartMoving();
 end
 
 -- Function stopping the displacement of elements of Cryolysis on the screen
@@ -1869,10 +1863,10 @@ function Cryolysis_UpdateIcons()
     elseif CryolysisConfig.CountType == 2 then -- Drink and Food
         Sphere.display = Count.Drink .. " / " .. Count.Food;
     elseif CryolysisConfig.CountType == 3 then -- HP Current
-        Sphere.color = CryolysisTimerColor(((UnitHealth("player") / UnitHealthMax("player")) * 100));
+        Sphere.color = CRYOLYSIS:ColorizeTimer(((UnitHealth("player") / UnitHealthMax("player")) * 100));
         Sphere.display = Cryolysis_MsgAddColor(Sphere.color .. tostring(UnitHealth("player")));
     elseif CryolysisConfig.CountType == 4 then -- HP Percent
-        Sphere.color = CryolysisTimerColor(((UnitHealth("player") / UnitHealthMax("player")) * 100));
+        Sphere.color = CRYOLYSIS:ColorizeTimer(((UnitHealth("player") / UnitHealthMax("player")) * 100));
         Sphere.display = floor(UnitHealth("player") / UnitHealthMax("player") * 100);
         Sphere.display = Cryolysis_MsgAddColor(Sphere.color .. tostring(Sphere.display) .. "%");
     elseif CryolysisConfig.CountType == 5 then -- MP Current

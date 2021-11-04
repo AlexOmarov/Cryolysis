@@ -29,7 +29,7 @@ local function createMainMenuButton(name, x, y, normalTexture, pushedTexture, hi
 			name, "UIParent", nil, "CENTER", "UIParent", "CENTER",
 			x, y, "true", nil, width or 34, height or 34,
 			normalTexture, pushedTexture, nil, highlightTexture, "ADD", onClick,
-			function() Cryolysis_OnDragStart(self); end,
+			function() self:StartMoving() end,
 			function() Cryolysis_OnDragStop(self); end,
 			function() Cryolysis_BuildTooltip(self, tooltip, anchor or "ANCHOR_LEFT"); end,
 			function() GameTooltip:Hide(); end,

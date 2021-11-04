@@ -44,7 +44,7 @@ local function createConfigPanel()
 
 	frame:RegisterForDrag("LeftButton")
 	frame:SetScript("OnMouseUp", function(self) Cryolysis:OnDragStop(self) end)
-	frame:SetScript("OnDragStart", function(self) Cryolysis:OnDragStart(self) end)
+	frame:SetScript("OnDragStart", function(self) self:StartMoving() end)
 	frame:SetScript("OnDragStop", function(self) Cryolysis:OnDragStop(self) end)
 
 	createTexture("CryolysisGeneralIcon", "BACKGROUND", 58, 58,

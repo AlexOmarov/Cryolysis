@@ -19,3 +19,6 @@ TEXTURES_VIOLET_PATH = "resources\\UI\Violet\\";
 
 -- Path to sounds
 SOUNDS_PATH = "resources\\sounds\\";
+
+-- Intro to user message in chat
+CRYOLYSIS_USER_MESSAGE_INTRO = "|C2D47E7EECr|C2B7EECEEyo|C2AA2EFEEly|C28C6F4EEsis|CFFFFFFFF: ";
