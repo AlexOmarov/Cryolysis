@@ -1,5 +1,3 @@
-FramePositions = {}
-
 function Cryolysis:OnDragStart(button)
     button:StartMoving()
 end

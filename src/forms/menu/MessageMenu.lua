@@ -1,8 +1,8 @@
 local L = require "Localization.lua"
-local framePositions = require "Moving.lua"
+local framePositions = require "MovingUtils.lua"
 local _G = _G
 
-require "Dialog.lua"
+require "Storage.lua"
 require "Settings.lua"
 require "FormUtils.lua"
 
