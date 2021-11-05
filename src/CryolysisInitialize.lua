@@ -13,15 +13,6 @@ function CRYOLYSIS:Initialize()
 		CRYOLYSIS:GetGraphOptionMenuPanel()
 		CRYOLYSIS:GetButtonMenuPanel()
 
-
-
-		if not L["CRYOLYSIS_SPELL_TABLE"][25].ID then CryolysisConfig.LeftSpell = 1; end
-		if not L["CRYOLYSIS_SPELL_TABLE"][15].ID then
-			CryolysisConfig.RightSpell = 2;
-			if not L["CRYOLYSIS_SPELL_TABLE"][2].ID then
-				CryolysisConfig.StonePosition[6] = false;
-			end
-		end		
 		----------------------------------------
 		-- Inventory Menu Setup
 		----------------------------------------
