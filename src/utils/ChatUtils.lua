@@ -49,13 +49,13 @@ end
                                     -- Send messages --
 ------------------------------------------------------------------------------------------------------
 function CryolysisChatUtils:SendUserMessage(code, target, portal, mount)
-    local msg = LocalizationUtils:Translate(code)
+    local msg = CryolysisLocalizationUtils:Translate(code)
     ChatFrame1:AddMessage(CRYOLYSIS_USER_MESSAGE_INTRO .. colorize(replace(msg, target, portal, mount)),
             0.2, 0.9, 0.95, 1.0, UIERRORS_HOLD_TIME);
 end
 
 function CryolysisChatUtils:SendWorldMessage(code, target, portal, mount)
-    local msg = LocalizationUtils:Translate(code)
+    local msg = CryolysisLocalizationUtils:Translate(code)
     if (GetNumRaidMembers() > 0) then
         SendChatMessage(CRYOLYSIS_USER_MESSAGE_INTRO .. colorize(replace(msg, target, portal, mount)), "RAID");
     elseif (GetNumPartyMembers() > 0) then
@@ -66,7 +66,7 @@ function CryolysisChatUtils:SendWorldMessage(code, target, portal, mount)
 end
 
 function CryolysisChatUtils:SendGroupMessage(code, type, target, portal, mount)
-    local msg = LocalizationUtils:Translate(code)
+    local msg = CryolysisLocalizationUtils:Translate(code)
     if (GetNumRaidMembers() > 0 and type == "GROUP") then
         SendChatMessage(CRYOLYSIS_USER_MESSAGE_INTRO .. colorize(replace(msg, target, portal, mount)), "RAID");
     elseif (GetNumPartyMembers() > 0 and type == "GROUP") then
@@ -76,7 +76,7 @@ function CryolysisChatUtils:SendGroupMessage(code, type, target, portal, mount)
 end
 
 function CryolysisChatUtils:ShowError(code, target, portal, mount)
-    local msg = LocalizationUtils:Translate(code)
+    local msg = CryolysisLocalizationUtils:Translate(code)
     UIErrorsFrame:AddMessage(CRYOLYSIS_USER_MESSAGE_INTRO .. colorize(replace(msg, target, portal, mount)),
             0.2, 0.9, 0.95, 1.0, UIERRORS_HOLD_TIME);
 end
