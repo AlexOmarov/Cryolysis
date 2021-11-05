@@ -1,9 +1,5 @@
-local L = require "Localization.lua"
-local framePositions = require "Utils.lua"
-local _G = _G
-
 require "Globals.lua"
-require "Settings.lua"
+require "Localization.lua"
 require "FormUtils.lua"
 
 					-- Inner functions to encapsulate creation logic --
@@ -96,7 +92,7 @@ end
 ------------------------------------------------------------------------------------------------------
 -- Get timer menu panel
 ------------------------------------------------------------------------------------------------------
-function Cryolysis:GetTimerMenuPanel()
+function CRYOLYSIS:GetTimerMenuPanel()
 	local frame = _G["CryolysisTimerMenu"]
 	if not frame then frame = createTimerMenuPanel() end
 	return frame

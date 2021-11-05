@@ -1,8 +1,5 @@
-local L = require "Localization.lua"
-local framePositions = require "Utils.lua"
-local _G = _G
-
 require "Globals.lua"
+require "Localization.lua"
 require "FormUtils.lua"
 
 

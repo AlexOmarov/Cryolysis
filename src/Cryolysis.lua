@@ -112,10 +112,7 @@ local SpellTargetLevel = nil;
 local SpellCastTime = 0;
 local CombustionFade = false;
 local PoMFade = false;
--- Initialization of the tables to manage timers
--- One for spell timers, one for mob groups, and the last allows the association of a timer and graphic frame
--- Le dernier permet l'association d'un timer à une frame graphique
-SpellTimer = {};
+
 local SpellGroup = {
     Name = { "Rez", "Main", "Cooldown" },
     SubName = { " ", " ", " " },
@@ -126,56 +123,7 @@ local TimerTable = {};
 for i = 1, 50, 1 do
     TimerTable[i] = false;
 end
-CryolysisPrivate = {
-    -- Menus: Shows buff and portal
-    PortalShow = false;
-    PortalMenuShow = false;
-    BuffShow = false;
-    BuffMenuShow = false;
 
-    -- Menus: Allows the progressive disappearance of the Portal menu (transparency)
-    AlphaPortalMenu = 1;
-    AlphaPortalVar = 0;
-    PortalVisible = false;
-
-    -- Menus: Allows the progressive disappearance of the buff menu (transparency)
-    AlphaBuffMenu = 1;
-    AlphaBuffVar = 0;
-    BuffVisible = false;
-
-    -- Menus : Allows recasting of the last spell by middle clicking
-    LastPortal = 0;
-    LastBuff = 0;
-    PortalMess = nil;
-    -- For Polymorph alerts
-    PolyTarget = nil;
-    PolyWarning = false;
-    PolyWarnTime = 0;
-    PolyMess = nil;
-    PolyBreakTime = 0;
-
-    -- Cooldown vars
-    EvocationCooldown = 0;
-    EvocationCooldownText = "";
-    ManastoneCooldown = 0;
-    ManastoneCooldownText = "";
-    ColdsnapCooldown = 0;
-    ColdsnapCooldownText = "";
-    IceblockCooldown = 0;
-    IceblockCooldownText = "";
-
-    -- Message vars
-    PortalMess = 0;
-    SteedMess = 0;
-    RezMess = 0;
-    TPMess = 0;
-    -- Other vars
-    Sitting = false;
-    checkInv = true;
-    LoadCheck = true;
-    AQ = false;
-    ChatSilence = false;
-};
 local debuff = {
     -- Winter's Chill
     chillCount = 0;

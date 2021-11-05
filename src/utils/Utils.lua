@@ -2,7 +2,7 @@
                                  -- Fill meta info about mod --
 ------------------------------------------------------------------------------------------------------
 
-function CRYOLYSIS:FillMetaInfo()
+function Utils:FillMetaInfo()
     local handle  = assert(io.open("Cryolysis.toc","r"))
     local value = handle:read("*line")
     while value do
@@ -17,4 +17,13 @@ function CRYOLYSIS:FillMetaInfo()
     end
     handle:close()
     CryolysisData.Label = CryolysisData.Title.." "..CryolysisData.Version.." by "..CryolysisData.Author;
+end
+
+function Utils:FillModSettings()
+    local handle  = assert(io.open("Settings.txt","r"))
+    local value = handle:read("*line")
+    while value do
+        value = handle:read("*line")
+    end
+    handle:close()
 end

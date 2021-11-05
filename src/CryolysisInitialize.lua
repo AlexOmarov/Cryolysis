@@ -1,60 +1,19 @@
-------------------------------------------------------------------------------------------------------
--- FONCTION D'INITIALISATION
-------------------------------------------------------------------------------------------------------
-local L = LibStub("AceLocale-3.0"):GetLocale(CryolysisData.AppName, true)
 
-function Cryolysis_Initialize()
-	Cryolysis_Localization_Dialog_En();
+
+function CRYOLYSIS:Initialize()
+	-- Cryolysis_Localization_Dialog_En();
 	local localizedClass, englishClass, classIndex = UnitClass("player");
-	if englishClass ~= "MAGE" then
-		HideUIPanel(CryolysisProvisionMenu);
-		HideUIPanel(CryolysisSpellTimerButton);
-		HideUIPanel(CryolysisButton);
-		HideUIPanel(CryolysisPortalMenuButton);
-		HideUIPanel(CryolysisBuffMenuButton);
-		HideUIPanel(CryolysisMountButton);
-		HideUIPanel(CryolysisFoodButton);
-		HideUIPanel(CryolysisDrinkButton);
-		HideUIPanel(CryolysisManastoneButton);
-		HideUIPanel(CryolysisEvocationButton);
-		HideUIPanel(CryolysisLeftSpellButton);
-		HideUIPanel(CryolysisRightSpellButton);
---		HideUIPanel(CryolysisAntiFearButton);
---		HideUIPanel(CryolysisConcentrationButton);
-	else
-		-- On charge (ou on crée) la configuration pour le joueur et on l'affiche sur la console
-		if CryolysisConfig == nil or CryolysisConfig.Version ~= Default_CryolysisConfig.Version then
-			CryolysisConfig = {};
-			CryolysisConfig = Default_CryolysisConfig;
---			if UnitLevel("player") < 40 then CryolysisConfig.StonePosition[8] = false; end
-			Cryolysis_Msg(L["CRYOLYSIS_MESSAGE"].Interface.DefaultConfig, "USER");
-		
-			CryolysisButton:ClearAllPoints();
---			CryolysisConcentrationButton:ClearAllPoints();
---			CryolysisAntiFearButton:ClearAllPoints();
-			CryolysisSpellTimerButton:ClearAllPoints();
-			CryolysisButton:SetPoint("CENTER", "UIParent", "CENTER",0,-100);
---			CryolysisConcentrationButton:SetPoint("CENTER", "UIParent", "CENTER",100,-30);
---			CryolysisAntiFearButton:SetPoint("CENTER", "UIParent", "CENTER",100,30);
-			CryolysisSpellTimerButton:SetPoint("CENTER", "UIParent", "CENTER",120,340);
+	if englishClass == "MAGE" then
+		CRYOLYSIS:SendUserMessage("CRYOLYSIS_MESSAGE");
+		CRYOLYSIS:SendUserMessage("CRYOLYSIS_WELCOME_MESSAGE");
 
-		else
-			Cryolysis_Msg(L["CRYOLYSIS_MESSAGE"].Interface.UserConfig, "USER");
-		end
-		-----------------------------------------------------------
-		-- Exécution des fonctions de démarrage
-		-----------------------------------------------------------
+		CRYOLYSIS:GetConfigPanel()
+		CRYOLYSIS:GetTimerMenuPanel()
+		CRYOLYSIS:GetProvisionMenuPanel()
+		CRYOLYSIS:GetMessageMenuPanel()
+		CRYOLYSIS:GetGraphOptionMenuPanel()
+		CRYOLYSIS:GetButtonMenuPanel()
 
-		-- Affichage d'un message sur la console
-		Cryolysis_Msg(L["CRYOLYSIS_MESSAGE"].Interface.Welcome, "USER");
-		-- Création de la liste des sorts disponibles
-		Cryolysis_SpellSetup();
-		-- Création de la liste des emplacements des fragments
-		Cryolysis_ProvisionSetup();
-		-- Création des menus de buff et d'invocation
-		Cryolysis_CreateMenu();
-
-		-- Lecture de la configuration dans le SavedVariables.lua, écriture dans les variables définies
 
 
 		if not L["CRYOLYSIS_SPELL_TABLE"][25].ID then CryolysisConfig.LeftSpell = 1; end
@@ -115,23 +74,6 @@ function Cryolysis_Initialize()
   		----------------------------------------
 		-- Message Menu Setup
 		----------------------------------------
---[[
-
-		if CryolysisConfig.CryolysisLanguage == "frFR" then
-			CryolysisLanguage_Slider:SetValue(1);
-		elseif CryolysisConfig.CryolysisLanguage == "enUS" then
-			CryolysisLanguage_Slider:SetValue(2);
-		elseif CryolysisConfig.CryolysisLanguage == "deDE" then
-			CryolysisLanguage_Slider:SetValue(3);
-		elseif CryolysisConfig.CryolysisLanguage == "zhTW" then
-			CryolysisLanguage_Slider:SetValue(4);
-		else
-			CryolysisLanguage_Slider:SetValue(5);  --"zhCN"
-		end
-		CryolysisLanguage_SliderText:SetText("Langue / Language / Sprache / èªžè¨€ / è¯­è¨€");
-		CryolysisLanguage_SliderLow:SetText("");
-		CryolysisLanguage_SliderHigh:SetText("")
-]]
 
 		if (CryolysisConfig.CryolysisToolTip) then CryolysisShowTooltips_Button:SetChecked(1); end
 		if (CryolysisConfig.Sound) then CryolysisSound_Button:SetChecked(1); end
@@ -277,11 +219,6 @@ end
 
 function Cryolysis_LanguageInitialize()
 
-	-- Localisation du speech.lua
-	CryolysisLocalization();
-
--- Localisation du XML
-CryolysisVersion:SetText(CryolysisData.Label);
 
 ----------------------------------------
 -- Inventory Menu Dialog Setup

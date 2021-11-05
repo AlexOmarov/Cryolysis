@@ -1,7 +1,8 @@
 ------------------------------------------------
 -- Localization abstraction --
 ------------------------------------------------
---[[Add new localizations here as required modules]]
-require "ruRU.lua"
+require "Globals.lua"
 
-return LibStub("AceLocale-3.0"):GetLocale(CryolysisData.AppName, true)
+function Localization:GetLocalization()
+    return LibStub("AceLocale-3.0"):GetLocale(CryolysisData.AppName, true)
+end

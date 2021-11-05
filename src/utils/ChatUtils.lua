@@ -1,3 +1,5 @@
+require("LocalizationUtils.lua")
+
 ------------------------------------------------------------------------------------------------------
                                     -- Local functions --
 ------------------------------------------------------------------------------------------------------
@@ -46,12 +48,14 @@ end
 ------------------------------------------------------------------------------------------------------
                                     -- Send messages --
 ------------------------------------------------------------------------------------------------------
-function CRYOLYSIS:SendUserMessage(msg, target, portal, mount)
+function ChatUtils:SendUserMessage(code, target, portal, mount)
+    local msg = LocalizationUtils:Translate(code)
     ChatFrame1:AddMessage(CRYOLYSIS_USER_MESSAGE_INTRO .. colorize(replace(msg, target, portal, mount)),
             0.2, 0.9, 0.95, 1.0, UIERRORS_HOLD_TIME);
 end
 
-function CRYOLYSIS:SendWorldMessage(msg, target, portal, mount)
+function ChatUtils:SendWorldMessage(code, target, portal, mount)
+    local msg = LocalizationUtils:Translate(code)
     if (GetNumRaidMembers() > 0) then
         SendChatMessage(CRYOLYSIS_USER_MESSAGE_INTRO .. colorize(replace(msg, target, portal, mount)), "RAID");
     elseif (GetNumPartyMembers() > 0) then
@@ -61,7 +65,8 @@ function CRYOLYSIS:SendWorldMessage(msg, target, portal, mount)
     end
 end
 
-function CRYOLYSIS:SendGroupMessage(msg, type, target, portal, mount)
+function ChatUtils:SendGroupMessage(code, type, target, portal, mount)
+    local msg = LocalizationUtils:Translate(code)
     if (GetNumRaidMembers() > 0 and type == "GROUP") then
         SendChatMessage(CRYOLYSIS_USER_MESSAGE_INTRO .. colorize(replace(msg, target, portal, mount)), "RAID");
     elseif (GetNumPartyMembers() > 0 and type == "GROUP") then
@@ -70,7 +75,8 @@ function CRYOLYSIS:SendGroupMessage(msg, type, target, portal, mount)
     end
 end
 
-function CRYOLYSIS:ShowError(msg, target, portal, mount)
+function ChatUtils:ShowError(code, target, portal, mount)
+    local msg = LocalizationUtils:Translate(code)
     UIErrorsFrame:AddMessage(CRYOLYSIS_USER_MESSAGE_INTRO .. colorize(replace(msg, target, portal, mount)),
             0.2, 0.9, 0.95, 1.0, UIERRORS_HOLD_TIME);
 end
@@ -79,7 +85,7 @@ end
                                         -- Colorize timer --
 ------------------------------------------------------------------------------------------------------
 
-function CRYOLYSIS:ColorizeTimer(percent)
+function ChatUtils:ColorizeTimer(percent)
     local color = "<brightGreen>";   -- |C2D47E7FF
     if (percent < 10) then
         color = "<red>";             -- |C26FBF8FF

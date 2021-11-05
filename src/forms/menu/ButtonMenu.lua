@@ -1,17 +1,56 @@
-local L = require "Localization.lua"
-local framePositions = require "Utils.lua"
-local _G = _G
-
 require "Globals.lua"
-require "Settings.lua"
+require "Localization.lua"
 require "FormUtils.lua"
 
 					-- Inner functions to encapsulate filling logic --
+------------------------------------------------------------------------------------------------------
+-- Create Button menu option
+------------------------------------------------------------------------------------------------------
+local function createButtonMenuOption(name, width, height)
+	FrameUtils:CreateFontString(name, nil, "GameFontNormalSmall", { 1, 1, 1 },
+			nil, nil, nil, "TOPLEFT", "CryolysisTimerMenu", "TOPLEFT", width, height)
+end
+
+------------------------------------------------------------------------------------------------------
+-- Create Button menu checkbox
+------------------------------------------------------------------------------------------------------
+local function createButtonMenuCheckButton(name, width, height, x, y, func)
+	FrameUtils:CreateFrame("CheckBox", name, nil, "UICheckButtonTemplate", true, width, height,
+			"TOPLEFT", "CryolysisTimerMenu", "TOPLEFT", x, y, "OnClick", func)
+end
+
+------------------------------------------------------------------------------------------------------
+-- Create Button menu button
+------------------------------------------------------------------------------------------------------
+local function createButtonMenuButton(name, inherit, x, y, enableMouse, text, width, height, point, relative,
+									  relativePoint, normalTexture, pushedTexture, disabledTexture, highlightTexture,
+									  onClick)
+	FrameUtils:CreateButton(
+			name, "CryolysisButtonMenu", inherit,
+			point, relative, relativePoint, x, y,
+			enableMouse, nil, "29", "29",
+			normalTexture, pushedTexture, disabledTexture, highlightTexture, "ADD",
+			onClick, nil, nil, nil, nil, nil, nil, nil, nil
+	)
+end
+------------------------------------------------------------------------------------------------------
+-- Create Button menu slider
+------------------------------------------------------------------------------------------------------
+local function createButtonMenuSlider(name, min, max, step, x, y, width, height, onEnter, onValueChanged,
+								onLeave, onMouseUp)
+	FrameUtils:CreateSlider(name, "CryolysisButtonMenu", "OptionsSliderTemplate", min, max, step,
+			"HORIZONTAL", nil, nil,
+			"CENTER", "CryolysisButtonMenu", "TOP", x, y,
+			width, height, nil, nil,
+			onEnter, onValueChanged, onLeave, onMouseUp)
+end
+
+
 
 ------------------------------------------------------------------------------------------------------
 -- Create Button menu panel
 ------------------------------------------------------------------------------------------------------
-function createButtonMenuPanel()
+local function createButtonMenuPanel()
     local frame = CreateFrame("Frame", "CryolysisButtonMenu", "CryolysisGeneralFrame")
 
     frame:SetFrameStrata("DIALOG")
@@ -23,14 +62,17 @@ function createButtonMenuPanel()
     frame:SetHeight(452)
     frame:ClearAllPoints()
     frame:SetPoint("BOTTOMLEFT", "CryolysisGeneralFrame")
-	createButton("ReorderTemplate", nil, nil, nil, nil, nil, nil, nil, nil, nil, nil,
+	FormUtils:CreateButton("ReorderTemplate", nil, nil, nil, nil,
+			nil, nil, nil, nil, nil, nil,
 		nil, nil, nil, nil,
 			"Interface\Buttons\CheckButtonHilight", "ADD", function() Reorder.OnClick(-1) end,
-			nil, nil, nil, nil, nil,  nil, nil, nil)
-	createSlider("SpellButtonSliderTemplate",
+			nil, nil, nil, nil, nil,  nil,
+			nil, nil)
+	FormUtils:CreateSlider("SpellButtonSliderTemplate",
 		nil,
 		"OptionsSliderTemplate",
-		1, 8, 1, nil, nil,nil,nil,nil,nil,nil,nil,120,16,nil,nil,
+		1, 8, 1, nil, nil,nil,nil,nil,
+			nil,nil,nil,120,16,nil,nil,
 		function()
 			GameTooltip:SetOwner(self, "ANCHOR_RIGHT");
 			if (self:GetValue() == 1) then
@@ -427,52 +469,11 @@ function createButtonMenuPanel()
     return frame
 end
 
-------------------------------------------------------------------------------------------------------
--- Create Button menu option
-------------------------------------------------------------------------------------------------------
-function createButtonMenuOption(name, width, height)
-    createFontString(name, nil, "GameFontNormalSmall", { 1, 1, 1 },
-        nil, nil, nil, "TOPLEFT", "CryolysisTimerMenu", "TOPLEFT", width, height)
-end
-
-------------------------------------------------------------------------------------------------------
--- Create Button menu checkbox
-------------------------------------------------------------------------------------------------------
-function createButtonMenuCheckButton(name, width, height, x, y, func)
-    createFrame("CheckBox", name, nil, "UICheckButtonTemplate", true, width, height,
-        "TOPLEFT", "CryolysisTimerMenu", "TOPLEFT", x, y, "OnClick", func)
-end
-
-------------------------------------------------------------------------------------------------------
--- Create Button menu button
-------------------------------------------------------------------------------------------------------
-function createButtonMenuButton(name, inherit, x, y, enableMouse, text, width, height, point, relative, relativePoint,
-							    normalTexture, pushedTexture, disabledTexture, highlightTexture, onClick)
-	createButton(
-		name, "CryolysisButtonMenu", inherit,
-		point, relative, relativePoint, x, y,
-		enableMouse, nil, "29", "29",
-		normalTexture, pushedTexture, disabledTexture, highlightTexture, "ADD",
-		onClick, nil, nil, nil, nil, nil, nil, nil, nil
-	)
-end
-------------------------------------------------------------------------------------------------------
--- Create Button menu slider
-------------------------------------------------------------------------------------------------------
-function createButtonMenuSlider(name, min, max, step, x, y, width, height, onEnter, onValueChanged,
-								onLeave, onMouseUp)
-    createSlider(name, "CryolysisButtonMenu", "OptionsSliderTemplate", min, max, step,
-        "HORIZONTAL", nil, nil,
-        "CENTER", "CryolysisButtonMenu", "TOP", x, y,
-        width, height, nil, nil,
-        onEnter, onValueChanged, onLeave, onMouseUp)
-end
-
 									-- Button menu API --
 ------------------------------------------------------------------------------------------------------
 -- Get timer menu panel
 ------------------------------------------------------------------------------------------------------
-function Cryolysis:GetButtonMenuPanel()
+function CRYOLYSIS:GetButtonMenuPanel()
 	local frame = _G["CryolysisButtonMenu"]
 	if not frame then frame = createButtonMenuPanel() end
 	return frame
