@@ -7,7 +7,7 @@ require "FormUtils.lua"
 -- Create Button menu option
 ------------------------------------------------------------------------------------------------------
 local function createButtonMenuOption(name, width, height)
-	FrameUtils:CreateFontString(name, nil, "GameFontNormalSmall", { 1, 1, 1 },
+	CryolysisFormUtils:CreateFontString(name, nil, "GameFontNormalSmall", { 1, 1, 1 },
 			nil, nil, nil, "TOPLEFT", "CryolysisTimerMenu", "TOPLEFT", width, height)
 end
 
@@ -15,7 +15,7 @@ end
 -- Create Button menu checkbox
 ------------------------------------------------------------------------------------------------------
 local function createButtonMenuCheckButton(name, width, height, x, y, func)
-	FrameUtils:CreateFrame("CheckBox", name, nil, "UICheckButtonTemplate", true, width, height,
+	CryolysisFormUtils:CreateFrame("CheckBox", name, nil, "UICheckButtonTemplate", true, width, height,
 			"TOPLEFT", "CryolysisTimerMenu", "TOPLEFT", x, y, "OnClick", func)
 end
 
@@ -25,7 +25,7 @@ end
 local function createButtonMenuButton(name, inherit, x, y, enableMouse, text, width, height, point, relative,
 									  relativePoint, normalTexture, pushedTexture, disabledTexture, highlightTexture,
 									  onClick)
-	FrameUtils:CreateButton(
+	CryolysisFormUtils:CreateButton(
 			name, "CryolysisButtonMenu", inherit,
 			point, relative, relativePoint, x, y,
 			enableMouse, nil, "29", "29",
@@ -38,7 +38,7 @@ end
 ------------------------------------------------------------------------------------------------------
 local function createButtonMenuSlider(name, min, max, step, x, y, width, height, onEnter, onValueChanged,
 								onLeave, onMouseUp)
-	FrameUtils:CreateSlider(name, "CryolysisButtonMenu", "OptionsSliderTemplate", min, max, step,
+	CryolysisFormUtils:CreateSlider(name, "CryolysisButtonMenu", "OptionsSliderTemplate", min, max, step,
 			"HORIZONTAL", nil, nil,
 			"CENTER", "CryolysisButtonMenu", "TOP", x, y,
 			width, height, nil, nil,
@@ -62,13 +62,13 @@ local function createButtonMenuPanel()
     frame:SetHeight(452)
     frame:ClearAllPoints()
     frame:SetPoint("BOTTOMLEFT", "CryolysisGeneralFrame")
-	FormUtils:CreateButton("ReorderTemplate", nil, nil, nil, nil,
+	CryolysisFormUtils:CreateButton("ReorderTemplate", nil, nil, nil, nil,
 			nil, nil, nil, nil, nil, nil,
 		nil, nil, nil, nil,
 			"Interface\Buttons\CheckButtonHilight", "ADD", function() Reorder.OnClick(-1) end,
 			nil, nil, nil, nil, nil,  nil,
 			nil, nil)
-	FormUtils:CreateSlider("SpellButtonSliderTemplate",
+	CryolysisFormUtils:CreateSlider("SpellButtonSliderTemplate",
 		nil,
 		"OptionsSliderTemplate",
 		1, 8, 1, nil, nil,nil,nil,nil,
@@ -473,10 +473,8 @@ end
 ------------------------------------------------------------------------------------------------------
 -- Get timer menu panel
 ------------------------------------------------------------------------------------------------------
-function CRYOLYSIS:GetButtonMenuPanel()
-	local frame = _G["CryolysisButtonMenu"]
+function Cryolysis:GetButtonMenuPanel()
+	local frame = CryolysisButtonMenu
 	if not frame then frame = createButtonMenuPanel() end
 	return frame
 end
-
-------------------------------------------------------------------------------------------------------

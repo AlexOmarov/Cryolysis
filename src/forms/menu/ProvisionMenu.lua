@@ -8,7 +8,7 @@ require "FormUtils.lua"
 -- Create Provision menu option
 ------------------------------------------------------------------------------------------------------
 local function createProvisionMenuOption(name, width, height)
-	FrameUtils:CreateFontString(name, nil, "GameFontNormalSmall", {1, 1, 1},
+	CryolysisFormUtils:CreateFontString(name, nil, "GameFontNormalSmall", {1, 1, 1},
 		nil, nil, nil, "TOPLEFT", "CryolysisTimerMenu", "TOPLEFT", width, height)
 end
 
@@ -16,7 +16,7 @@ end
 -- Create Provision menu checkbox
 ------------------------------------------------------------------------------------------------------
 local function createProvisionMenuCheckButton(name, width, height, x, y, func)
-	FrameUtils:CreateFrame("CheckBox", name, nil, "UICheckButtonTemplate", true, width, height,
+	CryolysisFormUtils:CreateFrame("CheckBox", name, nil, "UICheckButtonTemplate", true, width, height,
 		"TOPLEFT", "CryolysisTimerMenu", "TOPLEFT", x, y, "OnClick", func)
 end
 
@@ -25,7 +25,7 @@ end
 ------------------------------------------------------------------------------------------------------
 local function createProvisionMenuSlider(name, min, max, step, x, y, width, height,
 								   onEnter, onValueChanged, onLeave, onMouseUp)
-	FrameUtils:CreateSlider(name, "CryolysisProvisionMenu", "OptionsSliderTemplate", min, max, step,
+	CryolysisFormUtils:CreateSlider(name, "CryolysisProvisionMenu", "OptionsSliderTemplate", min, max, step,
 				 "HORIZONTAL", nil, nil,
 				 "CENTER", "CryolysisProvisionMenu", "TOP", x, y,
 				 width, height, nil, nil,
@@ -36,7 +36,7 @@ end
 -- Create provision menu panel
 ------------------------------------------------------------------------------------------------------
 local function createProvisionMenuPanel()
-	local frame = FormUtils:CreateFrame("Frame", "CryolysisProvisionMenu", "CryolysisGeneralFrame")
+	local frame = CreateFrame("Frame", "CryolysisProvisionMenu", "CryolysisGeneralFrame")
 
 	frame:SetFrameStrata("DIALOG")
 	frame:SetMovable(false)
@@ -304,8 +304,8 @@ end
 ------------------------------------------------------------------------------------------------------
 -- Get timer menu panel
 ------------------------------------------------------------------------------------------------------
-function CRYOLYSIS:GetProvisionMenuPanel()
-	local frame = _G["CryolysisProvisionMenu"]
+function Cryolysis:GetProvisionMenuPanel()
+	local frame = CryolysisProvisionMenu
 	if not frame then frame = createProvisionMenuPanel() end
 	return frame
 end

@@ -1,5 +1,4 @@
 require "Globals.lua"
-require "Localization.lua"
 require "FormUtils.lua"
 
 					    -- Inner functions to encapsulate filling logic --
@@ -7,7 +6,8 @@ require "FormUtils.lua"
 -- Create Main panel font string
 ------------------------------------------------------------------------------------------------------
 local function createMainFontString(name, relative)
-	return FormUtils:CreateFontString(name, "ARTWORK", "GameFontNormal", {1, 1, 1, 1}, nil, nil,
+	return CryolysisFormUtils:CreateFontString(name, "ARTWORK",
+			"GameFontNormal", {1, 1, 1, 1}, nil, nil,
 			nil, "CENTER", "CENTER", relative, 23, 0)
 end
 
@@ -16,9 +16,11 @@ end
 ------------------------------------------------------------------------------------------------------
 local function createMainMenuButton(name, x, y, normalTexture, pushedTexture, highlightTexture, onClick, tooltip,
 									anchor, width, height, onUpdate, onEvent)
-	return FormUtils:CreateButton(
-			name, "UIParent", nil, "CENTER", "UIParent", "CENTER", x, y, "true", nil, width or 34, height or 34,
-			normalTexture, pushedTexture, nil, highlightTexture, "ADD", onClick, function() self:StartMoving() end,
+	return CryolysisFormUtils:CreateButton(
+			name, "UIParent", nil, "CENTER", "UIParent", "CENTER", x, y,
+			"true", nil, width or 34, height or 34,
+			normalTexture, pushedTexture, nil, highlightTexture,
+			"ADD", onClick, function() self:StartMoving() end,
 			function() Cryolysis_OnDragStop(self); end,
 			function() Cryolysis_BuildTooltip(self, tooltip, anchor or "ANCHOR_LEFT"); end,
 			function() GameTooltip:Hide(); end, function() Cryolysis_OnDragStop(self); end,
@@ -31,8 +33,10 @@ end
 ------------------------------------------------------------------------------------------------------
 local function createMainPanel()
 
-	local frame = FormUtils:CreateFrame("Frame", "CryolysisGeneralFrame", nil, nil, true, nil, nil,
-			nil, nil, nil, nil, nil, "OnLoad", function ()
+	local frame = CreateFrame("Frame", "CryolysisGeneralFrame",
+			nil, nil, true, nil, nil,
+			nil, nil, nil, nil, nil, "OnLoad",
+			function ()
 				self:RegisterEvent("PLAYER_LOGIN")
 				self:RegisterEvent("SPELLS_CHANGED")
 			end
@@ -40,7 +44,7 @@ local function createMainPanel()
 
 	frame:SetScript("OnEvent", Cryolysis:OnLoad(event))
 
-	FormUtils:CreateFrame("GameTooltip", "CryolysisTooltip", "UIParent", "GameTooltipTemplate", true)
+	CryolysisFormUtils:CreateFrame("GameTooltip", "CryolysisTooltip", "UIParent", "GameTooltipTemplate", true)
 
 	createMainMenuButton("CryolysisSpellTimerButton",  120, 340, "SpellTimerButton-Normal",
 			"SpellTimerButton-Pushed", "SpellTimerButton-Highlight",
@@ -98,7 +102,6 @@ local function createMainPanel()
 	createMainFontString("CryolysisEvocationCooldown", "CryolysisButton")
 	createMainFontString("CryolysisShardCount", "CryolysisButton")
 
-
 	return frame
 end
 
@@ -107,8 +110,8 @@ end
 ------------------------------------------------------------------------------------------------------
 -- Get main menu panel
 ------------------------------------------------------------------------------------------------------
-function CRYOLYSIS:GetMainMenuPanel()
-	local frame = _G["CryolysisGeneralFrame"]
+function Cryolysis:GetMainMenuPanel()
+	local frame = CryolysisGeneralFrame
 	if not frame then frame = createMainPanel() end
 	return frame
 end

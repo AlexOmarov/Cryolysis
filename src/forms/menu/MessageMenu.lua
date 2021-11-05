@@ -8,7 +8,7 @@ require "FormUtils.lua"
 -- Create Message menu option
 ------------------------------------------------------------------------------------------------------
 local function createMessageMenuOption(name, width, height)
-	FormUtils:CreateFontString(name, nil, "GameFontNormalSmall", {1, 1, 1},
+	CryolysisFormUtils:CreateFontString(name, nil, "GameFontNormalSmall", {1, 1, 1},
 		nil, nil, nil, "TOPLEFT", "CryolysisTimerMenu", "TOPLEFT", width, height)
 end
 
@@ -16,7 +16,7 @@ end
 -- Create Message menu checkbox
 ------------------------------------------------------------------------------------------------------
 local function createMessageMenuCheckButton(name, width, height, x, y, func)
-	FormUtils:CreateFrame("CheckBox", name, nil, "UICheckButtonTemplate", true, width, height,
+	CryolysisFormUtils:CreateFrame("CheckBox", name, nil, "UICheckButtonTemplate", true, width, height,
 		"TOPLEFT", "CryolysisTimerMenu", "TOPLEFT", x, y, "OnClick", func)
 end
 
@@ -25,7 +25,7 @@ end
 ------------------------------------------------------------------------------------------------------
 local function createMessageMenuSlider(name, min, max, step, x, y, width, height,
 								   onEnter, onValueChanged, onLeave, onMouseUp)
-	FormUtils:CreateSlider(name, "CryolysisMessageMenu", "OptionsSliderTemplate", min, max, step,
+	CryolysisFormUtils:CreateSlider(name, "CryolysisMessageMenu", "OptionsSliderTemplate", min, max, step,
 				 "HORIZONTAL", nil, nil,
 				 "CENTER", "CryolysisMessageMenu", "TOP", x, y,
 				 width, height, nil, nil,
@@ -36,7 +36,7 @@ end
 -- Create Message menu panel
 ------------------------------------------------------------------------------------------------------
 local function createMessageMenuPanel()
-	local frame = FormUtils:CreateFrame("Frame", "CryolysisMessageMenu", "CryolysisGeneralFrame")
+	local frame = CreateFrame("Frame", "CryolysisMessageMenu", "CryolysisGeneralFrame")
 
 	frame:SetFrameStrata("DIALOG")
 	frame:SetMovable(false)
@@ -164,8 +164,8 @@ end
 ------------------------------------------------------------------------------------------------------
 -- Get timer menu panel
 ------------------------------------------------------------------------------------------------------
-function CRYOLYSIS:GetMessageMenuPanel()
-	local frame = _G["CryolysisMessageMenu"]
+function Cryolysis:GetMessageMenuPanel()
+	local frame = CryolysisMessageMenu
 	if not frame then frame = createMessageMenuPanel() end
 	return frame
 end

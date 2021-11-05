@@ -2,14 +2,16 @@
 -- Global objects and variables, used in various parts of the code --
 ------------------------------------------------------------------------------------------------------
 
--- Cryolysis main object, holds references for all Cryolysis inner API (for all modules, like TimerMenu etc.)
-CRYOLYSIS = {};
 -- Cryolysis config, holds all settings per player
 CRYOLYSIS_CONFIG = {};
 -- Object which holds positions of all the frames
 FRAME_POSITIONS = {};
 -- Object which holds meta information about addon
 CRYOLYSIS_DATA = {};
+CryolysisData.Version = "2.0";
+CryolysisData.Title = "Cryolysis";
+CryolysisData.Author = "Shtil";
+CryolysisData.Label = CryolysisData.Title .. " " .. CryolysisData.Version .. " by " .. CryolysisData.Author;
 -- Table for storing spell timers
 SPELL_TIMER = {};
 
@@ -32,3 +34,4 @@ LOCALES_PATH = "resources\\locales\\";
 
 -- Intro to user message in chat
 CRYOLYSIS_USER_MESSAGE_INTRO = "|C2D47E7EECr|C2B7EECEEyo|C2AA2EFEEly|C28C6F4EEsis|CFFFFFFFF: ";
+

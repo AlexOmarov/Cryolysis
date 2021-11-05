@@ -7,7 +7,7 @@ require "FormUtils.lua"
 -- Create timer menu option
 
 local function createTimerMenuOption(name, width, height)
-	createFontString(name, nil, "GameFontNormalSmall", {1, 1, 1},
+	CryolysisFormUtils:CreateFontString(name, nil, "GameFontNormalSmall", {1, 1, 1},
 			nil, nil, nil, "TOPLEFT", "CryolysisTimerMenu", "TOPLEFT", width, height)
 end
 ------------------------------------------------------------------------------------------------------
@@ -16,7 +16,7 @@ end
 -- Create timer menu checkbox
 
 local function createTimerMenuCheckButton(name, width, height, x, y, func)
-	createFrame("CheckBox", name, nil, "UICheckButtonTemplate", true, width, height,
+	CryolysisFormUtils:CreateFrame("CheckBox", name, nil, "UICheckButtonTemplate", true, width, height,
 			"TOPLEFT", "CryolysisTimerMenu", "TOPLEFT", x, y, "OnClick", func)
 end
 ------------------------------------------------------------------------------------------------------
@@ -92,8 +92,8 @@ end
 ------------------------------------------------------------------------------------------------------
 -- Get timer menu panel
 ------------------------------------------------------------------------------------------------------
-function CRYOLYSIS:GetTimerMenuPanel()
-	local frame = _G["CryolysisTimerMenu"]
+function Cryolysis:GetTimerMenuPanel()
+	local frame = CryolysisTimerMenu
 	if not frame then frame = createTimerMenuPanel() end
 	return frame
 end

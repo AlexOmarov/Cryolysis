@@ -84,7 +84,7 @@ local function createConfigPanel()
 			checkButton:SetPoint("TOPLEFT", "NecrosisGeneralFrame", "TOPRIGHT", -32, -65)
 			checkButton:SetNormalTexture("Interface\\Icons\\Ability_Creature_Cursed_03")
 		else
-			checkButton:SetPoint("TOPLEFT", _G["CryolysisGeneralTabs"][k - 1]:GetName(), "BOTTOMLEFT", 0, -17)
+			checkButton:SetPoint("TOPLEFT", CryolysisGeneralTabs[k - 1]:GetName(), "BOTTOMLEFT", 0, -17)
 			checkButton:SetNormalTexture("Interface\\Icons\\" .. frame:GetName())
 		end
 	end
@@ -96,7 +96,7 @@ end
 -- Function to display different pages of the settings panel
 ------------------------------------------------------------------------------------------------------
 local function openPanel(PanelCode)
-    for k, v in ipairs(_G["CryolysisGeneralTabs"]) do
+    for k, v in ipairs(CryolysisGeneralTabs) do
         if v.GetName() == PanelCode then
             Cryolysis:ShowPanel(v)
             CryolysisGeneralPageText:SetText(L[PanelCode])
@@ -111,7 +111,7 @@ end
 -- Get settings panel
 ------------------------------------------------------------------------------------------------------
 function Cryolysis:GetConfigPanel()
-	local frame = _G["CryolysisGeneralFrame"]
+	local frame = CryolysisGeneralFrame
 	if not frame then frame = createConfigPanel() end
 	return frame
 end

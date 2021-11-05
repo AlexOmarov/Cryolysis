@@ -2,11 +2,11 @@ require "Globals.lua"
 require "Localization.lua"
 require "FormUtils.lua"
                       -- Inner functions to encapsulate creation logic --
--------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------
 -- Create GraphOption menu option
 ------------------------------------------------------------------------------------------------------
 local function createGraphOptionMenuOption(name, width, height)
-	FormUtils:CreateFontString(name, nil, "GameFontNormalSmall", {1, 1, 1},
+	CryolysisFormUtils:CreateFontString(name, nil, "GameFontNormalSmall", {1, 1, 1},
 		nil, nil, nil, "TOPLEFT", "CryolysisTimerMenu", "TOPLEFT", width, height)
 end
 
@@ -14,7 +14,7 @@ end
 -- Create GraphOption menu checkbox
 ------------------------------------------------------------------------------------------------------
 local function createGraphOptionMenuCheckButton(name, width, height, x, y, func)
-	FormUtils:CreateFrame("CheckBox", name, nil, "UICheckButtonTemplate", true, width, height,
+	CryolysisFormUtils:CreateFrame("CheckBox", name, nil, "UICheckButtonTemplate", true, width, height,
 		"TOPLEFT", "CryolysisTimerMenu", "TOPLEFT", x, y, "OnClick", func)
 end
 
@@ -23,7 +23,7 @@ end
 ------------------------------------------------------------------------------------------------------
 local function createGraphOptionMenuSlider(name, min, max, step, x, y, width, height,
 								   onEnter, onValueChanged, onLeave, onMouseUp)
-	FormUtils:CreateSlider(name, "CryolysisGraphOptionMenu", "OptionsSliderTemplate", min, max, step,
+	CryolysisFormUtils:CreateSlider(name, "CryolysisGraphOptionMenu", "OptionsSliderTemplate", min, max, step,
 				 "HORIZONTAL", nil, nil,
 				 "CENTER", "CryolysisGraphOptionMenu", "TOP", x, y,
 				 width, height, nil, nil,
@@ -230,8 +230,8 @@ end
 ------------------------------------------------------------------------------------------------------
 -- Get graph options menu panel
 ------------------------------------------------------------------------------------------------------
-function CRYOLYSIS:GetGraphOptionMenuPanel()
-	local frame = _G["CryolysisGraphOptionMenu"]
+function Cryolysis:GetGraphOptionMenuPanel()
+	local frame = CryolysisGraphOptionMenu
 	if not frame then frame = createGraphOptionMenuPanel() end
 	return frame
 end
