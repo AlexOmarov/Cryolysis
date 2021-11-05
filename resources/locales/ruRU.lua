@@ -7,6 +7,8 @@ if not L then return end
 -- Core phrases
 L["Cryolysis"] = "Cryolysis";
 L["CRYOLYSIS_UNIT_MAGE"] = "Mage";
+L["CRYOLYSIS_SHORT_MESSAGES_1"] = "--> Opening a portal to <portal> <--";
+L["CRYOLYSIS_SHORT_MESSAGES_2"] = "Polymorph ==> <target>";
 
 -- Word to search for Fire Vulnerability and Winter's chill  first (.+) is the target, second is the spell
 L["CRYOLYSIS_DEBUFF_SRCH"] = "(.+) is afflicted by (.+)."
@@ -60,179 +62,126 @@ L["CRYOLYSIS_CREATE_2"] = "Conjure Mana";
 L["CRYOLYSIS_CREATE_3"] = "Сотворение воды";
 L["CRYOLYSIS_CREATE_4"] = "Сотворение пищи";
 
+-- Mounts
+L["CRYOLYSIS_MOUNT_1"] = "Horn of the Frostwolf Howler";
+L["CRYOLYSIS_MOUNT_2"] = "Ram";
+L["CRYOLYSIS_MOUNT_3"] = "Raptor";
+L["CRYOLYSIS_MOUNT_4"] = "Swift Zulian Tiger";
+L["CRYOLYSIS_MOUNT_5"] = "Skeletal Horse";
+L["CRYOLYSIS_MOUNT_6"] = "Mechanostrider";
+L["CRYOLYSIS_MOUNT_7"] = "Bridle";
+L["CRYOLYSIS_MOUNT_8"] = "Kodo";
+L["CRYOLYSIS_MOUNT_9"] = "Steed";
+L["CRYOLYSIS_MOUNT_10"] = "Kodo";
+L["CRYOLYSIS_MOUNT_11"] = "Kodo";
+L["CRYOLYSIS_MOUNT_12"] = "Wolf";
+L["CRYOLYSIS_MOUNT_13"] = "Wolf";
+L["CRYOLYSIS_MOUNT_14"] = "Tiger";
+L["CRYOLYSIS_MOUNT_15"] = "Saber";
+L["CRYOLYSIS_MOUNT_16"] = "Tiger";
+L["CRYOLYSIS_MOUNT_17"] = "Crystal";
 
-L["CRYOLYSIS_MOUNT_TABLE"] = {
-	-- [1] Frostwolf Howler Icon
-	{ "Horn of the Frostwolf Howler" }, 
-	-- [2] Ram Icon
-	{ "Stormpike Battle Charger", "Black Ram", "Black War Ram", "Brown Ram", "Frost Ram", "Gray Ram", "Swift Brown Ram", "Swift Gray Ram", "Swift White Ram", "White Ram", },
-	-- [3] Raptor Icon            
-	{ "Swift Razzashi Raptor", "Swift Blue Raptor", "Swift Olive Raptor", "Swift Orange Raptor", "Whistle of the Black War Raptor", "Whistle of the Emerald Raptor", "Whistle of the Ivory Raptor", "Whistle of the Mottled Red Raptor", "Whistle of the Turquoise Raptor", "Whistle of the Violet Raptor" },
-	-- [4] Yellow Tiger Icon
-	{ "Swift Zulian Tiger" },
-	-- [5] Undead Horse Icon
-	{ "Blue Skeletal Horse", "Blue Skeletal Warhorse", "Deathcharger's Reins", "Brown Skeletal Horse", "Green Skeletal Warhorse", "Purple Skeletal Warhorse", "Red Skeletal Horse", "Red Skeletal Warhorse" },
-	-- [6] Mechanostrider Icon
-	{ "Black Battlestrider", "Blue Mechanostrider", "Green Mechanostrider", "Icy Blue Mechanostrider Mod A", "Red Mechanostrider", "Swift Green Mechanostrider", "Swift White Mechanostrider", "Swift Yellow Mechanostrider", "Unpainted Mechanostrider", "White Mechanostrider Mod A" },
-	-- [7] Brown Horse Icon
-	{ "Black Stallion Bridle", "Brown Horse Bridle", "Chestnut Mare Bridle", "Palomino Bridle", "Pinto Bridle", "Swift Brown Steed", "Swift Palomino", "Swift White Steed", "White Stallion Bridle" },
-	-- [8] Brown Kodo Icon
-	{ "Black War Kodo", "Brown Kodo", "Great Brown Kodo" },
-	-- [9] War Steed Icon
-	{ "Black War Steed" },
-	-- [10] Gray Kodo Icon
-	{ "Gray Kodo", "Great Gray Kodo", "Great White Kodo" },
-	-- [11] Green Kodo Icon 
-	{ "Green Kodo", "Teal Kodo" },
-	-- [12] White Wolf Icon    
-	{ "Horn of the Arctic Wolf", "Horn of the Dire Wolf", "Horn of the Swift Gray Wolf", "Horn of the Swift Timber Wolf" },
-	-- [13] Black Wolf Icon    
-	{ "Horn of the Black War Wolf", "Horn of the Brown Wolf", "Horn of the Red Wolf", "Horn of the Swift Brown Wolf", "Horn of the Timber Wolf" },
-	-- [14] Black Tiger Icon   
-	{ "Reins of the Black War Tiger", "Reins of the Striped Nightsaber" },
-	-- [15] White Tiger Icon   
-	{ "Reins of the Frostsaber", "Reins of the Nightsaber", "Reins of the Spotted Frostsaber", "Reins of the Striped Frostsaber", "Reins of the Swift Frostsaber", "Reins of the Swift Mistsaber", "Reins of the Swift Stormsaber" },
-	-- [16] Red Tiger Icon
-	{ "Reins of the Winterspring Frostsaber" },
-	-- [17] Black Qiraji Resonating Crystal
-	{ "Black Qiraji Resonating Crystal" },
-}
-L["CRYOLYSIS_MOUNT_PREFIX"] = {
-	"Horn of the ",
-	"Whistle of the ",
-	"Reins of the ",	
-}
-L["CRYOLYSIS_AQMOUNT_TABLE"] = {
-	"Blue Qiraji Resonating Crystal",
- 	"Green Qiraji Resonating Crystal",
- 	"Red Qiraji Resonating Crystal",
-	"Yellow Qiraji Resonating Crystal",
-}
-L["CRYOLYSIS_AQMOUNT_NAME"]  = {
-	"Summon Black Qiraji Tank",
-	"Summon Blue Qiraji Tank",
- 	"Summon Green Qiraji Tank",
- 	"Summon Red Qiraji Tank",
-	"Summon Yellow Qiraji Tank",
-}
-L["CRYOLYSIS_TRANSLATION"] = {
-	["Cooldown"] = "Перезадярка",
-	["Hearth"] = "Камень возвращения",
-	["Rank"] = "Уровень",
-	["Invisible"] = "Detect Invisibility",
-	["LesserInvisible"] = "Detect Lesser Invisibility",
-	["GreaterInvisible"] = "Detect Greater Invisibility",
-	["SoulLinkGain"] = "You gain Soul Link.",
-	["SacrificeGain"] = "You gain Sacrifice.",
-	["SummoningRitual"] = "Ritual of Summoning"
-};
+-- Qiraji mounts
+L["CRYOLYSIS_AQMOUNT_TABLE_1"] = "Blue Qiraji Resonating Crystal";
+L["CRYOLYSIS_AQMOUNT_TABLE_2"] = "Green Qiraji Resonating Crystal";
+L["CRYOLYSIS_AQMOUNT_TABLE_3"] = "Red Qiraji Resonating Crystal";
+L["CRYOLYSIS_AQMOUNT_TABLE_4"] = "Yellow Qiraji Resonating Crystal";
 
-L["CRYOLYSIS_TELEPORT_MESSAGE"] = {
-	[1] = "I'm heading straight to <portal>! You can't stop the signal!",
-	[2] = "Err...something's come up. I've got to be in <portal> like, NOW for another freaking meeting. Stupid 'Mage Meeting' and all that crap.",
-	[3] = "Oh look! What's over there! *VANISH* Where'd I go? Buah hahaha. Actually, just look in <portal>, I'll probably be at the repair shop.",
-	[4] = "Woohoo! I'm solo flying the <portal> express! Don't you wish you had three free hearthstones?",
-	[5] = "PS, since I can 'port to <portal>, my hearth is set in Gadget :P",
-	[6] = "Please don't enter my airspace. I'll be leaving for <portal> in about ten seconds.",
-	[7] = "I hope I got the spell right self time! Last time, I was trying for <portal> but ended up scattered all over Azeroth!",
-	[8] = "10 silver to get to <portal>?!  Well, it's better than waiting an hour",
-	[9] = "I can think of two places I'd rather be than here.  Sadly, the most convenient one is <portal>",
-};
-L["CRYOLYSIS_PORTAL_MESSAGE"] = {
-	[1] = "Step right up! Fly the friendly skies of <player>'s Air Service, now departing for <portal>.",
-	[2] = "No promises that you'll actually get to <portal> by clicking self. Seriously.",
-	[3] = "Chortle chortle, it's a portal!",
-	[4] = "<player>'s Air service is proud to be servicing your one-way trip to <portal>. Please remember to close your eyes for the duration because it can be scary as hell.",
-	[5] = "DISCLAIMER: I RECEIVED MY PORTAL LICENSE OFF THE AH. CLICK AT YOUR OWN RISK.",
-	[6] = "Well, you cooouulllddd click self portal to <portal>, but are you sure you really want to go there? I mean, seriously, <portal>? WTF is wrong with you. Do you know who LIVES there?",
-	[7] = "Tired of letting your arms get tired on your long trip back to <portal>? Just click here then, you lazy non-hearthing bums",
-	[8] = "Entering through self dimensional gateway will get you to <portal>",
-	[9] = "Okay, <player>, focus.  They want to go to <portal>, not the middle of the Maelstrom.  I can do self.. <portal>, not ocean.",
-	[10] = "Why go to <portal> when we can bring <portal> here?  Please click the portal to help me summon the city!",
-	[11] = "Now opening a portal to Ironforge.  Or was it Orgrimmar? Maybe Stormwind or Thunder bluff? I guess we'll just have to find out!",
-	[12] = "Whatever you do, DON'T TOUCH THE PORTAL",
-	[13] = "Gateway to hell? Coming right up!",
-};
-L["CRYOLYSIS_POLY_MESSAGE"] = {
-	["Sheep"] = {
-		[1] = "<target> has been baaaaaaaaad!",
-		[2] = "I'm little bopeep! Don't touch the sheep!",
-		[3] = "Sheeping <target>, break it and I break your kneecaps.",
-		[4] = "Skies above and oceans deep, <target> is now a sheep!",
-		[5] = "Sheeping <target>, DON'T TOUCH MY MUTTON!",
-		[6] = "Sheeping <target>! Drop what you're doing and break it! ",
-		[7] = "Stay away from <target>, I still need mats for [Wool Socks]",
-		[8] = "Okay <target>, repeat after me. Baaaaa",
-		[9] = "Sheeping <target>. Everytime you break a sheep, God kills a kitten.",
-		[10] = "Polymorphing <target>!  You break it, you tank it.",
-		[11] = "<target> is my sheep. There are many others like it but self one is mine.",
-		[12] = "Polymorphing <target>, please keep your pants up.",
-		[13] = "Baa, Baa, <target>.  Have you any wool?",
-		[14] = "Polymorphing <target> because sheep don't say no.",
-		[15] = "Polymorph on <target>. Repeated poking may cause explosions",
-		[16] = "What's white and fluffy and covered in wool?  <target> of course!",
-		[17] = "<target>, have you ever read the works of Franz Kafka?",
-		[18] = "How's my sheeping? Call 1-800-BAH-RAM-U",
-		[19] = "Bah, <target>",
-		[20] = "Polymorph on <target>.  You break it, you buy it.",
-		[21] = "Polymorph on *yawn* <target>.  So many sheep... zzzz",
-		[22] = "Go deep into your cave, <target>, and find your power animal",
-		[23] = "I know how frightening and intimidating mutton can be, but please try to overcome self phobia you have of <target>",
+L["CRYOLYSIS_AQMOUNT_NAME_1"] = "Summon Black Qiraji Tank";
+L["CRYOLYSIS_AQMOUNT_NAME_2"] = "Summon Blue Qiraji Tank";
+L["CRYOLYSIS_AQMOUNT_NAME_3"] = "Summon Green Qiraji Tank";
+L["CRYOLYSIS_AQMOUNT_NAME_4"] = "Summon Red Qiraji Tank";
+L["CRYOLYSIS_AQMOUNT_NAME_5"] = "Summon Yellow Qiraji Tank";
 
-	},
-	["Pig"] = {
-		[1] = "Sooooo Weeeeee! here Piggy <target>. Dont Steal the Bacon!",
-		[2] = "Porking <target>.  Oink! Oink!",
-		[3] = "PORKCHOP SANDWICHES!!",
-		[4] = "I smell bacon I smell pork, look out <target> I have a fork!",
-		[5] = "<target>:  The other white meat.",
-		[6] = "That'll do, <target>.  That'll do.",
-		[7] = "In space, no one can hear you squeal",
-		[8] = "<target>, will you be Mr. Wiggles' friend?",
-		[9] = "I think <target> was raised in a barn",
-		[10] = "<target>'s new name shall be Comrade Napoleon",
-		[11] = "Orsen Wells wants to have a word with you, <target>",
-		[12] = "<target> is not kosher!",
-		[13] = "Congrats, <target>, you are now the Prince of Denmark!",
-		[14] = "self above all: to thine own self be true, And it must follow, as the night the day, Thou canst not then be false to any man.",
-		[15] = "Dog's can't tell that <target>'s not bacon.",
-		[16] = "<target> makes me want to read Hamlet.",
+L["CRYOLYSIS_TRANSLATION_1"] = "Перезадярка"
+L["CRYOLYSIS_TRANSLATION_2"] = "Камень возвращения"
+L["CRYOLYSIS_TRANSLATION_3"] = "Уровень"
+L["CRYOLYSIS_TRANSLATION_4"] = "Detect Invisibility"
+L["CRYOLYSIS_TRANSLATION_5"] = "Detect Lesser Invisibility"
+L["CRYOLYSIS_TRANSLATION_6"] = "Detect Greater Invisibility"
+L["CRYOLYSIS_TRANSLATION_7"] = "You gain Soul Link."
+L["CRYOLYSIS_TRANSLATION_8"] = "You gain Sacrifice."
+L["CRYOLYSIS_TRANSLATION_9"] = "Ritual of Summoning"
 
-	},
-	["Turtle"] = {
-		[1] = "GO SQUIRTLE!",
-		[2] = "Slow and steady won't win the race for <target> self time",
-		[3] = "Hey <target>, you up for some soup? =D",
-		[4] = "GAM-E-RA! GAM-E-RA! <target> is a friend to children everywhere.",
-		[5] = "<target> is a hero on the half-shell!",
-	},
-};
-L["CRYOLYSIS_STEED_MESSAGE"] = {
-	[1] = "If it wasn't for my <mount>, I wouldn't have spent that year in college.",
-	[2] = "The directions said to just add water and... WHOA a <mount>!",
-	[3] = "My <mount> ate all my conjured food again!  Better make more...",
-};
-L["CRYOLYSIS_FREEZE_MESSAGE"] = {
-	[1] = "I enjoy my <target>s on the rocks",
-	[2] = "Looks like <target> needs to get a sweater!",
-	[3] = "<3 Freezing Band",
-	[4] = "Take a chill pill, <target>",
-	[5] = "That's just cold, <target>.  Just plain cold",
-	[6] = "And thats how I killed the dinosaurs",
-	[7] = "Why so blue, <target>?",
-	[8] = "Enjoy your 'You can't do that while frozen' messages",
-	[9] = "Iceberg! Dead ahead!",
-	[10] = "I don't know how we're gonna get <target> thawed!",
-};
-L["CRYOLYSIS_SHORT_MESSAGES"] = {
-	[1] = "--> Opening a portal to <portal> <--",
-	[2] = "Polymorph ==> <target>",
-};
+-- TELEPORT messages
+L["CRYOLYSIS_TELEPORT_MESSAGE_1"] = "I'm heading straight to <portal>! You can't stop the signal!";
+L["CRYOLYSIS_TELEPORT_MESSAGE_2"] = "Err...something's come up. I've got to be in <portal> like, NOW for another freaking meeting. Stupid 'Mage Meeting' and all that crap.";
+L["CRYOLYSIS_TELEPORT_MESSAGE_3"] = "Oh look! What's over there! *VANISH* Where'd I go? Buah hahaha. Actually, just look in <portal>, I'll probably be at the repair shop.";
+L["CRYOLYSIS_TELEPORT_MESSAGE_4"] = "Woohoo! I'm solo flying the <portal> express! Don't you wish you had three free hearthstones?";
+L["CRYOLYSIS_TELEPORT_MESSAGE_5"] = "PS, since I can 'port to <portal>, my hearth is set in Gadget :P";
+L["CRYOLYSIS_TELEPORT_MESSAGE_6"] = "Please don't enter my airspace. I'll be leaving for <portal> in about ten seconds.";
+L["CRYOLYSIS_TELEPORT_MESSAGE_7"] = "I hope I got the spell right self time! Last time, I was trying for <portal> but ended up scattered all over Azeroth!";
+L["CRYOLYSIS_TELEPORT_MESSAGE_8"] = "10 silver to get to <portal>?!  Well, it's better than waiting an hour";
+L["CRYOLYSIS_TELEPORT_MESSAGE_9"] = "I can think of two places I'd rather be than here.  Sadly, the most convenient one is <portal>";
 
-L["CRYOLYSIS_COOLDOWN"] = {
-	["Evocation"] = "Evocation Cooldown",
-	["Manastone"] = "Mana Gem Cooldown"
-};
+-- Portal messages
+L["CRYOLYSIS_PORTAL_MESSAGE_1"] = "Step right up! Fly the friendly skies of <player>'s Air Service, now departing for <portal>.";
+L["CRYOLYSIS_PORTAL_MESSAGE_2"] = "No promises that you'll actually get to <portal> by clicking self. Seriously.";
+L["CRYOLYSIS_PORTAL_MESSAGE_3"] = "Chortle chortle, it's a portal!";
+L["CRYOLYSIS_PORTAL_MESSAGE_4"] = "<player>'s Air service is proud to be servicing your one-way trip to <portal>. Please remember to close your eyes for the duration because it can be scary as hell.";
+L["CRYOLYSIS_PORTAL_MESSAGE_5"] = "DISCLAIMER: I RECEIVED MY PORTAL LICENSE OFF THE AH. CLICK AT YOUR OWN RISK.";
+L["CRYOLYSIS_PORTAL_MESSAGE_6"] = "Well, you cooouulllddd click self portal to <portal>, but are you sure you really want to go there? I mean, seriously, <portal>? WTF is wrong with you. Do you know who LIVES there?";
+L["CRYOLYSIS_PORTAL_MESSAGE_7"] = "Tired of letting your arms get tired on your long trip back to <portal>? Just click here then, you lazy non-hearthing bums";
+L["CRYOLYSIS_PORTAL_MESSAGE_8"] = "Entering through self dimensional gateway will get you to <portal>";
+L["CRYOLYSIS_PORTAL_MESSAGE_9"] = "Okay, <player>, focus.  They want to go to <portal>, not the middle of the Maelstrom.  I can do self.. <portal>, not ocean.";
+L["CRYOLYSIS_PORTAL_MESSAGE_10"] = "Why go to <portal> when we can bring <portal> here?  Please click the portal to help me summon the city!";
+L["CRYOLYSIS_PORTAL_MESSAGE_11"] = "Now opening a portal to Ironforge.  Or was it Orgrimmar? Maybe Stormwind or Thunder bluff? I guess we'll just have to find out!";
+L["CRYOLYSIS_PORTAL_MESSAGE_12"] = "Whatever you do, DON'T TOUCH THE PORTAL";
+L["CRYOLYSIS_PORTAL_MESSAGE_13"] = "Gateway to hell? Coming right up!";
+
+-- POLY messages
+L["CRYOLYSIS_POLY_MESSAGE_Sheep_1"] = "<target> has been baaaaaaaaad!";
+L["CRYOLYSIS_POLY_MESSAGE_Sheep_2"] = "I'm little bopeep! Don't touch the sheep!";
+L["CRYOLYSIS_POLY_MESSAGE_Sheep_3"] = "Sheeping <target>, break it and I break your kneecaps.";
+L["CRYOLYSIS_POLY_MESSAGE_Sheep_4"] = "Skies above and oceans deep, <target> is now a sheep!";
+L["CRYOLYSIS_POLY_MESSAGE_Sheep_5"] = "Sheeping <target>, DON'T TOUCH MY MUTTON!";
+L["CRYOLYSIS_POLY_MESSAGE_Sheep_6"] = "Sheeping <target>! Drop what you're doing and break it! ";
+L["CRYOLYSIS_POLY_MESSAGE_Sheep_7"] = "Stay away from <target>, I still need mats for [Wool Socks]";
+L["CRYOLYSIS_POLY_MESSAGE_Sheep_8"] = "Okay <target>, repeat after me. Baaaaa";
+L["CRYOLYSIS_POLY_MESSAGE_Sheep_9"] = "Sheeping <target>. Everytime you break a sheep; God kills a kitten.";
+L["CRYOLYSIS_POLY_MESSAGE_Sheep_10"] = "Polymorphing <target>!  You break it, you tank it.";
+L["CRYOLYSIS_POLY_MESSAGE_Sheep_11"] = "<target> is my sheep. There are many others like it but self one is mine.";
+L["CRYOLYSIS_POLY_MESSAGE_Sheep_12"] = "Polymorphing <target>, please keep your pants up.";
+L["CRYOLYSIS_POLY_MESSAGE_Sheep_13"] = "Baa, Baa, <target>.  Have you any wool?";
+L["CRYOLYSIS_POLY_MESSAGE_Sheep_14"] = "Polymorphing <target> because sheep don't say no.";
+L["CRYOLYSIS_POLY_MESSAGE_Sheep_15"] = "Polymorph on <target>. Repeated poking may cause explosions";
+L["CRYOLYSIS_POLY_MESSAGE_Sheep_16"] = "What's white and fluffy and covered in wool?  <target> of course!";
+L["CRYOLYSIS_POLY_MESSAGE_Sheep_17"] = "<target>, have you ever read the works of Franz Kafka?";
+L["CRYOLYSIS_POLY_MESSAGE_Sheep_18"] = "How's my sheeping? Call 1-800-BAH-RAM-U";
+L["CRYOLYSIS_POLY_MESSAGE_Sheep_19"] = "Bah, <target>";
+L["CRYOLYSIS_POLY_MESSAGE_Sheep_20"] = "Polymorph on <target>.  You break it, you buy it.";
+L["CRYOLYSIS_POLY_MESSAGE_Sheep_21"] = "Polymorph on *yawn* <target>.  So many sheep... zzzz";
+L["CRYOLYSIS_POLY_MESSAGE_Sheep_22"] = "Go deep into your cave, <target>, and find your power animal";
+L["CRYOLYSIS_POLY_MESSAGE_Sheep_23"] = "I know how frightening and intimidating mutton can be, but please try to overcome self phobia you have of <target>";
+
+L["CRYOLYSIS_POLY_MESSAGE_Pig_1"] = "Sooooo Weeeeee! here Piggy <target>. Dont Steal the Bacon!";
+L["CRYOLYSIS_POLY_MESSAGE_Pig_2"] = "Porking <target>.  Oink! Oink!";
+L["CRYOLYSIS_POLY_MESSAGE_Pig_3"] = "PORKCHOP SANDWICHES!!";
+L["CRYOLYSIS_POLY_MESSAGE_Pig_4"] = "I smell bacon I smell pork; look out <target> I have a fork!";
+L["CRYOLYSIS_POLY_MESSAGE_Pig_5"] = "<target>:  The other white meat.";
+L["CRYOLYSIS_POLY_MESSAGE_Pig_6"] = "That'll do, <target>.  That'll do.";
+L["CRYOLYSIS_POLY_MESSAGE_Pig_7"] = "In space, no one can hear you squeal";
+L["CRYOLYSIS_POLY_MESSAGE_Pig_8"] = "<target>, will you be Mr. Wiggles' friend?";
+L["CRYOLYSIS_POLY_MESSAGE_Pig_9"] = "I think <target> was raised in a barn";
+L["CRYOLYSIS_POLY_MESSAGE_Pig_10"] =  "<target>'s new name shall be Comrade Napoleon";
+L["CRYOLYSIS_POLY_MESSAGE_Pig_11"] =  "Orsen Wells wants to have a word with you; <target>";
+L["CRYOLYSIS_POLY_MESSAGE_Pig_12"] =  "<target> is not kosher!";
+L["CRYOLYSIS_POLY_MESSAGE_Pig_13"] =  "Congrats, <target>; you are now the Prince of Denmark!";
+L["CRYOLYSIS_POLY_MESSAGE_Pig_14"] =  "self above all: to thine own self be true; And it must follow; as the night the day; Thou canst not then be false to any man.";
+L["CRYOLYSIS_POLY_MESSAGE_Pig_15"] =  "Dog's can't tell that <target>'s not bacon.";
+L["CRYOLYSIS_POLY_MESSAGE_Pig_16"] =  "<target> makes me want to read Hamlet.";
+
+L["CRYOLYSIS_POLY_MESSAGE_Turtle_1"] = "GO SQUIRTLE!";
+L["CRYOLYSIS_POLY_MESSAGE_Turtle_2"] = "Slow and steady won't win the race for <target> self time";
+L["CRYOLYSIS_POLY_MESSAGE_Turtle_3"] = "Hey <target>, you up for some soup? =D";
+L["CRYOLYSIS_POLY_MESSAGE_Turtle_4"] = "GAM-E-RA! GAM-E-RA! <target> is a friend to children everywhere.";
+L["CRYOLYSIS_POLY_MESSAGE_Turtle_5"] = "<target> is a hero on the half-shell!";
+
+-- Steed messages
+L["CRYOLYSIS_STEED_MESSAGE_1"] = "If it wasn't for my <mount>, I wouldn't have spent that year in college.";
+L["CRYOLYSIS_STEED_MESSAGE_2"] = "The directions said to just add water and... WHOA a <mount>!";
+L["CRYOLYSIS_STEED_MESSAGE_3"] = "My <mount> ate all my conjured food again!  Better make more...";
+
 L["CryolysisTooltipData"] = {
 	["Main"] = {
 		Label = "|c00FFFFFFCryolysis|r",

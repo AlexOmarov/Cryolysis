@@ -1,7 +1,6 @@
 
 
 function CRYOLYSIS:Initialize()
-	-- Cryolysis_Localization_Dialog_En();
 	local localizedClass, englishClass, classIndex = UnitClass("player");
 	if englishClass == "MAGE" then
 		CRYOLYSIS:SendUserMessage("CRYOLYSIS_MESSAGE");
