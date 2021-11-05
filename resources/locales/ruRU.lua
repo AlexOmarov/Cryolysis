@@ -182,225 +182,121 @@ L["CRYOLYSIS_STEED_MESSAGE_1"] = "If it wasn't for my <mount>, I wouldn't have s
 L["CRYOLYSIS_STEED_MESSAGE_2"] = "The directions said to just add water and... WHOA a <mount>!";
 L["CRYOLYSIS_STEED_MESSAGE_3"] = "My <mount> ate all my conjured food again!  Better make more...";
 
-L["CryolysisTooltipData"] = {
-	["Main"] = {
-		Label = "|c00FFFFFFCryolysis|r",
-		Stone = {
-			[true] = "Yes";
-			[false] = "No";
-		},
-		Hellspawn = {
-			[true] = "On";
-			[false] = "Off";
-		},
-		["Food"] = "Conjured Food: ",
-		["Drink"] = "Conjured Drink: ",
-		["RuneOfTeleportation"] = "Teleport Runes: ",
-		["RuneOfPortals"] = "Portal Runes: ",
-		["ArcanePowder"] = "Arcane Powder: ",
-		["LightFeather"] = "Light Feathers: ",
-		["Manastone"] = "Mana Gem: ",
-	},
-	["Alt"] = {
-		Left = "Right-click for ",
-		Right = "",
-	},
-	["Soulstone"] = {
-		Label = "|c00FF99FFSoulstone|r",
-		Text = {"Create","Use","Used","Waiting"}
-	},
-	["Manastone"] = {
-		Label = "|c00FFFFFFMana Gem|r",
-		Text = {": Conjure - ",": Restore ", ": Queued", ": Unavailable"}
-	},
-	["SpellTimer"] = {
-		Label = "|c00FFFFFFSpell Durations|r",
-		Text = "Cooldowns and Active Spells on the target",
-		Right = "Right Click for Hearthstone to "
-	},
-	["Armor"] = {
-		Label = "|c00FFFFFFIce Armor|r"
-	},
-	["MageArmor"] = {
-		Label = "|c00FFFFFFMage Armor|r"
-	},
-	["ArcaneInt"] = {
-		Label = "|c00FFFFFFArcane Intellect|r"
-	},
-	["ArcaneBrilliance"] = {
-		Label = "|c00FFFFFFArcane Brilliance|r"
-	},
-	["DampenMagic"] = {
-		Label = "|c00FFFFFFDampen Magic|r"
-	},
-	["AmplifyMagic"] = {
-		Label = "|c00FFFFFFAmplify Magic|r"
-	},
-	["SlowFall"] = {
-		Label = "|c00FFFFFFSlow Fall|r"
-	},
-	["FireWard"] = {
-		Label = "|c00FFFFFFFire Ward|r"
-	},
-	["FrostWard"] = {
-		Label = "|c00FFFFFFFrost Ward|r"
-	},
-	["ConjureFood"] = {
-		Label = "|c00FFFFFFConjure Food|r"
-	},
-	["ConjureDrink"] = {
-		Label = "|c00FFFFFFConjure Water|r"
-	},
-	["Evocation"] = {
-		Label = "|c00FFFFFFEvocation|r",
-		Text = "Use"
-	},
-	["ColdSnap"] = {
-		Label = "|c00FFFFFFCold Snap|r"
-	},
-	["IceBarrier"] = {
-		Label = "|c00FFFFFF"..L["CRYOLYSIS_SPELL_TABLE"][23].Name.."|r"
-	},
-	["ManaShield"] = {
-		Label = "|c00FFFFFF"..L["CRYOLYSIS_SPELL_TABLE"][25].Name.."|r"
-	},
-	["DetectMagic"] = {
-		Label = "|c00FFFFFFDetect Magic|r"
-	},
-	["RemoveCurse"] = {
-		Label = "|c00FFFFFFRemove Lesser Curse|r"
-	},
-	["Mount"] = {
-		Label = "|c00FFFFFFSteed: "
-	},
-	["Buff"] = {
-		Label = "|c00FFFFFFSpell Menu|r\nMiddle-click to keep the menu open"
-	},
-	["Portal"] = {
-		Label = "|c00FFFFFFPortals Menu|r\nMiddle click to keep the menu open"
-	},
-	["T:Org"] = {
-		Label = "|c00FFFFFFTeleport: Orgrimmar|r"
-	},
-	["T:UC"] = {
-		Label = "|c00FFFFFFTeleport: Undercity|r"
-	},
-	["T:TB"] = {
-		Label = "|c00FFFFFFTeleport: Thunder Bluff|r"
-	},
-	["T:IF"] = {
-		Label = "|c00FFFFFFTeleport: Ironforge|r"
-	},
-	["T:SW"] = {
-		Label = "|c00FFFFFFTeleport: Stormwind|r"
-	},
-	["T:Darn"] = {
-		Label = "|c00FFFFFFTeleport: Darnassus|r"
-	},
-	["P:Org"] = {
-		Label = "|c00FFFFFFPortal: Orgrimmar|r"
-	},
-	["P:UC"] = {
-		Label = "|c00FFFFFFPortal: Undercity|r"
-	},
-	["P:TB"] = {
-		Label = "|c00FFFFFFPortal: Thunder Bluff|r"
-	},
-	["P:IF"] = {
-		Label = "|c00FFFFFFPortal: Ironforge|r"
-	},
-	["P:SW"] = {
-		Label = "|c00FFFFFFPortal: Stormwind|r"
-	},
-	["P:Darn"] = {
-		Label = "|c00FFFFFFPortal: Darnassus|r"
-	},
-	["EvocationCooldown"] = "Right click for fast summon",
-	["LastSpell"] = {
-		Left = "Right-click to recast ",      -- <--
-		Right = "",
-	},
-	["Food"] = {
-		Label = "|c00FFFFFFFood|r",
-		Right = "Right-click to conjure",
-		Middle = "Middle-click to trade",
-	},
-	["Drink"] = {
-		Label = "|c00FFFFFFDrink|r",
-		Right = "Right-click to conjure ",
-		Middle = "Middle-click to trade",
-	},
-};
-L["CRYOLYSIS_SOUND"]  = {
-	["SheepWarn"] = "Interface\\AddOns\\Cryolysis\\sounds\\Sheep01.mp3",
-	["SheepBreak"] = "Interface\\AddOns\\Cryolysis\\sounds\\Sheep02.mp3",
-	["PigWarn"] = "Interface\\AddOns\\Cryolysis\\sounds\\Pig01.mp3",
-	["PigBreak"] = "Interface\\AddOns\\Cryolysis\\sounds\\Pig02.mp3",
-};
-L["CRYOLYSIS_MESSAGE"]  = {
-	["Error"] = {
-		["RuneOfTeleportationNotPresent"] = "You need a Rune of Teleportation to do that!",
-		["RuneOfPortals"] = "You need a Rune of Portals to do that !",
-		["LightFeatherNotPresent"] = "You need a Light Feather to do that !",
-		["ArcanePowderNotPresent"] = "You need Arcane Powder to do that !",
-		["NoRiding"] = "You do not have any Steed to ride !",
-		["NoFoodSpell"] = "You do not have any Food creation spell",
-		["NoDrinkSpell"] = "You do not have any Drink creation spell",
-		["NoManaStoneSpell"] = "You do not have any Mana Gem creation spell",
-		["NoEvocationSpell"] = "You do not have any Evocation spell",
-		["FullMana"] = "You cannot use your Mana Gem since you have full MP",
-		["BagAlreadySelect"] = "Error : self bag is already selected.",
-		["WrongBag"] = "Error: The number must be between 0 and 4.",
-		["BagIsNumber"] = "Error: Please type a number.",
-		["NoHearthStone"] = "Error: You do not have a Hearthstone in your inventory",
-		["NoFood"] = "Error: You do not have any Conjured Food of the highest rank in your inventory",
-		["NoDrink"] = "Error: You do not have any Conjured Drink of the highest rank in your inventory",
-		["ManaStoneCooldown"] = "Error: Mana gem currently on cooldown",
-		["NoSpell"] = "Error: You do not know that spell",
-	},
-	["Bag"] = {
-		["FullPrefix"] = "Your ",
-		["FullSuffix"] = " is full !",
-		["FullDestroySuffix"] = " is full; Next food/drink will be destroyed !",
-		["SelectedPrefix"] = "You have chosen your ",
-		["SelectedSuffix"] = " to keep your food and drink."
-	},
-	["Interface"] = {
-		["Welcome"] = "<white>/cryo to show the setting menu!",
-		["TooltipOn"] = "Tooltips turned on" ,
-		["TooltipOff"] = "Tooltips turned off",
-		["MessageOn"] = "Chat messaging turned on",
-		["MessageOff"] = "Chat messaging turned off",
-		["MessagePosition"] = "<- System messages by Cryolysis will appear here ->",
-		["DefaultConfig"] = "<lightYellow>Default configuration loaded.",
-		["UserConfig"] = "<lightYellow>Configuration loaded."
-	},
-	["Help"] = {
-		"/cryo recall -- Center Cryolysis and all buttons in the middle of the screen",
-		"/cryo sm -- Replace messages with a short raid-ready version",
-		"/cryo decurse -- cast Remove Lesser curse using decursive feature",
-		"/cryo poly -- randomly cast between available polymorph spells",
-		"/cryo coldblock -- Activate Iceblock or Cold Snap",
-		"/cryo reset -- Restore and reload default Cryolysis configurations",
-		"/serenity toggle -- hide/show the main serenity sphere",
-		"change the spell buttons by adjusting the sliders in the button menu",
-	},
-	["EquipMessage"] = "Equip ",
-	["SwitchMessage"] = " instead of ",
-	["Information"] = {
-		["PolyWarn"] = "Polymorph is about to break",
-		["PolyBreak"] = "Polymorph has broken...",
-		["Restock"] = "Purchased ",
-	},
-};
-L["CRYOLYSIS_COLOR_TOOLTIP"] = {
-	["Purple"] = "Purple",
-	["Blue"] = "Blue",
-	["Pink"] = "Pink",
-	["Orange"] = "Orange",
-	["Turquoise"] = "Turquoise",
-	["X"] = "X"
-};
+
+-- Tooltips
+L["CRYOLYSIS_TOOLTIP_Main"] = "|c00FFFFFFCryolysis|r";
+L["CRYOLYSIS_TOOLTIP_Food"] = "Conjured Food: ";
+L["CRYOLYSIS_TOOLTIP_Drink"] = "Conjured Drink: ";
+L["CRYOLYSIS_TOOLTIP_RuneOfTeleportation"] = "Teleport Runes: ";
+L["CRYOLYSIS_TOOLTIP_RuneOfPortals"] = "Portal Runes: ";
+L["CRYOLYSIS_TOOLTIP_ArcanePowder"] = "Arcane Powder: ";
+L["CRYOLYSIS_TOOLTIP_LightFeather"] = "Light Feathers: ";
+L["CRYOLYSIS_TOOLTIP_Manastone"] = "Mana Gem: ";
+L["CRYOLYSIS_TOOLTIP_Alt"] = "Right-click for ";
+L["CRYOLYSIS_TOOLTIP_Soulstone"] = "|c00FF99FFSoulstone|r";
+L["CRYOLYSIS_TOOLTIP_Manastone"] = "|c00FFFFFFMana Gem|r";
+L["CRYOLYSIS_TOOLTIP_SpellTimer_Label"] = "|c00FFFFFFSpell Durations|r";
+L["CRYOLYSIS_TOOLTIP_SpellTimer_Text"] = "Cooldowns and Active Spells on the target";
+L["CRYOLYSIS_TOOLTIP_SpellTimer_Right"] = "Right Click for Hearthstone to ";
+L["CRYOLYSIS_TOOLTIP_SpellTimer"] = "|c00FFFFFFSpell Durations|r";
+L["CRYOLYSIS_TOOLTIP_Armor"] = "|c00FFFFFFIce Armor|r";
+L["CRYOLYSIS_TOOLTIP_MageArmor"] = "|c00FFFFFFMage Armor|r";
+L["CRYOLYSIS_TOOLTIP_ArcaneInt"] = "|c00FFFFFFArcane Intellect|r";
+L["CRYOLYSIS_TOOLTIP_ArcaneBrilliance"] = "|c00FFFFFFArcane Brilliance|r";
+L["CRYOLYSIS_TOOLTIP_DampenMagic"] = "|c00FFFFFFDampen Magic|r";
+L["CRYOLYSIS_TOOLTIP_AmplifyMagic"] = "|c00FFFFFFAmplify Magic|r";
+L["CRYOLYSIS_TOOLTIP_SlowFall"] = "|c00FFFFFFSlow Fall|r";
+L["CRYOLYSIS_TOOLTIP_FireWard"] = "|c00FFFFFFFire Ward|r";
+L["CRYOLYSIS_TOOLTIP_FrostWard"] = "|c00FFFFFFFrost Ward|r";
+L["CRYOLYSIS_TOOLTIP_ConjureFood"] = "|c00FFFFFFConjure Food|r";
+L["CRYOLYSIS_TOOLTIP_ConjureDrink"] = "|c00FFFFFFConjure Food|r";
+L["CRYOLYSIS_TOOLTIP_Evocation_Label"] = "|c00FFFFFFEvocation|r";
+L["CRYOLYSIS_TOOLTIP_Evocation_Text"] = "Use";
+L["CRYOLYSIS_TOOLTIP_ColdSnap"] = "|c00FFFFFFCold Snap|r";
+L["CRYOLYSIS_TOOLTIP_IceBarrier"] = "|c00FFFFFFIce barrier|r";
+L["CRYOLYSIS_TOOLTIP_ManaShield"] = "|c00FFFFFFMana shield|r";
+L["CRYOLYSIS_TOOLTIP_DetectMagic"] = "|c00FFFFFFDetect Magic|r";
+L["CRYOLYSIS_TOOLTIP_RemoveCurse"] = "|c00FFFFFFRemove Lesser Curse|r";
+L["CRYOLYSIS_TOOLTIP_Mount"] = "|c00FFFFFFSteed: ";
+L["CRYOLYSIS_TOOLTIP_Buff"] = "|c00FFFFFFSpell Menu|r\nMiddle-click to keep the menu open";
+L["CRYOLYSIS_TOOLTIP_Portal"] = "|c00FFFFFFPortals Menu|r\nMiddle click to keep the menu open";
+L["CRYOLYSIS_TOOLTIP_TeleportOrgrimmar"] = "|c00FFFFFFTeleport: Orgrimmar|r";
+L["CRYOLYSIS_TOOLTIP_TeleportUndercity"] = "|c00FFFFFFTeleport: Undercity|r";
+L["CRYOLYSIS_TOOLTIP_TeleportThunderBluff"] = "|c00FFFFFFTeleport: Thunder Bluff|r";
+L["CRYOLYSIS_TOOLTIP_TeleportIronforge"] = "|c00FFFFFFTeleport: Ironforge|r";
+L["CRYOLYSIS_TOOLTIP_TeleportStormwind"] = "|c00FFFFFFTeleport: Stormwind|r";
+L["CRYOLYSIS_TOOLTIP_TeleportDarnassus"] = "|c00FFFFFFTeleport: Darnassus|r";
+L["CRYOLYSIS_TOOLTIP_PortalOrgrimmar"] = "|c00FFFFFFPortal: Orgrimmar|r";
+L["CRYOLYSIS_TOOLTIP_PortalUndercity"] = "|c00FFFFFFPortal: Undercity|r";
+L["CRYOLYSIS_TOOLTIP_PortalThunderBluff"] = "|c00FFFFFFPortal: Thunder Bluff|r";
+L["CRYOLYSIS_TOOLTIP_PortalIronforge"] = "|c00FFFFFFPortal: Ironforge|r";
+L["CRYOLYSIS_TOOLTIP_PortalStormwind"] = "|c00FFFFFFPortal: Stormwind|r";
+L["CRYOLYSIS_TOOLTIP_PortalDarnassus"] = "|c00FFFFFFPortal: Darnassus|r";
+L["CRYOLYSIS_TOOLTIP_EvocationCooldown"] = "Right click for fast summon";
+L["CRYOLYSIS_TOOLTIP_LastSpell"] = "Right click for fast summon";
+L["CRYOLYSIS_TOOLTIP_Food_Label"] = "|c00FFFFFFFood|r";
+L["CRYOLYSIS_TOOLTIP_Food_Right"] = "Right-click to conjure";
+L["CRYOLYSIS_TOOLTIP_Food_Middle"] = "Middle-click to trade";
+L["CRYOLYSIS_TOOLTIP_Drink_Label"] = "|c00FFFFFFDrink|r";
+L["CRYOLYSIS_TOOLTIP_Drink_Right"] = "Right-click to conjure ";
+L["CRYOLYSIS_TOOLTIP_Drink_Middle"] = "Middle-click to trade";
+
+-- Action tooltips
+L["CryolysisTooltipData_Create"] = "Create";
+L["CryolysisTooltipData_Use"] = "Use";
+L["CryolysisTooltipData_Used"] = "Used";
+L["CryolysisTooltipData_Waiting"] = "Waiting";
+L["CryolysisTooltipData_Conjure"] = "Conjure";
+L["CryolysisTooltipData_Restore"] = "Restore";
+L["CryolysisTooltipData_Queued"] = "Queued";
+L["CryolysisTooltipData_Unavailable"] = "Unavailable";
+
+-- Errors
+L["CRYOLYSIS_MESSAGE_ERROR_RuneOfTeleportationNotPresent"] = "You need a Rune of Teleportation to do that!";
+L["CRYOLYSIS_MESSAGE_ERROR_RuneOfPortals"] = "You need a Rune of Portals to do that !";
+L["CRYOLYSIS_MESSAGE_ERROR_LightFeatherNotPresent"] = "You need a Light Feather to do that !";
+L["CRYOLYSIS_MESSAGE_ERROR_ArcanePowderNotPresent"] = "You need Arcane Powder to do that !";
+L["CRYOLYSIS_MESSAGE_ERROR_NoRiding"] = "You do not have any Steed to ride !";
+L["CRYOLYSIS_MESSAGE_ERROR_NoFoodSpell"] = "You do not have any Food creation spell";
+L["CRYOLYSIS_MESSAGE_ERROR_NoDrinkSpell"] = "You do not have any Drink creation spell";
+L["CRYOLYSIS_MESSAGE_ERROR_NoManaStoneSpell"] = "You do not have any Mana Gem creation spell";
+L["CRYOLYSIS_MESSAGE_ERROR_NoEvocationSpell"] = "You do not have any Evocation spell";
+L["CRYOLYSIS_MESSAGE_ERROR_FullMana"] = "You cannot use your Mana Gem since you have full MP";
+L["CRYOLYSIS_MESSAGE_ERROR_BagAlreadySelect"] = "Error : self bag is already selected.";
+L["CRYOLYSIS_MESSAGE_ERROR_WrongBag"] = "Error: The number must be between 0 and 4.";
+L["CRYOLYSIS_MESSAGE_ERROR_BagIsNumber"] = "Error: Please type a number.";
+L["CRYOLYSIS_MESSAGE_ERROR_NoHearthStone"] = "Error: You do not have a Hearthstone in your inventory";
+L["CRYOLYSIS_MESSAGE_ERROR_NoFood"] = "Error: You do not have any Conjured Food of the highest rank in your inventory";
+L["CRYOLYSIS_MESSAGE_ERROR_NoDrink"] = "Error: You do not have any Conjured Drink of the highest rank in your inventory";
+L["CRYOLYSIS_MESSAGE_ERROR_ManaStoneCooldown"] = "Error: Mana gem currently on cooldown";
+L["CRYOLYSIS_MESSAGE_ERROR_NoSpell"] = "Error: You do not know that spell";
+L["CRYOLYSIS_MESSAGE_ERROR_Bag"] = "Your bag is full. Next food/drink will be destroyed!";
+L["CRYOLYSIS_MESSAGE_INTERFACE_Welcome"] = "/cryo to show the setting menu!";
+L["CRYOLYSIS_MESSAGE_INTERFACE_TooltipOn"] = "Tooltips turned on";
+L["CRYOLYSIS_MESSAGE_INTERFACE_TooltipOn"] = "Tooltips turned off";
+L["CRYOLYSIS_MESSAGE_INTERFACE_TooltipOff"] = "Tooltips turned off";
+L["CRYOLYSIS_MESSAGE_INTERFACE_MessageOn"] = "Chat messaging turned on";
+L["CRYOLYSIS_MESSAGE_INTERFACE_MessageOff"] = "Chat messaging turned off";
+L["CRYOLYSIS_MESSAGE_INTERFACE_MessagePosition"] = "<- System messages by Cryolysis will appear here ->";
+L["CRYOLYSIS_MESSAGE_INTERFACE_DefaultConfig"] = "<lightYellow>Default configuration loaded.";
+L["CRYOLYSIS_MESSAGE_INTERFACE_UserConfig"] = "<lightYellow>Configuration loaded.";
+L["CRYOLYSIS_MESSAGE_HELP_Recall"] = "/cryo recall -- Center Cryolysis and all buttons in the middle of the screen";
+L["CRYOLYSIS_MESSAGE_HELP_Sm"] = "/cryo sm -- Replace messages with a short raid-ready version";
+L["CRYOLYSIS_MESSAGE_HELP_Decurse"] = "/cryo decurse -- cast Remove Lesser curse using decursive feature";
+L["CRYOLYSIS_MESSAGE_HELP_Poly"] = "/cryo poly -- randomly cast between available polymorph spells";
+L["CRYOLYSIS_MESSAGE_HELP_Poly"] = "/cryo poly -- randomly cast between available polymorph spells";
+L["CRYOLYSIS_MESSAGE_HELP_Coldblock"] = "/cryo coldblock -- Activate Iceblock or Cold Snap";
+L["CRYOLYSIS_MESSAGE_HELP_Reset"] = "/cryo reset -- Restore and reload default Cryolysis configurations";
+L["CRYOLYSIS_MESSAGE_HELP_Toggle"] = "/serenity toggle -- hide/show the main serenity sphere";
+L["CRYOLYSIS_MESSAGE_HELP_Sliders"] = "change the spell buttons by adjusting the sliders in the button menu";
+L["CRYOLYSIS_MESSAGE_EquipMessage"] = "Equip ";
+L["CRYOLYSIS_MESSAGE_SwitchMessage"] = " instead of ";
+L["CRYOLYSIS_MESSAGE_INFORMATION_PolyWarn"] = "Polymorph is about to break";
+L["CRYOLYSIS_MESSAGE_INFORMATION_PolyBreak"] = "Polymorph has broken...";
+L["CRYOLYSIS_MESSAGE_INFORMATION_Restock"] = "Purchased ";
+
+
+-- TODO: Rewrite localizations
 L["CRYOLYSIS_CONFIGURATION"] = {
 	["Menu1"] = "Inventory Settings",
 	["Menu2"] = "Message Settings",

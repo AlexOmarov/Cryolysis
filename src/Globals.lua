@@ -1,5 +1,5 @@
 ------------------------------------------------------------------------------------------------------
-			-- Global objects and variables, used in various parts of the code --
+-- Global objects and variables, used in various parts of the code --
 ------------------------------------------------------------------------------------------------------
 
 -- Cryolysis main object, holds references for all Cryolysis inner API (for all modules, like TimerMenu etc.)
@@ -21,6 +21,11 @@ TEXTURES_VIOLET_PATH = "resources\\UI\Violet\\";
 
 -- Path to sounds
 SOUNDS_PATH = "resources\\sounds\\";
+
+SHEEP_WARN_SOUND = "Sheep01.mp3";
+SHEEP_BREAK_SOUND = "Sheep02.mp3";
+PIG_WARN_SOUND = "Pig01.mp3";
+PIG_BREAK_SOUND = "Pig02.mp3";
 
 -- Path to localizations
 LOCALES_PATH = "resources\\locales\\";
